@@ -1,8 +1,14 @@
+import Footer from "./Footer";
+import appleIcon from "../assets/images/apple.png";
+import windowsIcon from "../assets/images/windows.png";
+import linuxIcon from "../assets/images/linux.png";
+
 export default function DownloadSection() {
   const downloadLinks = {
     mac: {
       arm: "https://github.com/TACO-FOR-ALL/GhraphNode_WEB/releases/download/Beta2.0.0/GraphNode-2.0.0-arm64-mac.zip",
-      intel: "#",
+      intel:
+        "https://github.com/TACO-FOR-ALL/GhraphNode_WEB/releases/download/Beta2.0.0/GraphNode-2.0.0-mac.zip",
     },
     windows: "#",
     linux: "#",
@@ -10,13 +16,24 @@ export default function DownloadSection() {
 
   return (
     <>
-      <section className="relative overflow-hidden py-20 px-6">
+      <section className="relative overflow-hidden py-20 px-6 h-screen">
         <div className="absolute inset-0 bg-linear-to-r from-[#5865f2]/20 via-transparent to-[#5865f2]/20"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-linear-to-r from-white via-[#5865f2] to-white bg-clip-text text-transparent">
+        <div className="max-w-7xl mx-auto relative z-10 h-full">
+          <div className="relative text-center max-w-4xl mx-auto h-full flex flex-col justify-center items-center">
+            <div className="absolute top-5 left-0 right-0">
+              <p className="bg-linear-to-r text-transparent from-gray-400 via-white to-gray-400 bg-clip-text text-4xl mb-6 font-bold">
+                시각화를 통한 강력한 지식 관리
+              </p>
+              <p className="bg-linear-to-r text-transparent from-gray-400 via-white to-gray-400 bg-clip-text text-4xl mb-16 font-bold">
+                더 나은 학습과 생산성을 위해 더욱 치밀하게
+              </p>
+            </div>
+            <p className="text-6xl md:text-7xl font-bold mb-3 bg-linear-to-r from-[#5865f2] via-white to-[#5865f2] bg-clip-text text-transparent">
               GraphNode
-            </h1>
+            </p>
+            <p className="text-xl md:text-xl font-bold mb-8 bg-linear-to-r from-white via-[#5865f2] to-white bg-clip-text text-transparent">
+              Beta 1.0.0
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={downloadLinks.mac.arm}
@@ -36,7 +53,7 @@ export default function DownloadSection() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-6 bg-[#2c2f33]/50">
+      <section className="py-20 px-6 bg-[#2c2f33]/50 h-screen">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16">
             강력한 기능들
@@ -68,10 +85,9 @@ export default function DownloadSection() {
                   "전체 노트와 채팅을 빠르게 검색하고 원하는 정보를 찾으세요",
               },
               {
-                icon: "📁",
-                title: "폴더 관리",
-                description:
-                  "체계적인 폴더 구조로 노트를 관리하고 조직화하세요",
+                icon: "💻",
+                title: "에이전트",
+                description: "AI 어시스턴트를 통해 각종 작업을 자동화해보세요",
               },
               {
                 icon: "☁️",
@@ -94,7 +110,10 @@ export default function DownloadSection() {
       </section>
 
       {/* Download Options */}
-      <section className="py-20 px-6">
+      <section className="px-6 h-screen flex flex-col items-center justify-between">
+        <div className="opacity-0">
+          <Footer />
+        </div>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">
             플랫폼별 다운로드
@@ -103,10 +122,10 @@ export default function DownloadSection() {
             {[
               {
                 name: "macOS",
-                icon: "🍎",
+                icon: appleIcon,
                 versions: [
                   {
-                    label: "Apple Silicon (M1/M2/M3)",
+                    label: "Apple Silicon",
                     link: downloadLinks.mac.arm,
                   },
                   { label: "Intel", link: downloadLinks.mac.intel },
@@ -114,24 +133,32 @@ export default function DownloadSection() {
               },
               {
                 name: "Windows",
-                icon: "🪟",
+                icon: windowsIcon,
                 versions: [
                   { label: "Windows 10/11", link: downloadLinks.windows },
                 ],
               },
               {
                 name: "Linux",
-                icon: "🐧",
-                versions: [{ label: "Linux", link: downloadLinks.linux }],
+                icon: linuxIcon,
+                versions: [
+                  { label: "추후 지원 예정", link: downloadLinks.linux },
+                ],
               },
             ].map((platform, index) => (
               <div
                 key={index}
-                className="bg-[#40444b]/50 p-6 rounded-xl border border-[#40444b] hover:border-[#5865f2] transition-all cursor-pointer"
+                className="bg-[#40444b]/50 p-6 min-w-[270px] rounded-xl border border-[#40444b] hover:border-[#5865f2] transition-all cursor-pointer"
                 // onMouseEnter={() => setHoveredPlatform(platform.name)}
                 // onMouseLeave={() => setHoveredPlatform(null)}
               >
-                <div className="text-5xl mb-4 text-center">{platform.icon}</div>
+                <div className="flex justify-center items-center">
+                  <img
+                    src={platform.icon}
+                    alt={platform.name}
+                    className="w-10 h-10 mb-4 object-contain"
+                  />
+                </div>
                 <h3 className="text-2xl font-semibold mb-4 text-center">
                   {platform.name}
                 </h3>
@@ -150,6 +177,7 @@ export default function DownloadSection() {
             ))}
           </div>
         </div>
+        <Footer />
       </section>
     </>
   );

@@ -1,28 +1,60 @@
 export default function TeamSection() {
   const teamMembers = [
     {
-      name: "팀원 1",
-      role: "프론트엔드 개발자",
-      description: "React와 TypeScript 전문가",
+      name: "강현일",
+      role: "백엔드, 동아리 회장",
+      description: "로직 및 구조 설계를 위해 고민하는 것을 좋아합니다",
       avatar: "👨‍💻",
     },
     {
-      name: "팀원 2",
-      role: "백엔드 개발자",
-      description: "서버 아키텍처 설계",
-      avatar: "👩‍💻",
+      name: "김여진",
+      role: "PM 멤버",
+      description:
+        "아이디어를 실제 제품으로 연결하는 과정에 큰 흥미를 느낍니다",
+      avatar: "👩‍💼",
     },
     {
-      name: "팀원 3",
-      role: "디자이너",
-      description: "UI/UX 디자인",
-      avatar: "🎨",
+      name: "김경덕",
+      role: "임원 AI(담당)",
+      description:
+        "AI에 관심이 많고, 궁극적으로는 건축 AI 산업에서 일을 하고 싶은 열정이 있습니다",
+      avatar: "🤖",
     },
     {
-      name: "팀원 4",
-      role: "프로덕트 매니저",
-      description: "제품 기획 및 관리",
+      name: "고준서",
+      role: "임원 AI(담당)",
+      description: "실질적으로 깊게 프로젝트를 경험해보고 싶습니다",
+      avatar: "🧠",
+    },
+    {
+      name: "노이삭",
+      role: "PM",
+      description: "IT 산업의 구조와 다양한 직무를 몸소 체험하고 싶습니다",
       avatar: "📊",
+    },
+    {
+      name: "한요한",
+      role: "프론트엔드, 백엔드 멤버",
+      description: "코딩은 제 인생 가장 훌륭한 취미입니다",
+      avatar: "💻",
+    },
+    {
+      name: "한우석",
+      role: "AI 멤버",
+      description: "",
+      avatar: "🤖",
+    },
+    {
+      name: "여윤찬",
+      role: "백엔드 멤버",
+      description: "",
+      avatar: "👨‍💻",
+    },
+    {
+      name: "정서진",
+      role: "프론트엔드 멤버",
+      description: "",
+      avatar: "👩‍💻",
     },
   ];
   return (
@@ -30,12 +62,15 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-4">TACO 4기 GraphNode 팀</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-2">
+            Tsinghua AI and Computer Organization
+          </p>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             지식 그래프를 통해 더 나은 학습과 생산성을 추구하는 팀입니다
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {teamMembers.map((member, index) => (
             <div
               key={index}
@@ -48,9 +83,11 @@ export default function TeamSection() {
               <p className="text-[#5865f2] font-medium mb-2 text-center">
                 {member.role}
               </p>
-              <p className="text-gray-400 text-sm text-center">
-                {member.description}
-              </p>
+              {member.description && (
+                <p className="text-gray-400 text-sm text-center">
+                  {member.description}
+                </p>
+              )}
             </div>
           ))}
         </div>
@@ -64,8 +101,9 @@ export default function TeamSection() {
               하나의 플랫폼에서 제공합니다.
             </p>
             <p>
-              TACO 4기 프로젝트로 시작된 GraphNode는 사용자가 복잡한 지식 구조를
-              직관적으로 이해하고 관리할 수 있도록 돕는 것을 목표로 합니다.
+              Tsinghua AI and Computer Organization (TACO) 4기 프로젝트로 시작된
+              GraphNode는 사용자가 복잡한 지식 구조를 직관적으로 이해하고 관리할
+              수 있도록 돕는 것을 목표로 합니다.
             </p>
             <p>
               Electron과 React를 기반으로 개발되었으며, 크로스 플랫폼 지원을
