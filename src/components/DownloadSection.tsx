@@ -1,7 +1,7 @@
 export default function DownloadSection() {
   const downloadLinks = {
     mac: {
-      arm: "#",
+      arm: "https://github.com/TACO-FOR-ALL/GhraphNode_WEB/releases/download/Beta2.0.0/GraphNode-2.0.0-arm64-mac.zip",
       intel: "#",
     },
     windows: "#",

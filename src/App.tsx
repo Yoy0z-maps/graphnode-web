@@ -8,7 +8,7 @@ function App() {
   const [activeTab, setActiveTab] = useState<"download" | "team">("download");
 
   return (
-    <div className="h-screen flex flex-col bg-linear-to-b from-[#23272a] via-[#2c2f33] to-[#23272a] text-white">
+    <div className="min-h-screen bg-linear-to-b from-[#23272a] via-[#2c2f33] to-[#23272a] text-white">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#23272a]/95 backdrop-blur-md border-b border-[#40444b]/50">
         <div className="max-w-7xl mx-auto px-6 py-4">
