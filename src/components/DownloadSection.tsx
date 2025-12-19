@@ -2,6 +2,7 @@ import Footer from "./Footer";
 import appleIcon from "../assets/images/apple.png";
 import windowsIcon from "../assets/images/windows.png";
 import linuxIcon from "../assets/images/linux.png";
+import { motion } from "motion/react";
 
 export default function DownloadSection() {
   const downloadLinks = {
@@ -21,12 +22,36 @@ export default function DownloadSection() {
         <div className="max-w-7xl mx-auto relative z-10 h-full">
           <div className="relative text-center max-w-4xl mx-auto h-full flex flex-col justify-center items-center">
             <div className="absolute top-5 left-0 right-0">
-              <p className="bg-linear-to-r text-transparent from-gray-400 via-white to-gray-400 bg-clip-text text-4xl mb-6 font-bold">
+              <motion.p
+                variants={{
+                  hidden: { x: -100, opacity: 0 },
+                  visible: {
+                    x: 0,
+                    opacity: 1,
+                    transition: { delay: 0, duration: 1 },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+                className="bg-linear-to-r text-transparent from-gray-400 via-white to-gray-400 bg-clip-text text-4xl mb-6 font-bold"
+              >
                 시각화를 통한 강력한 지식 관리
-              </p>
-              <p className="bg-linear-to-r text-transparent from-gray-400 via-white to-gray-400 bg-clip-text text-4xl mb-16 font-bold">
+              </motion.p>
+              <motion.p
+                variants={{
+                  hidden: { x: 100, opacity: 0 },
+                  visible: {
+                    x: 0,
+                    opacity: 1,
+                    transition: { delay: 0, duration: 1 },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+                className="bg-linear-to-r text-transparent from-gray-400 via-white to-gray-400 bg-clip-text text-4xl mb-16 font-bold"
+              >
                 더 나은 학습과 생산성을 위해 더욱 치밀하게
-              </p>
+              </motion.p>
             </div>
             <p className="text-6xl md:text-7xl font-bold mb-3 bg-linear-to-r from-[#5865f2] via-white to-[#5865f2] bg-clip-text text-transparent">
               GraphNode
@@ -54,10 +79,22 @@ export default function DownloadSection() {
 
       {/* Features Section */}
       <section className="py-20 px-6 bg-[#2c2f33]/50 h-screen">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
+        <div className="max-w-7xl mx-auto mt-12">
+          <motion.h2
+            variants={{
+              hidden: { y: 50, opacity: 0 },
+              visible: {
+                y: 0,
+                opacity: 1,
+                transition: { delay: 0, duration: 1 },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+            className="text-4xl font-bold text-center mb-32"
+          >
             강력한 기능들
-          </h2>
+          </motion.h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
@@ -96,14 +133,17 @@ export default function DownloadSection() {
                   "클라우드 동기화로 여러 기기에서 작업을 이어가세요",
               },
             ].map((feature, index) => (
-              <div
+              <motion.div
+                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
                 key={index}
                 className="bg-[#40444b]/50 p-6 rounded-xl hover:bg-[#40444b] transition-all transform hover:scale-105 border border-[#40444b]"
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-400">{feature.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -115,10 +155,10 @@ export default function DownloadSection() {
           <Footer />
         </div>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-20">
             플랫폼별 다운로드
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-10">
             {[
               {
                 name: "macOS",
@@ -148,7 +188,7 @@ export default function DownloadSection() {
             ].map((platform, index) => (
               <div
                 key={index}
-                className="bg-[#40444b]/50 p-6 min-w-[270px] rounded-xl border border-[#40444b] hover:border-[#5865f2] transition-all cursor-pointer"
+                className="bg-[#40444b]/50 p-6 min-w-[270px] rounded-xl border border-[#40444b] hover:border-[#5865f2] transition-all duration-500 cursor-pointer hover:scale-110"
                 // onMouseEnter={() => setHoveredPlatform(platform.name)}
                 // onMouseLeave={() => setHoveredPlatform(null)}
               >
