@@ -1,8 +1,4 @@
-import { useState } from "react";
-
 export default function DownloadSection() {
-  const [hoveredPlatform, setHoveredPlatform] = useState<string | null>(null);
-
   const downloadLinks = {
     mac: {
       arm: "#",
@@ -132,8 +128,8 @@ export default function DownloadSection() {
               <div
                 key={index}
                 className="bg-[#40444b]/50 p-6 rounded-xl border border-[#40444b] hover:border-[#5865f2] transition-all cursor-pointer"
-                onMouseEnter={() => setHoveredPlatform(platform.name)}
-                onMouseLeave={() => setHoveredPlatform(null)}
+                // onMouseEnter={() => setHoveredPlatform(platform.name)}
+                // onMouseLeave={() => setHoveredPlatform(null)}
               >
                 <div className="text-5xl mb-4 text-center">{platform.icon}</div>
                 <h3 className="text-2xl font-semibold mb-4 text-center">
