@@ -7,9 +7,9 @@ import { motion } from "motion/react";
 export default function DownloadSection() {
   const downloadLinks = {
     mac: {
-      arm: "https://github.com/Yoy0z-maps/graphnode-web/releases/download/Beta2.0.0/GraphNode-2.0.0-arm64-mac.zip",
+      arm: "https://github.com/Yoy0z-maps/graphnode-web/releases/download/Beta2.0.0/GraphNode-2.0.0-arm64.dmg",
       intel:
-        "https://github.com/TACO-FOR-ALL/GhraphNode_WEB/releases/download/Beta2.0.0/GraphNode-2.0.0-mac.zip",
+        "https://github.com/Yoy0z-maps/graphnode-web/releases/download/Beta2.0.0/GraphNode-2.0.0.dmg",
     },
     windows: "#",
     linux: "#",
