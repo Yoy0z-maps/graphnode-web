@@ -2,27 +2,21 @@ export default function TeamSection() {
   const teamMembers = [
     {
       name: "강현일",
-      role: "백엔드, 동아리 회장",
+      role: "동아리 회장 및 백엔드 엔지니어",
       description: "로직 및 구조 설계를 위해 고민하는 것을 좋아합니다",
       avatar: "👨‍💻",
     },
-    {
-      name: "김여진",
-      role: "PM 멤버",
-      description:
-        "아이디어를 실제 제품으로 연결하는 과정에 큰 흥미를 느낍니다",
-      avatar: "👩‍💼",
-    },
+
     {
       name: "김경덕",
-      role: "임원 AI(담당)",
+      role: "AI팀",
       description:
         "AI에 관심이 많고, 궁극적으로는 건축 AI 산업에서 일을 하고 싶은 열정이 있습니다",
       avatar: "🤖",
     },
     {
       name: "고준서",
-      role: "임원 AI(담당)",
+      role: "AI팀",
       description: "실질적으로 깊게 프로젝트를 경험해보고 싶습니다",
       avatar: "🧠",
     },
@@ -33,28 +27,16 @@ export default function TeamSection() {
       avatar: "📊",
     },
     {
-      name: "한요한",
-      role: "프론트엔드, 백엔드 멤버",
-      description: "코딩은 제 인생 가장 훌륭한 취미입니다",
-      avatar: "💻",
-    },
-    {
       name: "한우석",
-      role: "AI 멤버",
+      role: "AI 팀",
       description: "",
       avatar: "🤖",
     },
     {
-      name: "여윤찬",
-      role: "백엔드 멤버",
-      description: "",
-      avatar: "👨‍💻",
-    },
-    {
-      name: "정서진",
-      role: "프론트엔드 멤버",
-      description: "",
-      avatar: "👩‍💻",
+      name: "한요한",
+      role: "프론트엔드 엔지니어",
+      description: "코딩은 제 인생 가장 훌륭한 취미입니다",
+      avatar: "💻",
     },
   ];
   return (

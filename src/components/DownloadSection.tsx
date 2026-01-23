@@ -57,7 +57,7 @@ export default function DownloadSection() {
               GraphNode
             </p>
             <p className="text-xl md:text-xl font-bold mb-8 bg-linear-to-r from-white via-[#5865f2] to-white bg-clip-text text-transparent">
-              Beta 1.0.0
+              Beta 2.0.0
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -188,7 +188,7 @@ export default function DownloadSection() {
             ].map((platform, index) => (
               <div
                 key={index}
-                className="bg-[#40444b]/50 p-6 min-w-[270px] rounded-xl border border-[#40444b] hover:border-[#5865f2] transition-all duration-500 cursor-pointer hover:scale-110"
+                className="bg-[#40444b]/50 p-6 min-w-67.5 rounded-xl border border-[#40444b] hover:border-[#5865f2] transition-all duration-500 cursor-pointer hover:scale-110"
                 // onMouseEnter={() => setHoveredPlatform(platform.name)}
                 // onMouseLeave={() => setHoveredPlatform(null)}
               >
