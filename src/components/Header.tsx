@@ -29,6 +29,7 @@ export default function Header({
             >
               다운로드
             </button>
+
             <button
               onClick={() => setActiveTab("team")}
               className={`px-4 py-2 rounded-lg transition-all font-medium ${
@@ -40,16 +41,16 @@ export default function Header({
               팀 소개
             </button>
             <button
+              onClick={() => navigate("/dev")}
+              className={`px-4 py-2 rounded-lg transition-all font-medium text-gray-300 hover:text-white hover:bg-[#40444b]`}
+            >
+              개발자
+            </button>
+            <button
               onClick={() => navigate("/feedback")}
               className={`px-4 py-2 rounded-lg transition-all font-medium text-gray-300 hover:text-white hover:bg-[#40444b]`}
             >
               피드백
-            </button>
-            <button
-              onClick={() => navigate("/status")}
-              className={`px-4 py-2 rounded-lg transition-all font-medium text-gray-300 hover:text-white hover:bg-[#40444b]`}
-            >
-              서버 상태
             </button>
           </nav>
           <div className="flex items-center space-x-3 opacity-0">

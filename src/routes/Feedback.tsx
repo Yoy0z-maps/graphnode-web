@@ -14,13 +14,13 @@ export default function Feedback() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
-    null
+    null,
   );
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -54,7 +54,7 @@ export default function Feedback() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Header */}
-      <header className="bg-primary h-[340px] text-white flex items-center justify-center gap-8">
+      <header className="bg-primary h-85 text-white flex items-center justify-center gap-8">
         <img src={logo} alt="logo" className="w-16 h-16" />
         <p className="text-6xl font-bold text-white">GraphNode</p>
       </header>
