@@ -3,6 +3,11 @@
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    },
+    { "source": "/app", "destination": "https://graphnode-app.vercel.app/app" },
+    {
+      "source": "/app/:path*",
+      "destination": "https://graphnode-app.vercel.app//app/:path*"
     }
   ]
 }
