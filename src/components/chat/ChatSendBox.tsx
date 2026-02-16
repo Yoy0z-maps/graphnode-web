@@ -72,6 +72,10 @@ export default function ChatSendBox({
   ) => {
     if (!messageText || sending || sendingRef.current) return;
 
+
+    // 첨부파일 우선순위: filesOverride > attachedFiles
+    const filesToSend = (filesOverride && filesOverride.length > 0) ? filesOverride : attachedFiles;
+
     // 중복 실행 방지
     sendingRef.current = true;
     setSending(true);
@@ -101,7 +105,7 @@ export default function ChatSendBox({
           id: id,
           chatContent: messageText,
         },
-        filesOverride ?? attachedFiles // [Fixed] 수정된 파일 목록 사용 (filesOverride가 있으면 우선 사용)
+        filesToSend
       );
 
       // API키 미등록 응답 처리
