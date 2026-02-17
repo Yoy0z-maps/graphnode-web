@@ -153,6 +153,7 @@
       "keybinds": "快捷键",
       "language-time": "语言和时间"
     },
+    "feedback": "发送反馈",
     "logout": "登出",
     "dropJsonZone": {
       "title": "拖拽 & 上传 JSON 文件",

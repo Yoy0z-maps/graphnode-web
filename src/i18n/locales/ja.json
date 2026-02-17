@@ -153,6 +153,7 @@
       "keybinds": "キーバインド",
       "language-time": "言語と時刻"
     },
+    "feedback": "フィードバックを送る",
     "logout": "ログアウト",
     "dropJsonZone": {
       "title": "JSONファイルをドラッグ＆ドロップでアップロード",

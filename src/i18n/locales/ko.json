@@ -153,6 +153,7 @@
       "keybinds": "단축키",
       "language-time": "언어 및 시간"
     },
+    "feedback": "피드백 보내기",
     "logout": "로그아웃",
     "dropJsonZone": {
       "title": "드래그 & 드롭으로 JSON 파일 업로드하기",

@@ -153,6 +153,7 @@
       "keybinds": "Keybinds",
       "language-time": "Language & Time"
     },
+    "feedback": "Send Feedback",
     "logout": "Logout",
     "dropJsonZone": {
       "title": "Drag & Drop JSON File Upload",
