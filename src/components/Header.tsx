@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logo from "../assets/icons/logo.svg";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header({
   activeTab,
@@ -9,6 +11,7 @@ export default function Header({
   setActiveTab: (tab: "download" | "team") => void;
 }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <header className="sticky top-0 z-50 bg-[#23272a]/95 backdrop-blur-md border-b border-[#40444b]/50">
@@ -27,7 +30,7 @@ export default function Header({
                   : "text-gray-300 hover:text-white hover:bg-[#40444b]"
               }`}
             >
-              다운로드
+              {t("header.download")}
             </button>
 
             <button
@@ -38,25 +41,22 @@ export default function Header({
                   : "text-gray-300 hover:text-white hover:bg-[#40444b]"
               }`}
             >
-              팀 소개
+              {t("header.team")}
             </button>
             <button
               onClick={() => navigate("/dev")}
               className={`px-4 py-2 rounded-lg transition-all font-medium text-gray-300 hover:text-white hover:bg-[#40444b]`}
             >
-              개발자
+              {t("header.developer")}
             </button>
             <button
               onClick={() => navigate("/feedback")}
               className={`px-4 py-2 rounded-lg transition-all font-medium text-gray-300 hover:text-white hover:bg-[#40444b]`}
             >
-              피드백
+              {t("header.feedback")}
             </button>
           </nav>
-          <div className="flex items-center space-x-3 opacity-0">
-            <img src={logo} alt="logo" className="w-7 h-7" />
-            <span className="text-xl font-bold">GraphNode</span>
-          </div>
+          <LanguageSwitcher />
         </div>
       </div>
     </header>

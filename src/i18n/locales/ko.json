@@ -1,0 +1,190 @@
+{
+  "header": {
+    "download": "다운로드",
+    "team": "팀 소개",
+    "developer": "개발자",
+    "feedback": "피드백"
+  },
+  "download": {
+    "hero": {
+      "tagline1": "시각화를 통한 강력한 지식 관리",
+      "tagline2": "더 나은 학습과 생산성을 위해 더욱 치밀하게",
+      "macDownload": "macOS 다운로드",
+      "windowsDownload": "Windows 다운로드"
+    },
+    "features": {
+      "title": "강력한 기능들",
+      "markdownNote": {
+        "title": "마크다운 노트",
+        "description": "강력한 마크다운 에디터로 아이디어를 기록하고 정리하세요"
+      },
+      "aiChat": {
+        "title": "AI 채팅",
+        "description": "OpenAI와 DeepSeek을 활용한 지능형 AI 어시스턴트와 대화하세요"
+      },
+      "graphVisualization": {
+        "title": "그래프 시각화",
+        "description": "노트와 채팅을 연결하여 지식 그래프를 2D/3D로 시각화하세요"
+      },
+      "smartSearch": {
+        "title": "스마트 검색",
+        "description": "전체 노트와 채팅을 빠르게 검색하고 원하는 정보를 찾으세요"
+      },
+      "agent": {
+        "title": "에이전트",
+        "description": "AI 어시스턴트를 통해 각종 작업을 자동화해보세요"
+      },
+      "sync": {
+        "title": "동기화",
+        "description": "클라우드 동기화로 여러 기기에서 작업을 이어가세요"
+      }
+    },
+    "platforms": {
+      "title": "플랫폼별 다운로드",
+      "appleSilicon": "Apple Silicon",
+      "intel": "Intel",
+      "windows1011": "Windows 10/11",
+      "linuxComingSoon": "추후 지원 예정"
+    }
+  },
+  "team": {
+    "title": "TACO 4기 GraphNode 팀",
+    "subtitle": "지식 그래프를 통해 더 나은 학습과 생산성을 추구하는 팀입니다",
+    "projectIntro": {
+      "title": "프로젝트 소개",
+      "paragraph1": "GraphNode는 지식 그래프를 시각화하고 관리하는 데스크톱 애플리케이션입니다. 노트 작성, AI 채팅, 그리고 그래프 시각화를 하나의 플랫폼에서 제공합니다.",
+      "paragraph2": "Tsinghua AI and Computer Organization (TACO) 4기 프로젝트로 시작된 GraphNode는 사용자가 복잡한 지식 구조를 직관적으로 이해하고 관리할 수 있도록 돕는 것을 목표로 합니다.",
+      "paragraph3": "Electron과 React를 기반으로 개발되었으며, 크로스 플랫폼 지원을 통해 다양한 운영체제에서 사용할 수 있습니다."
+    },
+    "members": {
+      "kanghyunil": {
+        "role": "동아리 회장 및 백엔드 엔지니어",
+        "description": "로직 및 구조 설계를 위해 고민하는 것을 좋아합니다"
+      },
+      "kimkyungdeok": {
+        "role": "AI팀",
+        "description": "AI에 관심이 많고, 궁극적으로는 건축 AI 산업에서 일을 하고 싶은 열정이 있습니다"
+      },
+      "kojunseo": {
+        "role": "AI팀",
+        "description": "실질적으로 깊게 프로젝트를 경험해보고 싶습니다"
+      },
+      "noisaak": {
+        "role": "PM",
+        "description": "IT 산업의 구조와 다양한 직무를 몸소 체험하고 싶습니다"
+      },
+      "hanwooseok": {
+        "role": "AI 팀",
+        "description": ""
+      },
+      "hanyohan": {
+        "role": "프론트엔드 엔지니어",
+        "description": "코딩은 제 인생 가장 훌륭한 취미입니다"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 TACO - GraphNode. All rights reserved.",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "contact": "문의하기"
+  },
+  "feedback": {
+    "title": "피드백 보내기",
+    "description": "GraphNode에 대한 의견이나 제안사항을 보내주세요. 여러분의 피드백은 서비스를 개선하는 데 큰 도움이 됩니다.",
+    "successMessage": "피드백이 성공적으로 전송되었습니다. 감사합니다!",
+    "errorMessage": "전송 중 오류가 발생했습니다. 다시 시도해주세요.",
+    "category": "카테고리",
+    "categories": {
+      "general": "일반",
+      "bug": "버그 리포트",
+      "feature": "기능 제안",
+      "improvement": "개선 사항",
+      "other": "기타"
+    },
+    "name": "이름",
+    "nameOptional": "(선택)",
+    "namePlaceholder": "이름을 입력하세요",
+    "anonymousName": "익명",
+    "email": "이메일",
+    "emailOptional": "(선택)",
+    "privateEmail": "비공개",
+    "subject": "제목",
+    "required": "(필수)",
+    "subjectPlaceholder": "피드백 제목을 입력하세요",
+    "message": "내용",
+    "messagePlaceholder": "피드백 내용을 자세히 입력해주세요...",
+    "submitting": "전송 중...",
+    "submit": "피드백 보내기",
+    "guidelines": {
+      "title": "피드백 가이드라인",
+      "bugReport": "버그 리포트의 경우, 재현 단계와 예상 동작을 포함해주세요.",
+      "featureSuggestion": "기능 제안은 구체적인 사용 사례와 함께 설명해주시면 더 도움이 됩니다.",
+      "reviewNotice": "모든 피드백은 검토 후 필요시 이메일로 답변드립니다."
+    }
+  },
+  "status": {
+    "allOperational": "All Systems Operational",
+    "uptimeInfo": "Uptime over the past 90 days.",
+    "viewHistorical": "View historical uptime.",
+    "statusLabels": {
+      "operational": "Operational",
+      "degraded": "Degraded Performance",
+      "down": "Down",
+      "unknown": "Unknown"
+    },
+    "daysAgo": "90 days ago",
+    "today": "Today",
+    "uptime": "{{value}}% uptime",
+    "systemMetrics": "SYSTEM METRICS",
+    "timeRanges": {
+      "day": "Day",
+      "week": "Week",
+      "month": "Month"
+    },
+    "apiResponseTime": "API Response Time",
+    "pastIncidents": "PAST INCIDENTS",
+    "noIncidents": "No incidents reported today.",
+    "noIncidentsGeneric": "No incidents reported."
+  },
+  "dev": {
+    "header": {
+      "title": "Developer",
+      "lightMode": "라이트 모드로 전환",
+      "darkMode": "다크 모드로 전환"
+    },
+    "docs": {
+      "sidebar": {
+        "docs": "Docs",
+        "status": "Status",
+        "search": "Search",
+        "searchPlaceholder": "문서 검색...",
+        "noResults": "검색 결과가 없습니다.",
+        "introduction": "Introduction",
+        "changeLog": "Change Log",
+        "apiReference": "API Reference",
+        "interactions": "Interactions",
+        "overview": "Overview"
+      },
+      "intro": {
+        "title": "Introduction",
+        "description": "GraphNode 문서에 오신 것을 환영합니다."
+      },
+      "changeLog": {
+        "title": "Change Log",
+        "description": "최근 변경 사항 및 업데이트."
+      },
+      "apiReference": {
+        "title": "API Reference",
+        "description": "전체 API 문서."
+      },
+      "interactionsOverview": {
+        "title": "Interactions Overview",
+        "description": "GraphNode의 인터랙션에 대해 알아보세요."
+      }
+    }
+  },
+  "common": {
+    "languageName": "한국어"
+  }
+}

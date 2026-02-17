@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Outlet, NavLink, useLocation, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import DocsSearchModal from "@/components/dev/DocsSearchModal";
 import Header from "@/components/dev/Header";
 
 export default function DocsLayout() {
   const [searchOpen, setSearchOpen] = useState(false);
+  const { t } = useTranslation();
 
   const location = useLocation();
 
@@ -44,10 +46,10 @@ export default function DocsLayout() {
           {/* Top Navigation */}
           <nav className="flex flex-col gap-1">
             <NavLink to="/dev/docs/intro" className={navLinkClass}>
-              Docs
+              {t("dev.docs.sidebar.docs")}
             </NavLink>
             <NavLink to="/dev/status" className={navLinkClass}>
-              Status
+              {t("dev.docs.sidebar.status")}
             </NavLink>
           </nav>
 
@@ -72,7 +74,7 @@ export default function DocsLayout() {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>
-            <span className="flex-1 text-left text-sm">Search</span>
+            <span className="flex-1 text-left text-sm">{t("dev.docs.sidebar.search")}</span>
             <kbd className="flex items-center gap-1 px-1.5 py-0.5 text-xs bg-gray-600 rounded">
               <span>⌘</span>
               <span>K</span>
@@ -82,26 +84,26 @@ export default function DocsLayout() {
           {/* Docs Navigation */}
           <nav className="flex flex-col gap-1">
             <NavLink to="/dev/docs/intro" className={navLinkClass}>
-              Introduction
+              {t("dev.docs.sidebar.introduction")}
             </NavLink>
             <NavLink to="/dev/docs/change-log" className={navLinkClass}>
-              Change Log
+              {t("dev.docs.sidebar.changeLog")}
             </NavLink>
             <NavLink to="/dev/docs/api-reference" className={navLinkClass}>
-              API Reference
+              {t("dev.docs.sidebar.apiReference")}
             </NavLink>
           </nav>
 
           {/* Interactions Section */}
           <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 mb-2 px-3">
-            Interactions
+            {t("dev.docs.sidebar.interactions")}
           </h3>
           <nav className="flex flex-col gap-1">
             <NavLink
               to="/dev/docs/interactions/overview"
               className={navLinkClass}
             >
-              Overview
+              {t("dev.docs.sidebar.overview")}
             </NavLink>
           </nav>
         </aside>

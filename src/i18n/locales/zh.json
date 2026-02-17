@@ -1,0 +1,190 @@
+{
+  "header": {
+    "download": "下载",
+    "team": "团队介绍",
+    "developer": "开发者",
+    "feedback": "反馈"
+  },
+  "download": {
+    "hero": {
+      "tagline1": "通过可视化实现强大的知识管理",
+      "tagline2": "为更好的学习和生产力而精心设计",
+      "macDownload": "macOS 下载",
+      "windowsDownload": "Windows 下载"
+    },
+    "features": {
+      "title": "强大功能",
+      "markdownNote": {
+        "title": "Markdown 笔记",
+        "description": "使用强大的 Markdown 编辑器记录和整理您的想法"
+      },
+      "aiChat": {
+        "title": "AI 聊天",
+        "description": "与基于 OpenAI 和 DeepSeek 的智能 AI 助手对话"
+      },
+      "graphVisualization": {
+        "title": "图谱可视化",
+        "description": "通过连接笔记和聊天，以 2D/3D 方式可视化您的知识图谱"
+      },
+      "smartSearch": {
+        "title": "智能搜索",
+        "description": "快速搜索所有笔记和聊天，找到您需要的信息"
+      },
+      "agent": {
+        "title": "智能代理",
+        "description": "通过 AI 助手自动化各种任务"
+      },
+      "sync": {
+        "title": "同步",
+        "description": "通过云同步在多个设备上继续您的工作"
+      }
+    },
+    "platforms": {
+      "title": "按平台下载",
+      "appleSilicon": "Apple Silicon",
+      "intel": "Intel",
+      "windows1011": "Windows 10/11",
+      "linuxComingSoon": "即将支持"
+    }
+  },
+  "team": {
+    "title": "TACO 第4期 GraphNode 团队",
+    "subtitle": "通过知识图谱追求更好的学习和生产力的团队",
+    "projectIntro": {
+      "title": "项目介绍",
+      "paragraph1": "GraphNode 是一款用于可视化和管理知识图谱的桌面应用程序。它在一个平台上提供笔记、AI 聊天和图谱可视化功能。",
+      "paragraph2": "GraphNode 起源于 Tsinghua AI and Computer Organization (TACO) 第4期项目，旨在帮助用户直观地理解和管理复杂的知识结构。",
+      "paragraph3": "基于 Electron 和 React 开发，支持跨平台使用，可在各种操作系统上运行。"
+    },
+    "members": {
+      "kanghyunil": {
+        "role": "社长兼后端工程师",
+        "description": "喜欢思考逻辑和架构设计"
+      },
+      "kimkyungdeok": {
+        "role": "AI 团队",
+        "description": "对 AI 充满热情，最终目标是在建筑 AI 行业工作"
+      },
+      "kojunseo": {
+        "role": "AI 团队",
+        "description": "希望深入体验实际项目"
+      },
+      "noisaak": {
+        "role": "项目经理",
+        "description": "希望亲身体验 IT 行业的结构和各种职位"
+      },
+      "hanwooseok": {
+        "role": "AI 团队",
+        "description": ""
+      },
+      "hanyohan": {
+        "role": "前端工程师",
+        "description": "编程是我人生中最好的爱好"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 TACO - GraphNode. All rights reserved.",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "contact": "联系我们"
+  },
+  "feedback": {
+    "title": "发送反馈",
+    "description": "请分享您对 GraphNode 的意见或建议。您的反馈对改善服务有很大帮助。",
+    "successMessage": "反馈已成功发送。谢谢！",
+    "errorMessage": "发送时发生错误。请重试。",
+    "category": "类别",
+    "categories": {
+      "general": "一般",
+      "bug": "错误报告",
+      "feature": "功能建议",
+      "improvement": "改进建议",
+      "other": "其他"
+    },
+    "name": "姓名",
+    "nameOptional": "(选填)",
+    "namePlaceholder": "请输入您的姓名",
+    "anonymousName": "匿名",
+    "email": "电子邮件",
+    "emailOptional": "(选填)",
+    "privateEmail": "未公开",
+    "subject": "主题",
+    "required": "(必填)",
+    "subjectPlaceholder": "请输入反馈主题",
+    "message": "内容",
+    "messagePlaceholder": "请详细描述您的反馈...",
+    "submitting": "发送中...",
+    "submit": "发送反馈",
+    "guidelines": {
+      "title": "反馈指南",
+      "bugReport": "对于错误报告，请包含重现步骤和预期行为。",
+      "featureSuggestion": "功能建议如果附带具体的使用场景会更有帮助。",
+      "reviewNotice": "所有反馈将在审核后，如有必要通过电子邮件回复。"
+    }
+  },
+  "status": {
+    "allOperational": "所有系统正常运行",
+    "uptimeInfo": "过去90天的正常运行时间。",
+    "viewHistorical": "查看历史正常运行时间。",
+    "statusLabels": {
+      "operational": "正常运行",
+      "degraded": "性能下降",
+      "down": "停机",
+      "unknown": "未知"
+    },
+    "daysAgo": "90天前",
+    "today": "今天",
+    "uptime": "{{value}}% 正常运行",
+    "systemMetrics": "系统指标",
+    "timeRanges": {
+      "day": "日",
+      "week": "周",
+      "month": "月"
+    },
+    "apiResponseTime": "API 响应时间",
+    "pastIncidents": "历史事件",
+    "noIncidents": "今天没有报告事件。",
+    "noIncidentsGeneric": "没有报告事件。"
+  },
+  "dev": {
+    "header": {
+      "title": "开发者",
+      "lightMode": "切换到浅色模式",
+      "darkMode": "切换到深色模式"
+    },
+    "docs": {
+      "sidebar": {
+        "docs": "文档",
+        "status": "状态",
+        "search": "搜索",
+        "searchPlaceholder": "搜索文档...",
+        "noResults": "未找到结果。",
+        "introduction": "介绍",
+        "changeLog": "更新日志",
+        "apiReference": "API 参考",
+        "interactions": "交互",
+        "overview": "概览"
+      },
+      "intro": {
+        "title": "介绍",
+        "description": "欢迎来到 GraphNode 文档。"
+      },
+      "changeLog": {
+        "title": "更新日志",
+        "description": "最近的变更和更新。"
+      },
+      "apiReference": {
+        "title": "API 参考",
+        "description": "完整的 API 文档。"
+      },
+      "interactionsOverview": {
+        "title": "交互概览",
+        "description": "了解 GraphNode 中的交互功能。"
+      }
+    }
+  },
+  "common": {
+    "languageName": "简体中文"
+  }
+}

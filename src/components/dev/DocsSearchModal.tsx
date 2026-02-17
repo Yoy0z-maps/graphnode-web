@@ -1,5 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
+const searchItemKeys = [
+  { labelKey: "dev.docs.sidebar.introduction", path: "/dev/docs/intro" },
+  { labelKey: "dev.docs.sidebar.changeLog", path: "/dev/docs/change-log" },
+  { labelKey: "dev.docs.sidebar.apiReference", path: "/dev/docs/api-reference" },
+  { labelKey: "dev.docs.sidebar.overview", path: "/dev/docs/interactions/overview" },
+];
 
 export default function DocsSearchModal({
   isOpen,
@@ -10,17 +18,11 @@ export default function DocsSearchModal({
 }) {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-
-  const searchItems = [
-    { label: "Introduction", path: "/dev/docs/intro" },
-    { label: "Change Log", path: "/dev/docs/change-log" },
-    { label: "API Reference", path: "/dev/docs/api-reference" },
-    { label: "Interactions Overview", path: "/dev/docs/interactions/overview" },
-  ];
+  const { t } = useTranslation();
 
   // TODO: DB와 연동해야함
-  const filteredItems = searchItems.filter((item) =>
-    item.label.toLowerCase().includes(query.toLowerCase()),
+  const filteredItems = searchItemKeys.filter((item) =>
+    t(item.labelKey).toLowerCase().includes(query.toLowerCase()),
   );
 
   // ESC 키로 서치 모달 닫기
@@ -61,7 +63,7 @@ export default function DocsSearchModal({
           </svg>
           <input
             type="text"
-            placeholder="Search documentation..."
+            placeholder={t("dev.docs.sidebar.searchPlaceholder")}
             className="flex-1 bg-transparent outline-none text-white placeholder-gray-500"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -82,11 +84,11 @@ export default function DocsSearchModal({
                   onClose();
                 }}
               >
-                {item.label}
+                {t(item.labelKey)}
               </button>
             ))
           ) : (
-            <p className="px-4 py-3 text-gray-500">No results found.</p>
+            <p className="px-4 py-3 text-gray-500">{t("dev.docs.sidebar.noResults")}</p>
           )}
         </div>
       </div>

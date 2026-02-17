@@ -1,19 +1,21 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import logo from "@/assets/icons/logo.svg";
 
 export default function Header() {
   const [isDark, setIsDark] = useState(true);
+  const { t } = useTranslation();
 
   return (
     <header className="h-14 bg-[#2c2f33] border-b border-gray-700 flex items-center justify-between px-4">
       <div className="flex items-center gap-3">
         <img src={logo} alt="logo" className="w-6 h-6" />
-        <span className="font-semibold text-lg">Developer</span>
+        <span className="font-semibold text-lg">{t("dev.header.title")}</span>
       </div>
       <button
         onClick={() => setIsDark(!isDark)}
         className="p-2 rounded hover:bg-gray-700 transition-colors"
-        title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        title={isDark ? t("dev.header.lightMode") : t("dev.header.darkMode")}
       >
         {isDark ? (
           <svg

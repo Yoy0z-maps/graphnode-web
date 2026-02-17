@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import logo from "../assets/icons/logo_white.svg";
 
 interface ServiceStatus {
@@ -20,6 +21,7 @@ interface Incident {
 
 export default function Status() {
   const [timeRange, setTimeRange] = useState<"day" | "week" | "month">("day");
+  const { t, i18n } = useTranslation();
 
   // 더미 데이터
   const services: ServiceStatus[] = [
@@ -55,12 +57,12 @@ export default function Status() {
   const incidents: Incident[] = [
     {
       date: "Dec 19, 2025",
-      title: "No incidents reported today.",
+      title: t("status.noIncidents"),
       updates: [],
     },
     {
       date: "Dec 18, 2025",
-      title: "No incidents reported.",
+      title: t("status.noIncidentsGeneric"),
       updates: [],
     },
     {
@@ -69,12 +71,12 @@ export default function Status() {
       updates: [
         {
           time: "Dec 17, 10:09 PST",
-          status: "Resolved",
+          status: t("status.resolved", { defaultValue: "Resolved" }),
           message: "This incident has been resolved.",
         },
         {
           time: "Dec 17, 09:56 PST",
-          status: "Monitoring",
+          status: t("status.monitoring", { defaultValue: "Monitoring" }),
           message:
             "A fix has been implemented and we are monitoring the results.",
         },
@@ -101,7 +103,7 @@ export default function Status() {
       return Array.from({ length: 7 }, (_, i) => {
         const date = new Date(now);
         date.setDate(date.getDate() - (6 - i));
-        const dayName = date.toLocaleDateString("en-US", { weekday: "short" });
+        const dayName = date.toLocaleDateString(i18n.language, { weekday: "short" });
         const day = date.getDate();
         return {
           time: `${dayName} ${day}`,
@@ -113,7 +115,7 @@ export default function Status() {
       return Array.from({ length: 30 }, (_, i) => {
         const date = new Date(now);
         date.setDate(date.getDate() - (29 - i));
-        const month = date.toLocaleDateString("en-US", { month: "short" });
+        const month = date.toLocaleDateString(i18n.language, { month: "short" });
         const day = date.getDate();
         return {
           time: `${month} ${day}`,
@@ -144,13 +146,13 @@ export default function Status() {
   const getStatusText = (status: string) => {
     switch (status) {
       case "operational":
-        return "Operational";
+        return t("status.statusLabels.operational");
       case "degraded":
-        return "Degraded Performance";
+        return t("status.statusLabels.degraded");
       case "down":
-        return "Down";
+        return t("status.statusLabels.down");
       default:
-        return "Unknown";
+        return t("status.statusLabels.unknown");
     }
   };
 
@@ -167,14 +169,14 @@ export default function Status() {
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* All Systems Operational Banner */}
         <div className="bg-status-operational text-white rounded-sm p-6 mt-8 mb-24 text-start">
-          <h2 className="text-2xl font-semibold">All Systems Operational</h2>
+          <h2 className="text-2xl font-semibold">{t("status.allOperational")}</h2>
         </div>
 
         {/* Uptime Info */}
         <div className="text-right text-sm text-gray-500 mb-4">
-          Uptime over the past 90 days.{" "}
+          {t("status.uptimeInfo")}{" "}
           <a href="#" className="text-primary hover:underline">
-            View historical uptime.
+            {t("status.viewHistorical")}
           </a>
         </div>
 
@@ -222,14 +224,14 @@ export default function Status() {
                   ))}
                 </div>
                 <div className="flex justify-between text-xs text-gray-500">
-                  <span>90 days ago</span>
-                  <span>Today</span>
+                  <span>{t("status.daysAgo")}</span>
+                  <span>{t("status.today")}</span>
                 </div>
               </div>
 
               {/* Uptime Percentage */}
               <div className="text-sm text-gray-600">
-                {service.uptime.toFixed(2)}% uptime
+                {t("status.uptime", { value: service.uptime.toFixed(2) })}
               </div>
             </div>
           ))}
@@ -238,7 +240,7 @@ export default function Status() {
         {/* System Metrics */}
         <div className="mb-24">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-semibold">SYSTEM METRICS</h2>
+            <h2 className="text-2xl font-semibold">{t("status.systemMetrics")}</h2>
             <div className="flex space-x-2">
               {(["day", "week", "month"] as const).map((range) => (
                 <button
@@ -250,7 +252,7 @@ export default function Status() {
                       : "text-text-secondary hover:bg-button-hover hover:text-primary"
                   }`}
                 >
-                  {range.charAt(0).toUpperCase() + range.slice(1)}
+                  {t(`status.timeRanges.${range}`)}
                 </button>
               ))}
             </div>
@@ -258,7 +260,7 @@ export default function Status() {
 
           <div className="bg-gray-50 rounded-lg p-6">
             <div className="mb-4">
-              <h3 className="text-lg font-semibold mb-2">API Response Time</h3>
+              <h3 className="text-lg font-semibold mb-2">{t("status.apiResponseTime")}</h3>
               <div className="text-3xl font-bold">{currentResponseTime} ms</div>
             </div>
 
@@ -338,7 +340,7 @@ export default function Status() {
 
         {/* Past Incidents */}
         <div>
-          <h2 className="text-2xl font-semibold mb-6">PAST INCIDENTS</h2>
+          <h2 className="text-2xl font-semibold mb-6">{t("status.pastIncidents")}</h2>
           <div className="space-y-6">
             {incidents.map((incident, index) => (
               <div key={index} className="border-b border-gray-200 pb-6">

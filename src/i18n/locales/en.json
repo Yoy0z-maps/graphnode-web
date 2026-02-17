@@ -1,0 +1,190 @@
+{
+  "header": {
+    "download": "Download",
+    "team": "Team",
+    "developer": "Developer",
+    "feedback": "Feedback"
+  },
+  "download": {
+    "hero": {
+      "tagline1": "Powerful Knowledge Management Through Visualization",
+      "tagline2": "Designed for Better Learning and Productivity",
+      "macDownload": "macOS Download",
+      "windowsDownload": "Windows Download"
+    },
+    "features": {
+      "title": "Powerful Features",
+      "markdownNote": {
+        "title": "Markdown Notes",
+        "description": "Record and organize your ideas with a powerful markdown editor"
+      },
+      "aiChat": {
+        "title": "AI Chat",
+        "description": "Chat with an intelligent AI assistant powered by OpenAI and DeepSeek"
+      },
+      "graphVisualization": {
+        "title": "Graph Visualization",
+        "description": "Visualize your knowledge graph in 2D/3D by connecting notes and chats"
+      },
+      "smartSearch": {
+        "title": "Smart Search",
+        "description": "Quickly search all notes and chats to find the information you need"
+      },
+      "agent": {
+        "title": "Agent",
+        "description": "Automate various tasks with the AI assistant"
+      },
+      "sync": {
+        "title": "Sync",
+        "description": "Continue your work across devices with cloud sync"
+      }
+    },
+    "platforms": {
+      "title": "Download by Platform",
+      "appleSilicon": "Apple Silicon",
+      "intel": "Intel",
+      "windows1011": "Windows 10/11",
+      "linuxComingSoon": "Coming Soon"
+    }
+  },
+  "team": {
+    "title": "TACO 4th Gen - GraphNode Team",
+    "subtitle": "A team pursuing better learning and productivity through knowledge graphs",
+    "projectIntro": {
+      "title": "About the Project",
+      "paragraph1": "GraphNode is a desktop application for visualizing and managing knowledge graphs. It provides note-taking, AI chat, and graph visualization all in one platform.",
+      "paragraph2": "Started as a TACO (Tsinghua AI and Computer Organization) 4th generation project, GraphNode aims to help users intuitively understand and manage complex knowledge structures.",
+      "paragraph3": "Built with Electron and React, it supports cross-platform use across various operating systems."
+    },
+    "members": {
+      "kanghyunil": {
+        "role": "Club President & Backend Engineer",
+        "description": "Enjoys thinking about logic and architecture design"
+      },
+      "kimkyungdeok": {
+        "role": "AI Team",
+        "description": "Passionate about AI with the ultimate goal of working in the architectural AI industry"
+      },
+      "kojunseo": {
+        "role": "AI Team",
+        "description": "Wants to gain deep, hands-on project experience"
+      },
+      "noisaak": {
+        "role": "PM",
+        "description": "Wants to experience the structure of the IT industry and various roles firsthand"
+      },
+      "hanwooseok": {
+        "role": "AI Team",
+        "description": ""
+      },
+      "hanyohan": {
+        "role": "Frontend Engineer",
+        "description": "Coding is the finest hobby of my life"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 TACO - GraphNode. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact Us"
+  },
+  "feedback": {
+    "title": "Send Feedback",
+    "description": "Share your opinions or suggestions about GraphNode. Your feedback helps us improve the service.",
+    "successMessage": "Your feedback has been sent successfully. Thank you!",
+    "errorMessage": "An error occurred while sending. Please try again.",
+    "category": "Category",
+    "categories": {
+      "general": "General",
+      "bug": "Bug Report",
+      "feature": "Feature Request",
+      "improvement": "Improvement",
+      "other": "Other"
+    },
+    "name": "Name",
+    "nameOptional": "(Optional)",
+    "namePlaceholder": "Enter your name",
+    "anonymousName": "Anonymous",
+    "email": "Email",
+    "emailOptional": "(Optional)",
+    "privateEmail": "Private",
+    "subject": "Subject",
+    "required": "(Required)",
+    "subjectPlaceholder": "Enter the feedback subject",
+    "message": "Message",
+    "messagePlaceholder": "Please describe your feedback in detail...",
+    "submitting": "Sending...",
+    "submit": "Send Feedback",
+    "guidelines": {
+      "title": "Feedback Guidelines",
+      "bugReport": "For bug reports, please include reproduction steps and expected behavior.",
+      "featureSuggestion": "Feature suggestions are more helpful when accompanied by specific use cases.",
+      "reviewNotice": "All feedback will be reviewed and responded to via email if necessary."
+    }
+  },
+  "status": {
+    "allOperational": "All Systems Operational",
+    "uptimeInfo": "Uptime over the past 90 days.",
+    "viewHistorical": "View historical uptime.",
+    "statusLabels": {
+      "operational": "Operational",
+      "degraded": "Degraded Performance",
+      "down": "Down",
+      "unknown": "Unknown"
+    },
+    "daysAgo": "90 days ago",
+    "today": "Today",
+    "uptime": "{{value}}% uptime",
+    "systemMetrics": "SYSTEM METRICS",
+    "timeRanges": {
+      "day": "Day",
+      "week": "Week",
+      "month": "Month"
+    },
+    "apiResponseTime": "API Response Time",
+    "pastIncidents": "PAST INCIDENTS",
+    "noIncidents": "No incidents reported today.",
+    "noIncidentsGeneric": "No incidents reported."
+  },
+  "dev": {
+    "header": {
+      "title": "Developer",
+      "lightMode": "Switch to light mode",
+      "darkMode": "Switch to dark mode"
+    },
+    "docs": {
+      "sidebar": {
+        "docs": "Docs",
+        "status": "Status",
+        "search": "Search",
+        "searchPlaceholder": "Search documentation...",
+        "noResults": "No results found.",
+        "introduction": "Introduction",
+        "changeLog": "Change Log",
+        "apiReference": "API Reference",
+        "interactions": "Interactions",
+        "overview": "Overview"
+      },
+      "intro": {
+        "title": "Introduction",
+        "description": "Welcome to GraphNode documentation."
+      },
+      "changeLog": {
+        "title": "Change Log",
+        "description": "Recent changes and updates."
+      },
+      "apiReference": {
+        "title": "API Reference",
+        "description": "Complete API documentation."
+      },
+      "interactionsOverview": {
+        "title": "Interactions Overview",
+        "description": "Learn about interactions in GraphNode."
+      }
+    }
+  },
+  "common": {
+    "languageName": "English"
+  }
+}
