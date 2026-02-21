@@ -64,6 +64,25 @@
   },
   "visualize": {
     "loading": "グラフを構築中...",
+    "updateGraph": "グラフを更新",
+    "updating": "更新中...",
+    "overview": "概要",
+    "graphStructure": "グラフ構造",
+    "clusters": "クラスター",
+    "conversations": "会話数",
+    "style": "スタイル",
+    "primaryInterests": "主な関心事",
+    "patterns": "発見されたパターン",
+    "recommendations": "おすすめ",
+    "expand": "もっと見る",
+    "collapse": "折りたたむ",
+    "chatPreview": {
+      "title": "チャットプレビュー",
+      "viewDetail": "詳細を見る",
+      "noData": "データなし",
+      "hardcodedTitle": "サンプル会話",
+      "hardcodedContent": "これはサンプルの会話内容です。実際のデータが読み込まれるとここに表示されます。"
+    },
     "error": {
       "title": "グラフを読み込めません",
       "description": "グラフデータの読み込み中に問題が発生しました。後でもう一度お試しください。",

@@ -64,6 +64,25 @@
   },
   "visualize": {
     "loading": "正在构建图结构…",
+    "updateGraph": "更新图结构",
+    "updating": "更新中...",
+    "overview": "概述",
+    "graphStructure": "图结构",
+    "clusters": "集群",
+    "conversations": "对话数",
+    "style": "风格",
+    "primaryInterests": "主要兴趣",
+    "patterns": "发现的模式",
+    "recommendations": "建议",
+    "expand": "查看更多",
+    "collapse": "收起",
+    "chatPreview": {
+      "title": "对话预览",
+      "viewDetail": "查看详情",
+      "noData": "暂无数据",
+      "hardcodedTitle": "示例对话",
+      "hardcodedContent": "这是示例对话内容。加载实际数据后将在此处显示。"
+    },
     "error": {
       "title": "无法加载图结构",
       "description": "加载图数据时出现问题。请稍后再试。",

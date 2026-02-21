@@ -64,6 +64,25 @@
   },
   "visualize": {
     "loading": "Constructing graph...",
+    "updateGraph": "Update Graph",
+    "updating": "Updating...",
+    "overview": "Overview",
+    "graphStructure": "Graph Structure",
+    "clusters": "clusters",
+    "conversations": "Conversations",
+    "style": "Style",
+    "primaryInterests": "Primary Interests",
+    "patterns": "Patterns Found",
+    "recommendations": "Recommendations",
+    "expand": "See more",
+    "collapse": "Collapse",
+    "chatPreview": {
+      "title": "Chat Preview",
+      "viewDetail": "View Detail",
+      "noData": "No data",
+      "hardcodedTitle": "Sample Conversation",
+      "hardcodedContent": "This is sample conversation content. Actual data will be displayed here when loaded."
+    },
     "error": {
       "title": "Failed to load graph",
       "description": "There was a problem loading the graph data. Please try again later.",
