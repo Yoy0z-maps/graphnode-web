@@ -87,14 +87,13 @@ export default function MyAccountPanel({ userInfo }: { userInfo: Me }) {
       const result_deepseek = await api.me.getApiKeys("deepseek");
       const result_gemini = await api.me.getApiKeys("gemini");
       const result_claude = await api.me.getApiKeys("claude");
-      // @ts-ignore
-      setOpenaiApiKey(result_openai.data?.apiKey ? true : false);
-      // @ts-ignore
-      setDeepseekApiKey(result_deepseek.data?.apiKey ? true : false);
-      // @ts-ignore
-      setClaudeApiKey(result_claude.data?.apiKey ? true : false);
-      // @ts-ignore
-      setGeminiApiKey(result_gemini.data?.apiKey ? true : false);
+
+      setOpenaiApiKey(result_openai.isSuccess && !!result_openai.data?.apiKey);
+      setDeepseekApiKey(
+        result_deepseek.isSuccess && !!result_deepseek.data?.apiKey,
+      );
+      setClaudeApiKey(result_claude.isSuccess && !!result_claude.data?.apiKey);
+      setGeminiApiKey(result_gemini.isSuccess && !!result_gemini.data?.apiKey);
     })();
   }, []);
 
