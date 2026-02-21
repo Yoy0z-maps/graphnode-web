@@ -1069,7 +1069,6 @@ export default function Graph2D({
         width={width}
         height={height}
         style={{
-          border: "1px solid var(--color-base-border)",
           cursor:
             draggingNodeId !== null
               ? "grabbing"

@@ -14,6 +14,7 @@ import { GraphSnapshotDto } from "node_modules/@taco_tsinghua/graphnode-sdk/dist
 import SideExpandPanelIcon from "@/assets/icons/panel.svg";
 import { Subcluster } from "@/types/GraphData";
 import { DUMMY_GRAPH_SUMMARY } from "@/constants/DUMMY_GRAPH_SUMMARY";
+import ToggleSidebarExpand from "../sidebar/ToggleSidebarExpand";
 
 // 패턴 타입 라벨 및 색상
 const PATTERN_CONFIG = {
@@ -200,22 +201,16 @@ export default function VisualizeSidebar({
 
   return (
     <div className="relative flex">
-      {/* 사이드바 메인 영역 */}
+      {/* 사이드바 메인 영 역 */}
       <div
         className={`bg-sidebar-expanded-background duration-300 transition-all ${
-          isExpanded ? "w-[259px]" : "w-0"
-        } flex flex-col h-full border-r border-base-border overflow-hidden`}
+          isExpanded ? "w-[299px]" : "w-[40px]"
+        } flex flex-col h-full overflow-hidden`}
       >
-        {/* 토글 버튼 (펼쳐진 상태에서만) */}
-        <div className="flex px-3 py-4">
-          <img
-            onClick={() => setIsExpanded(false)}
-            src={SideExpandPanelIcon}
-            alt="side expand panel"
-            className="w-4 h-4 ml-auto cursor-pointer hover:opacity-70 transition-opacity"
-          />
-        </div>
-
+        <ToggleSidebarExpand
+          isExpanded={isExpanded}
+          setIsExpanded={setIsExpanded}
+        />
         {isExpanded && (
           <div className="flex-1 overflow-y-auto scroll-hidden flex flex-col px-3 pb-20">
             {/* Overview 섹션 */}
@@ -685,16 +680,6 @@ export default function VisualizeSidebar({
           </div>
         )}
       </div>
-
-      {/* 접힌 상태에서 열기 버튼 */}
-      {!isExpanded && (
-        <div
-          className="absolute left-0 top-4 w-8 h-8 flex items-center justify-center bg-sidebar-expanded-background border border-base-border rounded-r-md cursor-pointer hover:bg-sidebar-button-hover transition-colors z-10"
-          onClick={() => setIsExpanded(true)}
-        >
-          <FiChevronRight size={16} className="text-text-secondary" />
-        </div>
-      )}
     </div>
   );
 }
