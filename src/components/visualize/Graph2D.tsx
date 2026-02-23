@@ -6,10 +6,6 @@ import {
   Subcluster,
 } from "@/types/GraphData";
 import * as d3Force from "d3-force";
-import {
-  GraphEdgeDto,
-  GraphNodeDto,
-} from "node_modules/@taco_tsinghua/graphnode-sdk/dist/types/graph";
 import React, {
   useCallback,
   useEffect,
@@ -20,8 +16,34 @@ import React, {
 import NodeChatPreview from "./NodeChatPreview";
 import ZoomControls from "./ZoomControls";
 
+// Graph2D에서 사용하는 노드 타입 (PositionedNode 기반)
+type GraphNode = {
+  id: number;
+  userId: string;
+  origId: string;
+  clusterId: string;
+  clusterName: string;
+  timestamp: number | null;
+  numMessages: number;
+  createdAt?: number;
+  updatedAt?: number;
+};
+
+// Graph2D에서 사용하는 엣지 타입 (PositionedEdge 기반)
+type GraphEdge = {
+  userId: string;
+  id?: string;
+  source: number;
+  target: number;
+  weight: number;
+  type: "hard" | "insight";
+  intraCluster: boolean;
+  createdAt?: number;
+  updatedAt?: number;
+};
+
 type SimNode = d3Force.SimulationNodeDatum &
-  GraphNodeDto & {
+  GraphNode & {
     x: number;
     y: number;
     vx?: number;
@@ -51,13 +73,13 @@ type DisplayEdge = {
 };
 
 function classifyEdges(
-  nodes: GraphNodeDto[],
-  edges: GraphEdgeDto[],
+  nodes: GraphNode[],
+  edges: GraphEdge[],
 ): {
   edges: PositionedEdge[];
   edgeCounts: Map<number, number>;
 } {
-  const nodeMap = new Map<number, GraphNodeDto>();
+  const nodeMap = new Map<number, GraphNode>();
   nodes.forEach((n) => nodeMap.set(n.id, n));
 
   // 노드별 엣지 수 계산
@@ -107,7 +129,7 @@ function createNodeToSubclusterMap(
 
 function getVisibleGraph(
   allNodes: PositionedNode[],
-  allEdges: GraphEdgeDto[],
+  allEdges: GraphEdge[],
   subclusters: Subcluster[],
   collapsedSet: Set<string>,
 ): { visibleNodes: DisplayNode[]; visibleEdges: DisplayEdge[] } {
@@ -159,7 +181,7 @@ function getVisibleGraph(
   // 일반 노드 처리
   allNodes.forEach((node) => {
     const subclusterId =
-      (node as GraphNodeDto & { subclusterId?: string | null }).subclusterId ??
+      (node as GraphNode & { subclusterId?: string | null }).subclusterId ??
       nodeToSubcluster.get(node.id) ??
       null;
     if (subclusterId && collapsedSet.has(subclusterId)) return;
@@ -218,8 +240,8 @@ function getVisibleGraph(
 }
 
 function layoutWithBoundedForce(
-  nodes: GraphNodeDto[],
-  edges: GraphEdgeDto[],
+  nodes: GraphNode[],
+  edges: GraphEdge[],
   width: number,
   height: number,
 ): {
@@ -230,7 +252,7 @@ function layoutWithBoundedForce(
   const { edges: classifiedEdges, edgeCounts } = classifyEdges(nodes, edges);
 
   // 클러스터별 노드 그룹화
-  const clusterGroups = new Map<string, GraphNodeDto[]>();
+  const clusterGroups = new Map<string, GraphNode[]>();
   nodes.forEach((n) => {
     // clusterName을 기준으로 그룹화
     const list = clusterGroups.get(n.clusterName) ?? [];
@@ -459,15 +481,15 @@ function getNodeRadius(edgeCount: number, maxEdgeCount: number): number {
 }
 
 type GraphProps = {
-  rawNodes: GraphNodeDto[];
-  rawEdges: GraphEdgeDto[];
+  rawNodes: GraphNode[];
+  rawEdges: GraphEdge[];
   rawSubclusters?: Subcluster[];
   width: number;
   height: number;
   avatarUrl: string | null;
   onClustersReady?: (
     clusters: ClusterCircle[],
-    nodes: PositionedNode[],
+    nodes: DisplayNode[],
     edges: PositionedEdge[],
   ) => void;
   zoomToClusterId?: string | null;
@@ -1547,9 +1569,7 @@ export default function Graph2D({
                 onMouseDown={(e) =>
                   handleClusterLabelMouseDown(e, circle.clusterId)
                 }
-                onClick={(e) =>
-                  handleClusterLabelClick(e, circle.clusterId)
-                }
+                onClick={(e) => handleClusterLabelClick(e, circle.clusterId)}
               >
                 {circle.clusterName}
               </text>
@@ -1638,10 +1658,7 @@ export default function Graph2D({
                   onMouseLeave={() => setHoveredId(null)}
                   onClick={(e) => handleNodeClick(e, n)}
                 >
-                  <circle
-                    r={displayRadius}
-                    fill={groupFill}
-                  />
+                  <circle r={displayRadius} fill={groupFill} />
                   <text
                     textAnchor="middle"
                     dominantBaseline="middle"
@@ -1665,7 +1682,11 @@ export default function Graph2D({
             // 엣지 수가 많은 노드는 중첩 노드와 같은 색상 사용
             const isHighlyConnected =
               maxEdgeCount > 0 && (n.edgeCount ?? 0) >= maxEdgeCount * 0.5;
-            const baseFill = subclusterFill ?? (isHighlyConnected ? "var(--color-node-focus)" : "var(--color-node-default)");
+            const baseFill =
+              subclusterFill ??
+              (isHighlyConnected
+                ? "var(--color-node-focus)"
+                : "var(--color-node-default)");
             const fill =
               isFocused || isHovered ? "var(--color-node-focus)" : baseFill;
             const title =

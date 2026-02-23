@@ -14,7 +14,7 @@ import {
   forceY,
   forceZ,
 } from "d3-force-3d";
-import { GraphSnapshotDto } from "node_modules/@taco_tsinghua/graphnode-sdk/dist/types/graph";
+import { GraphSnapshot } from "@/types/GraphData";
 
 type SimNode = {
   id: string;
@@ -137,7 +137,7 @@ export default function Graph3D({
   theme = "dark",
   avatarUrl,
 }: {
-  data: GraphSnapshotDto;
+  data: GraphSnapshot;
   zoomToClusterId?: string | null;
   onClusterClick?: (clusterId: string) => void;
   theme?: "dark" | "light";
