@@ -471,7 +471,6 @@ type GraphProps = {
     edges: PositionedEdge[],
   ) => void;
   zoomToClusterId?: string | null;
-  onClusterClick?: (clusterName: string) => void;
 };
 
 const EMPTY_SUBCLUSTERS: Subcluster[] = [];
@@ -485,7 +484,6 @@ export default function Graph2D({
   avatarUrl,
   onClustersReady,
   zoomToClusterId,
-  onClusterClick,
 }: GraphProps) {
   const subclustersInput = rawSubclusters ?? EMPTY_SUBCLUSTERS;
   const subclusters = subclustersInput;
@@ -1256,15 +1254,12 @@ export default function Graph2D({
   const handleClusterLabelClick = (
     e: React.MouseEvent<SVGTextElement>,
     clusterId: string,
-    clusterName: string,
   ) => {
     e.stopPropagation();
     if (lastPointerWasDraggingRef.current) {
       lastPointerWasDraggingRef.current = false;
       return;
     }
-    // 클러스터 클릭 시 모달 표시
-    onClusterClick?.(clusterName);
     // 클러스터 줌인
     animateZoomToCluster(clusterId, true);
   };
@@ -1553,11 +1548,7 @@ export default function Graph2D({
                   handleClusterLabelMouseDown(e, circle.clusterId)
                 }
                 onClick={(e) =>
-                  handleClusterLabelClick(
-                    e,
-                    circle.clusterId,
-                    circle.clusterName,
-                  )
+                  handleClusterLabelClick(e, circle.clusterId)
                 }
               >
                 {circle.clusterName}
