@@ -97,6 +97,23 @@
       "generating": "生成中...",
       "generatingNotice": "生成完成后会通知您。请不要关闭应用程序。",
       "notice": "图结构基于您保存的聊天记录和笔记生成。如果没有任何聊天或笔记记录，则无法生成图结构。"
+    },
+    "patternType": {
+      "repetition": "重复",
+      "progression": "进展",
+      "gap": "空缺",
+      "bridge": "桥接"
+    },
+    "recommendationType": {
+      "consolidate": "整合",
+      "explore": "探索",
+      "review": "审查",
+      "connect": "连接"
+    },
+    "priority": {
+      "high": "高",
+      "medium": "中",
+      "low": "低"
     }
   },
   "search": {
@@ -152,7 +169,8 @@
       "ko": "🇰🇷 한국어",
       "en": "🇺🇸 English",
       "zh": "🇨🇳 简体中文",
-      "ja": "🇯🇵 日本語"
+      "ja": "🇯🇵 日本語",
+      "saveFailed": "无法保存语言设置。重新启动应用后将恢复为之前的设置。"
     },
     "timeFormat": {
       "title": "时间格式",

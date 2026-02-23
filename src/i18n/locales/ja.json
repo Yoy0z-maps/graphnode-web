@@ -97,6 +97,23 @@
       "generating": "生成中...",
       "generatingNotice": "生成が完了したら通知します。アプリを閉じないでください。",
       "notice": "グラフは保存されたチャットとメモに基づいて生成されます。チャットまたはメモがない場合、グラフは生成できません。"
+    },
+    "patternType": {
+      "repetition": "反復",
+      "progression": "進行",
+      "gap": "空白",
+      "bridge": "連結"
+    },
+    "recommendationType": {
+      "consolidate": "統合",
+      "explore": "探索",
+      "review": "レビュー",
+      "connect": "接続"
+    },
+    "priority": {
+      "high": "高",
+      "medium": "中",
+      "low": "低"
     }
   },
   "search": {
@@ -152,7 +169,8 @@
       "ko": "🇰🇷 한국어",
       "en": "🇺🇸 English",
       "zh": "🇨🇳 简体中文",
-      "ja": "🇯🇵 日本語"
+      "ja": "🇯🇵 日本語",
+      "saveFailed": "言語設定を保存できませんでした。アプリを再起動すると以前の設定に戻ります。"
     },
     "timeFormat": {
       "title": "時刻形式",
