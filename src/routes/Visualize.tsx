@@ -10,6 +10,7 @@ import { unwrapAndMap } from "@/utils/httpResponse";
 import { mapGraphSnapshot, mapGraphSummary } from "@/utils/dtoMappers";
 import ErrorScreen from "@/components/visualize/Error";
 import EmptyGraph from "@/components/visualize/EmptyGraph";
+import { useGraphGenerationStore } from "@/store/useGraphGenerationStore";
 
 interface GraphData {
   nodeEdgeData: GraphSnapshot;
@@ -88,6 +89,7 @@ export default function Visualize() {
         subclusters={subclusters}
         expandedSubclusters={expandedSubclusters}
         onToggleSubcluster={handleToggleSubcluster}
+        isUpdating={useGraphGenerationStore.getState().isGenerating}
       />
 
       {/* 메인 시각화 영역 */}
