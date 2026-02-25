@@ -243,6 +243,16 @@
         "title": "데이터 가져오기",
         "subtitle": "외부 소스에서 데이터를 가져옵니다"
       },
+      "trash": {
+        "title": "휴지통",
+        "subtitle": "삭제된 항목은 30일간 보관됩니다",
+        "all": "전체",
+        "empty": "휴지통 비우기",
+        "restore": "복구",
+        "delete": "삭제",
+        "expiresIn": "{{days}}일 후 삭제",
+        "noItems": "휴지통이 비어있습니다"
+      },
       "dangerZone": {
         "title": "위험 구역",
         "subtitle": "되돌릴 수 없는 작업입니다. 주의해서 진행하세요."

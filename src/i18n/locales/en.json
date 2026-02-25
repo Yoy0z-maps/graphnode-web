@@ -243,6 +243,16 @@
         "title": "Import Data",
         "subtitle": "Import your data from external sources"
       },
+      "trash": {
+        "title": "Trash",
+        "subtitle": "Deleted items are kept for 30 days",
+        "all": "All",
+        "empty": "Empty Trash",
+        "restore": "Restore",
+        "delete": "Delete",
+        "expiresIn": "Expires in {{days}} days",
+        "noItems": "Trash is empty"
+      },
       "dangerZone": {
         "title": "Danger Zone",
         "subtitle": "Irreversible actions. Please proceed with caution."

@@ -8,6 +8,7 @@ import { api } from "@/apiClient";
 import { noteRepo } from "@/managers/noteRepo";
 import DropMdZone from "./DropMdZone";
 import DangerZoneItem from "./DangerZoneItem";
+import TrashPanel from "./TrashPanel";
 
 export default function DataPrivacyPanel() {
   const { t } = useTranslation();
@@ -51,6 +52,18 @@ export default function DataPrivacyPanel() {
       <div className="flex flex-col gap-4 w-full">
         <DropJsonZone />
         <DropMdZone />
+      </div>
+
+      {/* Trash Section */}
+      <div className="mt-8 w-full">
+        <SettingCategoryTitle
+          title={t("settings.dataPrivacy.trash.title", "Trash")}
+          subtitle={t(
+            "settings.dataPrivacy.trash.subtitle",
+            "Deleted items are kept for 30 days",
+          )}
+        />
+        <TrashPanel />
       </div>
 
       {/* Danger Zone */}

@@ -16,6 +16,7 @@ import Login from "./routes/Login";
 import Chat from "./routes/Chat";
 import { noteRepo } from "./managers/noteRepo";
 import { folderRepo } from "./managers/folderRepo";
+import { trashRepo } from "./managers/trashRepo";
 import SearchModal from "./components/search/SearchModal";
 import AgentToolTipButton from "./components/layout/AgentToolTipButton";
 import { Me } from "./types/Me";
@@ -56,6 +57,13 @@ function MainLayout() {
   // 설정 로드
   useEffect(() => {
     useSettingsStore.getState().loadSettings();
+  }, []);
+
+  // 휴지통 만료 항목 정리
+  useEffect(() => {
+    trashRepo.cleanupExpiredItems().catch((err) => {
+      console.error("Failed to cleanup expired trash items:", err);
+    });
   }, []);
 
   // Visualize 페이지에서는 AgentToolTipButton 안 보이기

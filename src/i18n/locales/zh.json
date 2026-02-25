@@ -243,6 +243,16 @@
         "title": "导入数据",
         "subtitle": "从外部来源导入您的数据"
       },
+      "trash": {
+        "title": "回收站",
+        "subtitle": "已删除的项目将保留30天",
+        "all": "全部",
+        "empty": "清空回收站",
+        "restore": "恢复",
+        "delete": "删除",
+        "expiresIn": "{{days}}天后删除",
+        "noItems": "回收站为空"
+      },
       "dangerZone": {
         "title": "危险区域",
         "subtitle": "不可逆操作，请谨慎操作。"

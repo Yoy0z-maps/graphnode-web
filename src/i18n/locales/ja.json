@@ -243,6 +243,16 @@
         "title": "データをインポート",
         "subtitle": "外部ソースからデータをインポート"
       },
+      "trash": {
+        "title": "ゴミ箱",
+        "subtitle": "削除されたアイテムは30日間保持されます",
+        "all": "すべて",
+        "empty": "ゴミ箱を空にする",
+        "restore": "復元",
+        "delete": "削除",
+        "expiresIn": "{{days}}日後に削除",
+        "noItems": "ゴミ箱は空です"
+      },
       "dangerZone": {
         "title": "危険ゾーン",
         "subtitle": "元に戻せない操作です。慎重に進めてください。"
