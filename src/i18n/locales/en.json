@@ -114,6 +114,9 @@
       "high": "High",
       "medium": "Medium",
       "low": "Low"
+    },
+    "zoomControls": {
+      "reset": "Reset"
     }
   },
   "search": {

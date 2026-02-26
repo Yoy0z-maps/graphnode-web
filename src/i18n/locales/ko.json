@@ -114,6 +114,9 @@
       "high": "높음",
       "medium": "중간",
       "low": "낮음"
+    },
+    "zoomControls": {
+      "reset": "초기화"
     }
   },
   "search": {
