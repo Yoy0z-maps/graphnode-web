@@ -126,6 +126,32 @@
     "noResultFound": "No {{provider}} Found",
     "shortcut": "shortcut"
   },
+  "notification": {
+    "graphGeneration": {
+      "completedTitle": "Graph Generation Complete",
+      "completedBody": "Graph has been successfully generated. (Nodes: {{nodeCount}}, Edges: {{edgeCount}})"
+    },
+    "graphGenerationFailed": {
+      "title": "Graph Generation Failed",
+      "body": "Failed to generate graph: {{error}}"
+    },
+    "graphSummary": {
+      "completedTitle": "Graph Summary Complete",
+      "completedBody": "Graph summary has been completed."
+    },
+    "graphSummaryFailed": {
+      "title": "Graph Summary Failed",
+      "body": "Failed to generate graph summary: {{error}}"
+    },
+    "test": {
+      "title": "Test Notification",
+      "body": "Test notification received."
+    },
+    "default": {
+      "title": "Notification",
+      "body": "You have a new notification."
+    }
+  },
   "settings": {
     "title": "Settings",
     "my": {

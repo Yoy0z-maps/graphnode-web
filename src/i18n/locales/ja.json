@@ -126,6 +126,32 @@
     "noResultFound": "{{provider}}が見つかりません",
     "shortcut": "ショートカット"
   },
+  "notification": {
+    "graphGeneration": {
+      "completedTitle": "グラフ生成完了",
+      "completedBody": "グラフが正常に生成されました。（ノード: {{nodeCount}}、エッジ: {{edgeCount}}）"
+    },
+    "graphGenerationFailed": {
+      "title": "グラフ生成失敗",
+      "body": "グラフの生成に失敗しました: {{error}}"
+    },
+    "graphSummary": {
+      "completedTitle": "グラフ要約完了",
+      "completedBody": "グラフの要約が完了しました。"
+    },
+    "graphSummaryFailed": {
+      "title": "グラフ要約失敗",
+      "body": "グラフの要約に失敗しました: {{error}}"
+    },
+    "test": {
+      "title": "テスト通知",
+      "body": "テスト通知を受信しました。"
+    },
+    "default": {
+      "title": "通知",
+      "body": "新しい通知があります。"
+    }
+  },
   "settings": {
     "title": "設定",
     "my": {

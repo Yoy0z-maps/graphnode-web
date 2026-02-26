@@ -126,6 +126,32 @@
     "noResultFound": "{{provider}} 검색 결과 없음",
     "shortcut": "단축키"
   },
+  "notification": {
+    "graphGeneration": {
+      "completedTitle": "그래프 생성 완료",
+      "completedBody": "그래프가 성공적으로 생성되었습니다. (노드: {{nodeCount}}, 엣지: {{edgeCount}})"
+    },
+    "graphGenerationFailed": {
+      "title": "그래프 생성 실패",
+      "body": "그래프 생성에 실패했습니다: {{error}}"
+    },
+    "graphSummary": {
+      "completedTitle": "그래프 요약 완료",
+      "completedBody": "그래프 요약이 완료되었습니다."
+    },
+    "graphSummaryFailed": {
+      "title": "그래프 요약 실패",
+      "body": "그래프 요약 생성에 실패했습니다: {{error}}"
+    },
+    "test": {
+      "title": "테스트 알림",
+      "body": "테스트 알림을 수신했습니다."
+    },
+    "default": {
+      "title": "알림",
+      "body": "새로운 알림이 있습니다."
+    }
+  },
   "settings": {
     "title": "설정",
     "my": {

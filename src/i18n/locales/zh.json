@@ -126,6 +126,32 @@
     "noResultFound": "未找到相关{{provider}}",
     "shortcut": "快捷键"
   },
+  "notification": {
+    "graphGeneration": {
+      "completedTitle": "图结构生成完成",
+      "completedBody": "图结构已成功生成。（节点: {{nodeCount}}，边: {{edgeCount}}）"
+    },
+    "graphGenerationFailed": {
+      "title": "图结构生成失败",
+      "body": "图结构生成失败: {{error}}"
+    },
+    "graphSummary": {
+      "completedTitle": "图结构摘要完成",
+      "completedBody": "图结构摘要已完成。"
+    },
+    "graphSummaryFailed": {
+      "title": "图结构摘要失败",
+      "body": "图结构摘要生成失败: {{error}}"
+    },
+    "test": {
+      "title": "测试通知",
+      "body": "已收到测试通知。"
+    },
+    "default": {
+      "title": "通知",
+      "body": "您有一条新通知。"
+    }
+  },
   "settings": {
     "my": {
       "api": {
