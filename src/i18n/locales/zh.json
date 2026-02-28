@@ -181,6 +181,288 @@
       "interactionsOverview": {
         "title": "交互概览",
         "description": "了解 GraphNode 中的交互功能。"
+      },
+      "search": {
+        "toNavigate": "导航",
+        "toSelect": "选择",
+        "introduction": "介绍",
+        "overview": "概览",
+        "features": "主要功能",
+        "gettingStarted": "入门指南",
+        "architecture": "架构",
+        "changeLog": "更新日志",
+        "apiReference": "API 参考",
+        "installation": "安装",
+        "clientInit": "客户端初始化",
+        "sdkModules": "SDK 模块",
+        "userModule": "用户 (me)",
+        "aiChat": "AI 聊天 (ai)",
+        "conversations": "对话管理",
+        "graph": "图谱",
+        "notes": "笔记",
+        "sync": "同步",
+        "restApi": "REST API",
+        "mcp": "MCP",
+        "customMcp": "自定义 MCP 服务器",
+        "addMcp": "添加 MCP 服务器",
+        "githubMcp": "GitHub MCP",
+        "sqliteMcp": "SQLite MCP",
+        "puppeteerMcp": "Puppeteer MCP",
+        "mcpServerList": "官方 MCP 服务器列表",
+        "interactionsOverview": "交互概览"
+      },
+      "mcp": {
+        "title": "MCP (Model Context Protocol)",
+        "description": "MCP 是一种协议，允许 AI 助手连接外部工具和数据源以扩展其功能。在 GraphNode 中连接 MCP 服务器后，AI 可以访问文件系统、数据库、外部 API 等。",
+        "toc": "目录",
+        "customMcp": {
+          "title": "创建和注册自定义 MCP 服务器",
+          "description": "要创建自己的 MCP 服务器，首先创建一个 Node.js 项目。",
+          "indexJs": "创建 index.js：",
+          "packageJson": "修改 package.json：",
+          "register": "在 GraphNode 中注册："
+        },
+        "addMethod": {
+          "title": "添加自定义 MCP 服务器的方法",
+          "description": "启用 Settings → MCP Servers → Developer Mode 后，您可以添加自定义服务器。"
+        },
+        "examples": {
+          "title": "MCP 服务器示例"
+        },
+        "github": {
+          "title": "GitHub MCP 服务器",
+          "description": "用于访问 GitHub 仓库的 MCP 服务器。",
+          "tokenTitle": "如何获取 GitHub Token：",
+          "step1": "GitHub → Settings → Developer settings → Personal access tokens",
+          "step2": "点击 \"Generate new token (classic)\"",
+          "step3": "选择所需权限 (repo, read:user 等)"
+        },
+        "sqlite": {
+          "title": "SQLite 数据库 MCP",
+          "description": "用于访问本地 SQLite 数据库的 MCP。"
+        },
+        "puppeteer": {
+          "title": "Puppeteer (Web 自动化) MCP",
+          "description": "用于网页抓取和自动化的 MCP。"
+        },
+        "serverList": {
+          "title": "有用的官方 MCP 服务器列表",
+          "server": "服务器",
+          "package": "包",
+          "descriptionCol": "说明",
+          "filesystem": "本地文件访问",
+          "githubApi": "GitHub API",
+          "gitlabApi": "GitLab API",
+          "slack": "Slack 消息",
+          "gdrive": "Google Drive",
+          "postgres": "PostgreSQL 数据库",
+          "sqliteDb": "SQLite 数据库",
+          "memory": "对话记忆存储",
+          "braveSearch": "网页搜索",
+          "puppeteerDesc": "网页自动化",
+          "fetch": "HTTP 请求",
+          "fullList": "完整列表："
+        }
+      },
+      "api": {
+        "title": "API 参考",
+        "toc": "目录",
+        "version": "版本：",
+        "latest": "最新",
+        "description": "GraphNode SDK 是面向 TypeScript/JavaScript 开发者的官方客户端库。它提供基于 Cookie 的会话认证和全面的 API 覆盖。",
+        "packageInfo": "包信息",
+        "package": "包：",
+        "license": "许可证：",
+        "nodeRequirement": "Node 要求：",
+        "installation": "安装",
+        "clientInit": "客户端初始化",
+        "sdkModules": "SDK 模块",
+        "sdkModulesDesc": "SDK 由 8 个主要模块组成。",
+        "modules": {
+          "me": {
+            "title": "用户 (client.me)",
+            "description": "用户相关功能，包括个人资料、API 密钥和语言设置"
+          },
+          "ai": {
+            "title": "AI 聊天 (client.ai)",
+            "description": "支持流式传输的 AI 对话功能",
+            "supportedModels": "支持的模型：",
+            "openai": "OpenAI GPT 模型",
+            "claude": "Anthropic Claude 模型",
+            "gemini": "Google Gemini 模型",
+            "deepseek": "DeepSeek 模型"
+          },
+          "conversations": {
+            "title": "对话管理 (client.conversations)",
+            "description": "对话 CRUD、软删除/硬删除功能"
+          },
+          "graph": {
+            "title": "图谱 (client.graph)",
+            "description": "节点、边、集群管理以及基于 AI 的图谱生成"
+          },
+          "notes": {
+            "title": "笔记 (client.notes)",
+            "description": "笔记和文件夹管理"
+          },
+          "sync": {
+            "title": "同步 (client.sync)",
+            "description": "客户端-服务器变更同步"
+          }
+        },
+        "restApi": {
+          "title": "REST API 端点",
+          "description": "您可以不使用 SDK 直接调用 REST API。基础 URL：",
+          "method": "方法",
+          "endpoint": "端点",
+          "descriptionCol": "说明",
+          "auth": "认证",
+          "healthCheck": "健康检查",
+          "googleOAuthStart": "启动 Google OAuth",
+          "oauthCallback": "OAuth 回调",
+          "logout": "登出",
+          "userNotifications": "用户 & 通知",
+          "loginStatus": "检查登录状态",
+          "sseNotificationStream": "SSE 通知流",
+          "fcmTokenRegister": "注册 FCM 令牌",
+          "fcmTokenUnregister": "注销 FCM 令牌",
+          "conversations": "对话",
+          "createConversation": "创建对话",
+          "bulkCreateConversation": "批量创建对话",
+          "listConversations": "获取对话列表",
+          "getConversation": "获取特定对话",
+          "updateConversation": "更新对话",
+          "deleteConversation": "删除对话",
+          "restoreConversation": "恢复对话",
+          "messages": "消息",
+          "createMessage": "创建消息",
+          "updateMessage": "更新消息",
+          "deleteMessage": "删除消息",
+          "aiChatStreaming": "AI 聊天 (流式传输)",
+          "downloadAiFile": "下载 AI 文件",
+          "graphNodes": "图谱节点",
+          "createUpdateNode": "创建/更新节点",
+          "getAllNodes": "获取所有节点",
+          "getNode": "获取特定节点",
+          "updateNode": "更新节点",
+          "deleteNode": "删除节点",
+          "deleteNodeCascade": "删除节点及连接的边",
+          "restoreNode": "恢复节点",
+          "graphEdges": "图谱边",
+          "createUpdateEdge": "创建/更新边",
+          "getAllEdges": "获取所有边",
+          "deleteEdge": "删除边",
+          "restoreEdge": "恢复边",
+          "clusters": "集群",
+          "createUpdateCluster": "创建/更新集群",
+          "getAllClusters": "获取所有集群",
+          "getCluster": "获取特定集群",
+          "deleteCluster": "删除集群",
+          "deleteClusterCascade": "删除集群及包含的节点/边",
+          "restoreCluster": "恢复集群",
+          "createUpdateSubcluster": "创建/更新子集群",
+          "getSubclusters": "获取子集群",
+          "graphStats": "图谱统计",
+          "getSnapshot": "获取图谱快照",
+          "saveSnapshot": "保存图谱快照",
+          "notesFolders": "笔记 & 文件夹",
+          "createNote": "创建笔记",
+          "listNotes": "获取笔记列表",
+          "getNote": "获取特定笔记",
+          "updateNote": "更新笔记",
+          "deleteNote": "删除笔记",
+          "restoreNote": "恢复笔记",
+          "createFolder": "创建文件夹",
+          "listFolders": "获取文件夹列表",
+          "updateFolder": "更新文件夹",
+          "deleteFolder": "删除文件夹",
+          "sync": "同步",
+          "pullChanges": "拉取服务器变更 (since 参数)",
+          "pushChanges": "推送客户端变更 (需要 Idempotency-Key)"
+        },
+        "externalResources": "外部资源",
+        "npmPackage": "NPM 包",
+        "githubRepo": "GitHub 仓库",
+        "openApiDocs": "OpenAPI 文档"
+      },
+      "introPage": {
+        "title": "介绍",
+        "description": "GraphNode 是一个将 AI 对话可视化为知识图谱并进行管理的平台。通过理解对话的上下文和关系，您可以获得更好的洞察。",
+        "toc": "目录",
+        "overview": {
+          "title": "概览",
+          "description": "GraphNode 不仅仅是存储与 AI 助手的对话，还分析和可视化对话之间的连接关系。这使用户能够理解自己的思维模式并探索相关主题。",
+          "aiModels": "支持的 AI 模型",
+          "realtime": "实时",
+          "graphSync": "图谱同步",
+          "mcpExtension": "扩展支持"
+        },
+        "features": {
+          "title": "主要功能",
+          "aiChat": {
+            "title": "AI 聊天",
+            "description": "可以与 OpenAI、Claude、Gemini、DeepSeek 等多种 AI 模型对话。支持流式传输，可实时查看响应。"
+          },
+          "knowledgeGraph": {
+            "title": "知识图谱",
+            "description": "对话会自动转换为节点，相关对话通过边连接。通过聚类，相似的主题会被分组。"
+          },
+          "mcpExtension": {
+            "title": "MCP 扩展",
+            "description": "通过 Model Context Protocol，AI 可以访问外部工具。可以与 GitHub、数据库、文件系统等集成。"
+          },
+          "noteManagement": {
+            "title": "笔记管理",
+            "description": "将对话中的洞察整理为笔记，并用文件夹组织。支持 Markdown。"
+          },
+          "realtimeSync": {
+            "title": "实时同步",
+            "description": "所有数据实时同步到云端。可以从多个设备访问相同的数据。"
+          }
+        },
+        "gettingStarted": {
+          "title": "入门指南",
+          "step1": {
+            "title": "下载应用",
+            "description": "下载适用于 Windows、macOS 或 Linux 的桌面应用。"
+          },
+          "step2": {
+            "title": "Google 登录",
+            "description": "使用 Google 账户登录以开始使用。"
+          },
+          "step3": {
+            "title": "开始对话",
+            "description": "选择您喜欢的 AI 模型并开始对话。对话会自动转换为图谱。"
+          },
+          "step4": {
+            "title": "探索图谱",
+            "description": "在图谱视图中直观地探索对话之间的连接关系。"
+          }
+        },
+        "architecture": {
+          "title": "架构",
+          "description": "GraphNode 使用客户端-服务器架构。",
+          "client": "客户端",
+          "server": "服务器",
+          "electron": "Electron 38+ 桌面应用",
+          "reactTs": "React 19 + TypeScript + Vite",
+          "zustandState": "Zustand 状态管理",
+          "threejsD3": "Three.js + D3-Force 3D 可视化",
+          "indexedDb": "IndexedDB (Dexie.js) 离线存储",
+          "tiptapEditor": "Tiptap 富文本编辑器",
+          "nodeExpress": "Node.js + Express 5",
+          "postgresPrisma": "PostgreSQL + Prisma ORM",
+          "mongoDb": "MongoDB Atlas",
+          "chromaDb": "ChromaDB 向量搜索",
+          "redisEvents": "Redis 事件总线",
+          "awsS3Sqs": "AWS S3 + SQS"
+        },
+        "support": {
+          "title": "支持",
+          "description": "如果您遇到问题或有疑问，请使用以下渠道。",
+          "githubIssues": "GitHub Issues",
+          "githubIssuesDesc": "错误报告和功能请求",
+          "email": "电子邮件"
+        }
       }
     }
   },

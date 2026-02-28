@@ -181,6 +181,288 @@
       "interactionsOverview": {
         "title": "Interactions Overview",
         "description": "GraphNode의 인터랙션에 대해 알아보세요."
+      },
+      "search": {
+        "toNavigate": "탐색",
+        "toSelect": "선택",
+        "introduction": "Introduction",
+        "overview": "개요",
+        "features": "주요 기능",
+        "gettingStarted": "시작하기",
+        "architecture": "아키텍처",
+        "changeLog": "Change Log",
+        "apiReference": "API Reference",
+        "installation": "설치",
+        "clientInit": "클라이언트 초기화",
+        "sdkModules": "SDK 모듈",
+        "userModule": "사용자 (me)",
+        "aiChat": "AI 채팅 (ai)",
+        "conversations": "대화 관리",
+        "graph": "그래프",
+        "notes": "노트",
+        "sync": "동기화",
+        "restApi": "REST API",
+        "mcp": "MCP",
+        "customMcp": "커스텀 MCP 서버 제작",
+        "addMcp": "MCP 서버 추가 방법",
+        "githubMcp": "GitHub MCP",
+        "sqliteMcp": "SQLite MCP",
+        "puppeteerMcp": "Puppeteer MCP",
+        "mcpServerList": "공식 MCP 서버 목록",
+        "interactionsOverview": "Interactions Overview"
+      },
+      "mcp": {
+        "title": "MCP (Model Context Protocol)",
+        "description": "MCP는 AI 어시스턴트가 외부 도구 및 데이터 소스에 연결하여 기능을 확장할 수 있게 하는 프로토콜입니다. GraphNode에서 MCP 서버를 연결하면 AI가 파일 시스템, 데이터베이스, 외부 API 등에 접근할 수 있습니다.",
+        "toc": "목차",
+        "customMcp": {
+          "title": "커스텀 MCP 서버 제작하고 등록하기",
+          "description": "MCP 서버를 직접 만들려면 Node.js 프로젝트를 생성합니다.",
+          "indexJs": "index.js 작성:",
+          "packageJson": "package.json 수정:",
+          "register": "GraphNode에 등록:"
+        },
+        "addMethod": {
+          "title": "커스텀 MCP 서버 추가 방법",
+          "description": "Settings → MCP Servers → Developer Mode를 활성화한 후 커스텀 서버를 추가할 수 있습니다."
+        },
+        "examples": {
+          "title": "MCP 서버 예시"
+        },
+        "github": {
+          "title": "GitHub MCP 서버",
+          "description": "GitHub 저장소 접근을 위한 MCP 서버입니다.",
+          "tokenTitle": "GitHub Token 발급:",
+          "step1": "GitHub → Settings → Developer settings → Personal access tokens",
+          "step2": "\"Generate new token (classic)\" 클릭",
+          "step3": "필요한 권한 선택 (repo, read:user 등)"
+        },
+        "sqlite": {
+          "title": "SQLite 데이터베이스 MCP",
+          "description": "로컬 SQLite DB에 접근하는 MCP입니다."
+        },
+        "puppeteer": {
+          "title": "Puppeteer (웹 자동화) MCP",
+          "description": "웹 페이지 스크래핑/자동화를 위한 MCP입니다."
+        },
+        "serverList": {
+          "title": "유용한 공식 MCP 서버 목록",
+          "server": "서버",
+          "package": "패키지",
+          "descriptionCol": "설명",
+          "filesystem": "로컬 파일 접근",
+          "githubApi": "GitHub API",
+          "gitlabApi": "GitLab API",
+          "slack": "Slack 메시지",
+          "gdrive": "구글 드라이브",
+          "postgres": "PostgreSQL DB",
+          "sqliteDb": "SQLite DB",
+          "memory": "대화 기억 저장",
+          "braveSearch": "웹 검색",
+          "puppeteerDesc": "웹 자동화",
+          "fetch": "HTTP 요청",
+          "fullList": "전체 목록:"
+        }
+      },
+      "api": {
+        "title": "API Reference",
+        "toc": "목차",
+        "version": "버전:",
+        "latest": "최신",
+        "description": "GraphNode SDK는 TypeScript/JavaScript 개발자를 위한 공식 클라이언트 라이브러리입니다. 쿠키 기반 세션 인증과 포괄적인 API 커버리지를 제공합니다.",
+        "packageInfo": "패키지 정보",
+        "package": "패키지:",
+        "license": "라이선스:",
+        "nodeRequirement": "Node 요구사항:",
+        "installation": "설치",
+        "clientInit": "클라이언트 초기화",
+        "sdkModules": "SDK 모듈",
+        "sdkModulesDesc": "SDK는 8개의 주요 모듈로 구성되어 있습니다.",
+        "modules": {
+          "me": {
+            "title": "사용자 (client.me)",
+            "description": "프로필, API 키, 언어 설정 등 사용자 관련 기능"
+          },
+          "ai": {
+            "title": "AI 채팅 (client.ai)",
+            "description": "스트리밍 지원 AI 대화 기능",
+            "supportedModels": "지원 모델:",
+            "openai": "OpenAI GPT 모델",
+            "claude": "Anthropic Claude 모델",
+            "gemini": "Google Gemini 모델",
+            "deepseek": "DeepSeek 모델"
+          },
+          "conversations": {
+            "title": "대화 관리 (client.conversations)",
+            "description": "대화 CRUD, 소프트/하드 삭제 기능"
+          },
+          "graph": {
+            "title": "그래프 (client.graph)",
+            "description": "노드, 엣지, 클러스터 관리 및 AI 기반 그래프 생성"
+          },
+          "notes": {
+            "title": "노트 (client.notes)",
+            "description": "노트 및 폴더 관리"
+          },
+          "sync": {
+            "title": "동기화 (client.sync)",
+            "description": "클라이언트-서버 간 변경사항 동기화"
+          }
+        },
+        "restApi": {
+          "title": "REST API 엔드포인트",
+          "description": "SDK 없이 직접 REST API를 호출할 수 있습니다. 기본 URL:",
+          "method": "메서드",
+          "endpoint": "엔드포인트",
+          "descriptionCol": "설명",
+          "auth": "인증",
+          "healthCheck": "헬스 체크",
+          "googleOAuthStart": "Google OAuth 시작",
+          "oauthCallback": "OAuth 콜백",
+          "logout": "로그아웃",
+          "userNotifications": "사용자 & 알림",
+          "loginStatus": "로그인 상태 확인",
+          "sseNotificationStream": "SSE 알림 스트림",
+          "fcmTokenRegister": "FCM 토큰 등록",
+          "fcmTokenUnregister": "FCM 토큰 해제",
+          "conversations": "대화",
+          "createConversation": "대화 생성",
+          "bulkCreateConversation": "대화 일괄 생성",
+          "listConversations": "대화 목록 조회",
+          "getConversation": "특정 대화 조회",
+          "updateConversation": "대화 업데이트",
+          "deleteConversation": "대화 삭제",
+          "restoreConversation": "대화 복원",
+          "messages": "메시지",
+          "createMessage": "메시지 생성",
+          "updateMessage": "메시지 업데이트",
+          "deleteMessage": "메시지 삭제",
+          "aiChatStreaming": "AI 채팅 (스트리밍)",
+          "downloadAiFile": "AI 파일 다운로드",
+          "graphNodes": "그래프 노드",
+          "createUpdateNode": "노드 생성/수정",
+          "getAllNodes": "모든 노드 조회",
+          "getNode": "특정 노드 조회",
+          "updateNode": "노드 업데이트",
+          "deleteNode": "노드 삭제",
+          "deleteNodeCascade": "노드 및 연결된 엣지 삭제",
+          "restoreNode": "노드 복원",
+          "graphEdges": "그래프 엣지",
+          "createUpdateEdge": "엣지 생성/수정",
+          "getAllEdges": "모든 엣지 조회",
+          "deleteEdge": "엣지 삭제",
+          "restoreEdge": "엣지 복원",
+          "clusters": "클러스터",
+          "createUpdateCluster": "클러스터 생성/수정",
+          "getAllClusters": "모든 클러스터 조회",
+          "getCluster": "특정 클러스터 조회",
+          "deleteCluster": "클러스터 삭제",
+          "deleteClusterCascade": "클러스터 및 포함된 노드/엣지 삭제",
+          "restoreCluster": "클러스터 복원",
+          "createUpdateSubcluster": "서브클러스터 생성/수정",
+          "getSubclusters": "서브클러스터 조회",
+          "graphStats": "그래프 통계",
+          "getSnapshot": "그래프 스냅샷 조회",
+          "saveSnapshot": "그래프 스냅샷 저장",
+          "notesFolders": "노트 & 폴더",
+          "createNote": "노트 생성",
+          "listNotes": "노트 목록 조회",
+          "getNote": "특정 노트 조회",
+          "updateNote": "노트 업데이트",
+          "deleteNote": "노트 삭제",
+          "restoreNote": "노트 복원",
+          "createFolder": "폴더 생성",
+          "listFolders": "폴더 목록 조회",
+          "updateFolder": "폴더 업데이트",
+          "deleteFolder": "폴더 삭제",
+          "sync": "동기화",
+          "pullChanges": "서버 변경사항 조회 (since 파라미터)",
+          "pushChanges": "클라이언트 변경사항 적용 (Idempotency-Key 필수)"
+        },
+        "externalResources": "외부 리소스",
+        "npmPackage": "NPM 패키지",
+        "githubRepo": "GitHub 저장소",
+        "openApiDocs": "OpenAPI 문서"
+      },
+      "introPage": {
+        "title": "Introduction",
+        "description": "GraphNode는 AI 대화를 지식 그래프로 시각화하고 관리하는 플랫폼입니다. 대화의 맥락과 관계를 파악하여 더 나은 인사이트를 얻을 수 있습니다.",
+        "toc": "목차",
+        "overview": {
+          "title": "개요",
+          "description": "GraphNode는 AI 어시스턴트와의 대화를 단순히 저장하는 것을 넘어, 대화 간의 연결 관계를 분석하고 시각화합니다. 이를 통해 사용자는 자신의 사고 흐름을 파악하고, 관련된 주제들을 탐색할 수 있습니다.",
+          "aiModels": "지원 AI 모델",
+          "realtime": "실시간",
+          "graphSync": "그래프 동기화",
+          "mcpExtension": "확장 지원"
+        },
+        "features": {
+          "title": "주요 기능",
+          "aiChat": {
+            "title": "AI 대화",
+            "description": "OpenAI, Claude, Gemini, DeepSeek 등 다양한 AI 모델과 대화할 수 있습니다. 스트리밍을 지원하여 실시간으로 응답을 확인할 수 있습니다."
+          },
+          "knowledgeGraph": {
+            "title": "지식 그래프",
+            "description": "대화가 자동으로 노드로 변환되고, 관련 대화들이 엣지로 연결됩니다. 클러스터링을 통해 유사한 주제들이 그룹화됩니다."
+          },
+          "mcpExtension": {
+            "title": "MCP 확장",
+            "description": "Model Context Protocol을 통해 AI가 외부 도구에 접근할 수 있습니다. GitHub, 데이터베이스, 파일 시스템 등과 연동 가능합니다."
+          },
+          "noteManagement": {
+            "title": "노트 관리",
+            "description": "대화에서 얻은 인사이트를 노트로 정리하고 폴더로 구성할 수 있습니다. 마크다운을 지원합니다."
+          },
+          "realtimeSync": {
+            "title": "실시간 동기화",
+            "description": "모든 데이터는 클라우드에 실시간으로 동기화됩니다. 여러 기기에서 동일한 데이터에 접근할 수 있습니다."
+          }
+        },
+        "gettingStarted": {
+          "title": "시작하기",
+          "step1": {
+            "title": "앱 다운로드",
+            "description": "Windows, macOS, Linux 용 데스크톱 앱을 다운로드합니다."
+          },
+          "step2": {
+            "title": "Google 로그인",
+            "description": "Google 계정으로 로그인하여 시작합니다."
+          },
+          "step3": {
+            "title": "대화 시작",
+            "description": "원하는 AI 모델을 선택하고 대화를 시작합니다. 대화는 자동으로 그래프로 변환됩니다."
+          },
+          "step4": {
+            "title": "그래프 탐색",
+            "description": "그래프 뷰에서 대화 간의 연결 관계를 시각적으로 탐색합니다."
+          }
+        },
+        "architecture": {
+          "title": "아키텍처",
+          "description": "GraphNode는 클라이언트-서버 아키텍처를 사용합니다.",
+          "client": "클라이언트",
+          "server": "서버",
+          "electron": "Electron 38+ 데스크톱 앱",
+          "reactTs": "React 19 + TypeScript + Vite",
+          "zustandState": "Zustand 상태 관리",
+          "threejsD3": "Three.js + D3-Force 3D 시각화",
+          "indexedDb": "IndexedDB (Dexie.js) 오프라인 저장소",
+          "tiptapEditor": "Tiptap 리치 텍스트 에디터",
+          "nodeExpress": "Node.js + Express 5",
+          "postgresPrisma": "PostgreSQL + Prisma ORM",
+          "mongoDb": "MongoDB Atlas",
+          "chromaDb": "ChromaDB 벡터 검색",
+          "redisEvents": "Redis 이벤트 버스",
+          "awsS3Sqs": "AWS S3 + SQS"
+        },
+        "support": {
+          "title": "지원",
+          "description": "문제가 발생하거나 질문이 있으신 경우 아래 채널을 이용해 주세요.",
+          "githubIssues": "GitHub Issues",
+          "githubIssuesDesc": "버그 리포트 및 기능 요청",
+          "email": "Email"
+        }
       }
     }
   },

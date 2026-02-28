@@ -8,6 +8,7 @@ import DocsLayout from "./routes/dev/docs/DocsLayout";
 import DocsIntro from "./routes/dev/docs/Intro";
 import DocsChangeLog from "./routes/dev/docs/ChangeLog";
 import DocsApiReference from "./routes/dev/docs/ApiReference";
+import DocsMCP from "./routes/dev/docs/MCP";
 import InteractionsOverview from "./routes/dev/docs/interactions/Overview";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="intro" element={<DocsIntro />} />
           <Route path="change-log" element={<DocsChangeLog />} />
           <Route path="api-reference" element={<DocsApiReference />} />
+          <Route path="mcp" element={<DocsMCP />} />
           <Route
             path="interactions/overview"
             element={<InteractionsOverview />}

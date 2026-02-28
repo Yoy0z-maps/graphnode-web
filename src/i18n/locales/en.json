@@ -181,6 +181,288 @@
       "interactionsOverview": {
         "title": "Interactions Overview",
         "description": "Learn about interactions in GraphNode."
+      },
+      "search": {
+        "toNavigate": "to navigate",
+        "toSelect": "to select",
+        "introduction": "Introduction",
+        "overview": "Overview",
+        "features": "Key Features",
+        "gettingStarted": "Getting Started",
+        "architecture": "Architecture",
+        "changeLog": "Change Log",
+        "apiReference": "API Reference",
+        "installation": "Installation",
+        "clientInit": "Client Initialization",
+        "sdkModules": "SDK Modules",
+        "userModule": "User (me)",
+        "aiChat": "AI Chat (ai)",
+        "conversations": "Conversation Management",
+        "graph": "Graph",
+        "notes": "Notes",
+        "sync": "Sync",
+        "restApi": "REST API",
+        "mcp": "MCP",
+        "customMcp": "Custom MCP Server",
+        "addMcp": "Add MCP Server",
+        "githubMcp": "GitHub MCP",
+        "sqliteMcp": "SQLite MCP",
+        "puppeteerMcp": "Puppeteer MCP",
+        "mcpServerList": "Official MCP Server List",
+        "interactionsOverview": "Interactions Overview"
+      },
+      "mcp": {
+        "title": "MCP (Model Context Protocol)",
+        "description": "MCP is a protocol that allows AI assistants to extend their capabilities by connecting to external tools and data sources. When you connect an MCP server in GraphNode, AI can access file systems, databases, external APIs, and more.",
+        "toc": "Table of Contents",
+        "customMcp": {
+          "title": "Create and Register Custom MCP Server",
+          "description": "To create your own MCP server, start by creating a Node.js project.",
+          "indexJs": "Create index.js:",
+          "packageJson": "Modify package.json:",
+          "register": "Register in GraphNode:"
+        },
+        "addMethod": {
+          "title": "How to Add Custom MCP Server",
+          "description": "You can add custom servers after enabling Settings → MCP Servers → Developer Mode."
+        },
+        "examples": {
+          "title": "MCP Server Examples"
+        },
+        "github": {
+          "title": "GitHub MCP Server",
+          "description": "MCP server for accessing GitHub repositories.",
+          "tokenTitle": "How to get GitHub Token:",
+          "step1": "GitHub → Settings → Developer settings → Personal access tokens",
+          "step2": "Click \"Generate new token (classic)\"",
+          "step3": "Select required permissions (repo, read:user, etc.)"
+        },
+        "sqlite": {
+          "title": "SQLite Database MCP",
+          "description": "MCP for accessing local SQLite databases."
+        },
+        "puppeteer": {
+          "title": "Puppeteer (Web Automation) MCP",
+          "description": "MCP for web page scraping and automation."
+        },
+        "serverList": {
+          "title": "Useful Official MCP Server List",
+          "server": "Server",
+          "package": "Package",
+          "descriptionCol": "Description",
+          "filesystem": "Local file access",
+          "githubApi": "GitHub API",
+          "gitlabApi": "GitLab API",
+          "slack": "Slack messages",
+          "gdrive": "Google Drive",
+          "postgres": "PostgreSQL DB",
+          "sqliteDb": "SQLite DB",
+          "memory": "Conversation memory storage",
+          "braveSearch": "Web search",
+          "puppeteerDesc": "Web automation",
+          "fetch": "HTTP requests",
+          "fullList": "Full list:"
+        }
+      },
+      "api": {
+        "title": "API Reference",
+        "toc": "Table of Contents",
+        "version": "Version:",
+        "latest": "Latest",
+        "description": "GraphNode SDK is the official client library for TypeScript/JavaScript developers. It provides cookie-based session authentication and comprehensive API coverage.",
+        "packageInfo": "Package Info",
+        "package": "Package:",
+        "license": "License:",
+        "nodeRequirement": "Node Requirement:",
+        "installation": "Installation",
+        "clientInit": "Client Initialization",
+        "sdkModules": "SDK Modules",
+        "sdkModulesDesc": "The SDK consists of 8 main modules.",
+        "modules": {
+          "me": {
+            "title": "User (client.me)",
+            "description": "User-related features including profile, API keys, and language settings"
+          },
+          "ai": {
+            "title": "AI Chat (client.ai)",
+            "description": "AI conversation with streaming support",
+            "supportedModels": "Supported Models:",
+            "openai": "OpenAI GPT models",
+            "claude": "Anthropic Claude models",
+            "gemini": "Google Gemini models",
+            "deepseek": "DeepSeek models"
+          },
+          "conversations": {
+            "title": "Conversation Management (client.conversations)",
+            "description": "Conversation CRUD, soft/hard delete functionality"
+          },
+          "graph": {
+            "title": "Graph (client.graph)",
+            "description": "Node, edge, cluster management and AI-based graph generation"
+          },
+          "notes": {
+            "title": "Notes (client.notes)",
+            "description": "Note and folder management"
+          },
+          "sync": {
+            "title": "Sync (client.sync)",
+            "description": "Client-server change synchronization"
+          }
+        },
+        "restApi": {
+          "title": "REST API Endpoints",
+          "description": "You can call REST APIs directly without the SDK. Base URL:",
+          "method": "Method",
+          "endpoint": "Endpoint",
+          "descriptionCol": "Description",
+          "auth": "Authentication",
+          "healthCheck": "Health check",
+          "googleOAuthStart": "Start Google OAuth",
+          "oauthCallback": "OAuth callback",
+          "logout": "Logout",
+          "userNotifications": "User & Notifications",
+          "loginStatus": "Check login status",
+          "sseNotificationStream": "SSE notification stream",
+          "fcmTokenRegister": "Register FCM token",
+          "fcmTokenUnregister": "Unregister FCM token",
+          "conversations": "Conversations",
+          "createConversation": "Create conversation",
+          "bulkCreateConversation": "Bulk create conversations",
+          "listConversations": "List conversations",
+          "getConversation": "Get specific conversation",
+          "updateConversation": "Update conversation",
+          "deleteConversation": "Delete conversation",
+          "restoreConversation": "Restore conversation",
+          "messages": "Messages",
+          "createMessage": "Create message",
+          "updateMessage": "Update message",
+          "deleteMessage": "Delete message",
+          "aiChatStreaming": "AI chat (streaming)",
+          "downloadAiFile": "Download AI file",
+          "graphNodes": "Graph Nodes",
+          "createUpdateNode": "Create/update node",
+          "getAllNodes": "Get all nodes",
+          "getNode": "Get specific node",
+          "updateNode": "Update node",
+          "deleteNode": "Delete node",
+          "deleteNodeCascade": "Delete node and connected edges",
+          "restoreNode": "Restore node",
+          "graphEdges": "Graph Edges",
+          "createUpdateEdge": "Create/update edge",
+          "getAllEdges": "Get all edges",
+          "deleteEdge": "Delete edge",
+          "restoreEdge": "Restore edge",
+          "clusters": "Clusters",
+          "createUpdateCluster": "Create/update cluster",
+          "getAllClusters": "Get all clusters",
+          "getCluster": "Get specific cluster",
+          "deleteCluster": "Delete cluster",
+          "deleteClusterCascade": "Delete cluster and contained nodes/edges",
+          "restoreCluster": "Restore cluster",
+          "createUpdateSubcluster": "Create/update subcluster",
+          "getSubclusters": "Get subclusters",
+          "graphStats": "Graph statistics",
+          "getSnapshot": "Get graph snapshot",
+          "saveSnapshot": "Save graph snapshot",
+          "notesFolders": "Notes & Folders",
+          "createNote": "Create note",
+          "listNotes": "List notes",
+          "getNote": "Get specific note",
+          "updateNote": "Update note",
+          "deleteNote": "Delete note",
+          "restoreNote": "Restore note",
+          "createFolder": "Create folder",
+          "listFolders": "List folders",
+          "updateFolder": "Update folder",
+          "deleteFolder": "Delete folder",
+          "sync": "Sync",
+          "pullChanges": "Pull server changes (since parameter)",
+          "pushChanges": "Push client changes (Idempotency-Key required)"
+        },
+        "externalResources": "External Resources",
+        "npmPackage": "NPM Package",
+        "githubRepo": "GitHub Repository",
+        "openApiDocs": "OpenAPI Documentation"
+      },
+      "introPage": {
+        "title": "Introduction",
+        "description": "GraphNode is a platform for visualizing and managing AI conversations as knowledge graphs. By understanding the context and relationships between conversations, you can gain better insights.",
+        "toc": "Table of Contents",
+        "overview": {
+          "title": "Overview",
+          "description": "GraphNode goes beyond simply storing conversations with AI assistants - it analyzes and visualizes the connections between conversations. This allows users to understand their thought patterns and explore related topics.",
+          "aiModels": "AI Models Supported",
+          "realtime": "Real-time",
+          "graphSync": "Graph Sync",
+          "mcpExtension": "Extension Support"
+        },
+        "features": {
+          "title": "Key Features",
+          "aiChat": {
+            "title": "AI Chat",
+            "description": "Chat with various AI models including OpenAI, Claude, Gemini, and DeepSeek. Streaming support allows real-time response viewing."
+          },
+          "knowledgeGraph": {
+            "title": "Knowledge Graph",
+            "description": "Conversations are automatically converted to nodes, and related conversations are connected by edges. Similar topics are grouped through clustering."
+          },
+          "mcpExtension": {
+            "title": "MCP Extension",
+            "description": "Through Model Context Protocol, AI can access external tools. Integration with GitHub, databases, file systems, and more is possible."
+          },
+          "noteManagement": {
+            "title": "Note Management",
+            "description": "Organize insights from conversations into notes and folders. Markdown is supported."
+          },
+          "realtimeSync": {
+            "title": "Real-time Sync",
+            "description": "All data is synchronized to the cloud in real-time. Access the same data across multiple devices."
+          }
+        },
+        "gettingStarted": {
+          "title": "Getting Started",
+          "step1": {
+            "title": "Download App",
+            "description": "Download the desktop app for Windows, macOS, or Linux."
+          },
+          "step2": {
+            "title": "Google Login",
+            "description": "Sign in with your Google account to get started."
+          },
+          "step3": {
+            "title": "Start Conversation",
+            "description": "Select your preferred AI model and start a conversation. Conversations are automatically converted to graphs."
+          },
+          "step4": {
+            "title": "Explore Graph",
+            "description": "Visually explore the connections between conversations in the graph view."
+          }
+        },
+        "architecture": {
+          "title": "Architecture",
+          "description": "GraphNode uses a client-server architecture.",
+          "client": "Client",
+          "server": "Server",
+          "electron": "Electron 38+ Desktop App",
+          "reactTs": "React 19 + TypeScript + Vite",
+          "zustandState": "Zustand State Management",
+          "threejsD3": "Three.js + D3-Force 3D Visualization",
+          "indexedDb": "IndexedDB (Dexie.js) Offline Storage",
+          "tiptapEditor": "Tiptap Rich Text Editor",
+          "nodeExpress": "Node.js + Express 5",
+          "postgresPrisma": "PostgreSQL + Prisma ORM",
+          "mongoDb": "MongoDB Atlas",
+          "chromaDb": "ChromaDB Vector Search",
+          "redisEvents": "Redis Event Bus",
+          "awsS3Sqs": "AWS S3 + SQS"
+        },
+        "support": {
+          "title": "Support",
+          "description": "If you encounter issues or have questions, please use the channels below.",
+          "githubIssues": "GitHub Issues",
+          "githubIssuesDesc": "Bug reports and feature requests",
+          "email": "Email"
+        }
       }
     }
   },

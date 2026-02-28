@@ -1,20 +1,22 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "@/contexts/ThemeContext";
 import logo from "@/assets/icons/logo.svg";
 
 export default function Header() {
-  const [isDark, setIsDark] = useState(true);
+  const { isDark, toggleTheme } = useTheme();
   const { t } = useTranslation();
 
   return (
-    <header className="h-14 bg-[#2c2f33] border-b border-gray-700 flex items-center justify-between px-4">
+    <header className="h-14 bg-white dark:bg-[#2c2f33] border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-4">
       <div className="flex items-center gap-3">
         <img src={logo} alt="logo" className="w-6 h-6" />
-        <span className="font-semibold text-lg">{t("dev.header.title")}</span>
+        <span className="font-semibold text-lg text-gray-900 dark:text-white">
+          {t("dev.header.title")}
+        </span>
       </div>
       <button
-        onClick={() => setIsDark(!isDark)}
-        className="p-2 rounded hover:bg-gray-700 transition-colors"
+        onClick={toggleTheme}
+        className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300"
         title={isDark ? t("dev.header.lightMode") : t("dev.header.darkMode")}
       >
         {isDark ? (

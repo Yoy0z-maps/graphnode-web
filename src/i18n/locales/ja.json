@@ -181,6 +181,288 @@
       "interactionsOverview": {
         "title": "インタラクション概要",
         "description": "GraphNode のインタラクションについて学びましょう。"
+      },
+      "search": {
+        "toNavigate": "ナビゲート",
+        "toSelect": "選択",
+        "introduction": "はじめに",
+        "overview": "概要",
+        "features": "主要機能",
+        "gettingStarted": "始め方",
+        "architecture": "アーキテクチャ",
+        "changeLog": "変更履歴",
+        "apiReference": "API リファレンス",
+        "installation": "インストール",
+        "clientInit": "クライアント初期化",
+        "sdkModules": "SDK モジュール",
+        "userModule": "ユーザー (me)",
+        "aiChat": "AI チャット (ai)",
+        "conversations": "会話管理",
+        "graph": "グラフ",
+        "notes": "ノート",
+        "sync": "同期",
+        "restApi": "REST API",
+        "mcp": "MCP",
+        "customMcp": "カスタム MCP サーバー作成",
+        "addMcp": "MCP サーバー追加方法",
+        "githubMcp": "GitHub MCP",
+        "sqliteMcp": "SQLite MCP",
+        "puppeteerMcp": "Puppeteer MCP",
+        "mcpServerList": "公式 MCP サーバー一覧",
+        "interactionsOverview": "インタラクション概要"
+      },
+      "mcp": {
+        "title": "MCP (Model Context Protocol)",
+        "description": "MCP は AI アシスタントが外部ツールやデータソースに接続して機能を拡張できるプロトコルです。GraphNode で MCP サーバーを接続すると、AI がファイルシステム、データベース、外部 API などにアクセスできます。",
+        "toc": "目次",
+        "customMcp": {
+          "title": "カスタム MCP サーバーの作成と登録",
+          "description": "MCP サーバーを自作するには、Node.js プロジェクトを作成します。",
+          "indexJs": "index.js を作成:",
+          "packageJson": "package.json を修正:",
+          "register": "GraphNode に登録:"
+        },
+        "addMethod": {
+          "title": "カスタム MCP サーバーの追加方法",
+          "description": "Settings → MCP Servers → Developer Mode を有効にしてから、カスタムサーバーを追加できます。"
+        },
+        "examples": {
+          "title": "MCP サーバーの例"
+        },
+        "github": {
+          "title": "GitHub MCP サーバー",
+          "description": "GitHub リポジトリにアクセスするための MCP サーバーです。",
+          "tokenTitle": "GitHub Token の取得方法:",
+          "step1": "GitHub → Settings → Developer settings → Personal access tokens",
+          "step2": "「Generate new token (classic)」をクリック",
+          "step3": "必要な権限を選択 (repo, read:user など)"
+        },
+        "sqlite": {
+          "title": "SQLite データベース MCP",
+          "description": "ローカル SQLite DB にアクセスする MCP です。"
+        },
+        "puppeteer": {
+          "title": "Puppeteer (Web 自動化) MCP",
+          "description": "Web ページのスクレイピング/自動化のための MCP です。"
+        },
+        "serverList": {
+          "title": "便利な公式 MCP サーバー一覧",
+          "server": "サーバー",
+          "package": "パッケージ",
+          "descriptionCol": "説明",
+          "filesystem": "ローカルファイルアクセス",
+          "githubApi": "GitHub API",
+          "gitlabApi": "GitLab API",
+          "slack": "Slack メッセージ",
+          "gdrive": "Google ドライブ",
+          "postgres": "PostgreSQL DB",
+          "sqliteDb": "SQLite DB",
+          "memory": "会話メモリ保存",
+          "braveSearch": "Web 検索",
+          "puppeteerDesc": "Web 自動化",
+          "fetch": "HTTP リクエスト",
+          "fullList": "全リスト:"
+        }
+      },
+      "api": {
+        "title": "API リファレンス",
+        "toc": "目次",
+        "version": "バージョン:",
+        "latest": "最新",
+        "description": "GraphNode SDK は TypeScript/JavaScript 開発者向けの公式クライアントライブラリです。Cookie ベースのセッション認証と包括的な API カバレッジを提供します。",
+        "packageInfo": "パッケージ情報",
+        "package": "パッケージ:",
+        "license": "ライセンス:",
+        "nodeRequirement": "Node 要件:",
+        "installation": "インストール",
+        "clientInit": "クライアント初期化",
+        "sdkModules": "SDK モジュール",
+        "sdkModulesDesc": "SDK は 8 つの主要モジュールで構成されています。",
+        "modules": {
+          "me": {
+            "title": "ユーザー (client.me)",
+            "description": "プロフィール、API キー、言語設定などのユーザー関連機能"
+          },
+          "ai": {
+            "title": "AI チャット (client.ai)",
+            "description": "ストリーミング対応 AI 会話機能",
+            "supportedModels": "対応モデル:",
+            "openai": "OpenAI GPT モデル",
+            "claude": "Anthropic Claude モデル",
+            "gemini": "Google Gemini モデル",
+            "deepseek": "DeepSeek モデル"
+          },
+          "conversations": {
+            "title": "会話管理 (client.conversations)",
+            "description": "会話 CRUD、ソフト/ハード削除機能"
+          },
+          "graph": {
+            "title": "グラフ (client.graph)",
+            "description": "ノード、エッジ、クラスター管理および AI ベースのグラフ生成"
+          },
+          "notes": {
+            "title": "ノート (client.notes)",
+            "description": "ノートとフォルダ管理"
+          },
+          "sync": {
+            "title": "同期 (client.sync)",
+            "description": "クライアント・サーバー間の変更同期"
+          }
+        },
+        "restApi": {
+          "title": "REST API エンドポイント",
+          "description": "SDK なしで直接 REST API を呼び出すことができます。ベース URL:",
+          "method": "メソッド",
+          "endpoint": "エンドポイント",
+          "descriptionCol": "説明",
+          "auth": "認証",
+          "healthCheck": "ヘルスチェック",
+          "googleOAuthStart": "Google OAuth 開始",
+          "oauthCallback": "OAuth コールバック",
+          "logout": "ログアウト",
+          "userNotifications": "ユーザー & 通知",
+          "loginStatus": "ログイン状態確認",
+          "sseNotificationStream": "SSE 通知ストリーム",
+          "fcmTokenRegister": "FCM トークン登録",
+          "fcmTokenUnregister": "FCM トークン解除",
+          "conversations": "会話",
+          "createConversation": "会話作成",
+          "bulkCreateConversation": "会話一括作成",
+          "listConversations": "会話一覧取得",
+          "getConversation": "特定会話取得",
+          "updateConversation": "会話更新",
+          "deleteConversation": "会話削除",
+          "restoreConversation": "会話復元",
+          "messages": "メッセージ",
+          "createMessage": "メッセージ作成",
+          "updateMessage": "メッセージ更新",
+          "deleteMessage": "メッセージ削除",
+          "aiChatStreaming": "AI チャット (ストリーミング)",
+          "downloadAiFile": "AI ファイルダウンロード",
+          "graphNodes": "グラフノード",
+          "createUpdateNode": "ノード作成/更新",
+          "getAllNodes": "全ノード取得",
+          "getNode": "特定ノード取得",
+          "updateNode": "ノード更新",
+          "deleteNode": "ノード削除",
+          "deleteNodeCascade": "ノードと接続エッジ削除",
+          "restoreNode": "ノード復元",
+          "graphEdges": "グラフエッジ",
+          "createUpdateEdge": "エッジ作成/更新",
+          "getAllEdges": "全エッジ取得",
+          "deleteEdge": "エッジ削除",
+          "restoreEdge": "エッジ復元",
+          "clusters": "クラスター",
+          "createUpdateCluster": "クラスター作成/更新",
+          "getAllClusters": "全クラスター取得",
+          "getCluster": "特定クラスター取得",
+          "deleteCluster": "クラスター削除",
+          "deleteClusterCascade": "クラスターと含まれるノード/エッジ削除",
+          "restoreCluster": "クラスター復元",
+          "createUpdateSubcluster": "サブクラスター作成/更新",
+          "getSubclusters": "サブクラスター取得",
+          "graphStats": "グラフ統計",
+          "getSnapshot": "グラフスナップショット取得",
+          "saveSnapshot": "グラフスナップショット保存",
+          "notesFolders": "ノート & フォルダ",
+          "createNote": "ノート作成",
+          "listNotes": "ノート一覧取得",
+          "getNote": "特定ノート取得",
+          "updateNote": "ノート更新",
+          "deleteNote": "ノート削除",
+          "restoreNote": "ノート復元",
+          "createFolder": "フォルダ作成",
+          "listFolders": "フォルダ一覧取得",
+          "updateFolder": "フォルダ更新",
+          "deleteFolder": "フォルダ削除",
+          "sync": "同期",
+          "pullChanges": "サーバー変更取得 (since パラメータ)",
+          "pushChanges": "クライアント変更適用 (Idempotency-Key 必須)"
+        },
+        "externalResources": "外部リソース",
+        "npmPackage": "NPM パッケージ",
+        "githubRepo": "GitHub リポジトリ",
+        "openApiDocs": "OpenAPI ドキュメント"
+      },
+      "introPage": {
+        "title": "はじめに",
+        "description": "GraphNode は AI 会話をナレッジグラフとして可視化・管理するプラットフォームです。会話のコンテキストと関係を把握し、より良いインサイトを得ることができます。",
+        "toc": "目次",
+        "overview": {
+          "title": "概要",
+          "description": "GraphNode は AI アシスタントとの会話を単に保存するだけでなく、会話間の接続関係を分析して可視化します。これにより、ユーザーは自分の思考の流れを把握し、関連するトピックを探索できます。",
+          "aiModels": "対応 AI モデル",
+          "realtime": "リアルタイム",
+          "graphSync": "グラフ同期",
+          "mcpExtension": "拡張サポート"
+        },
+        "features": {
+          "title": "主要機能",
+          "aiChat": {
+            "title": "AI チャット",
+            "description": "OpenAI、Claude、Gemini、DeepSeek など様々な AI モデルと会話できます。ストリーミングに対応し、リアルタイムで応答を確認できます。"
+          },
+          "knowledgeGraph": {
+            "title": "ナレッジグラフ",
+            "description": "会話は自動的にノードに変換され、関連する会話がエッジで接続されます。クラスタリングにより類似のトピックがグループ化されます。"
+          },
+          "mcpExtension": {
+            "title": "MCP 拡張",
+            "description": "Model Context Protocol を通じて AI が外部ツールにアクセスできます。GitHub、データベース、ファイルシステムなどとの連携が可能です。"
+          },
+          "noteManagement": {
+            "title": "ノート管理",
+            "description": "会話から得たインサイトをノートに整理し、フォルダで構成できます。Markdown に対応しています。"
+          },
+          "realtimeSync": {
+            "title": "リアルタイム同期",
+            "description": "すべてのデータはクラウドにリアルタイムで同期されます。複数のデバイスから同じデータにアクセスできます。"
+          }
+        },
+        "gettingStarted": {
+          "title": "始め方",
+          "step1": {
+            "title": "アプリダウンロード",
+            "description": "Windows、macOS、Linux 用のデスクトップアプリをダウンロードします。"
+          },
+          "step2": {
+            "title": "Google ログイン",
+            "description": "Google アカウントでログインして開始します。"
+          },
+          "step3": {
+            "title": "会話開始",
+            "description": "お好みの AI モデルを選択して会話を開始します。会話は自動的にグラフに変換されます。"
+          },
+          "step4": {
+            "title": "グラフ探索",
+            "description": "グラフビューで会話間の接続関係を視覚的に探索します。"
+          }
+        },
+        "architecture": {
+          "title": "アーキテクチャ",
+          "description": "GraphNode はクライアント・サーバーアーキテクチャを使用しています。",
+          "client": "クライアント",
+          "server": "サーバー",
+          "electron": "Electron 38+ デスクトップアプリ",
+          "reactTs": "React 19 + TypeScript + Vite",
+          "zustandState": "Zustand 状態管理",
+          "threejsD3": "Three.js + D3-Force 3D 可視化",
+          "indexedDb": "IndexedDB (Dexie.js) オフラインストレージ",
+          "tiptapEditor": "Tiptap リッチテキストエディター",
+          "nodeExpress": "Node.js + Express 5",
+          "postgresPrisma": "PostgreSQL + Prisma ORM",
+          "mongoDb": "MongoDB Atlas",
+          "chromaDb": "ChromaDB ベクトル検索",
+          "redisEvents": "Redis イベントバス",
+          "awsS3Sqs": "AWS S3 + SQS"
+        },
+        "support": {
+          "title": "サポート",
+          "description": "問題が発生した場合やご質問がある場合は、以下のチャンネルをご利用ください。",
+          "githubIssues": "GitHub Issues",
+          "githubIssuesDesc": "バグレポートと機能リクエスト",
+          "email": "メール"
+        }
       }
     }
   },
