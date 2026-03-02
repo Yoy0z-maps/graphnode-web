@@ -1,5 +1,5 @@
 import { Highlight, themes } from "prism-react-renderer";
-import { useTheme } from "@/contexts/ThemeContext";
+import { useTheme } from "@/contexts/useTheme";
 
 interface CodeBlockProps {
   code: string;

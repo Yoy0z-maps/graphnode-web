@@ -233,9 +233,7 @@
           "title": "GitHub MCP 服务器",
           "description": "用于访问 GitHub 仓库的 MCP 服务器。",
           "tokenTitle": "如何获取 GitHub Token：",
-          "step1": "GitHub → Settings → Developer settings → Personal access tokens",
-          "step2": "点击 \"Generate new token (classic)\"",
-          "step3": "选择所需权限 (repo, read:user 等)"
+          "tokenLinkText": "详细步骤请参阅官方文档。"
         },
         "sqlite": {
           "title": "SQLite 数据库 MCP",

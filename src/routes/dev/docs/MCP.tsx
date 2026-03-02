@@ -187,11 +187,16 @@ await server.connect(transport);`;
             <p className="font-semibold text-gray-700 dark:text-gray-300 mb-2">
               {t("dev.docs.mcp.github.tokenTitle")}
             </p>
-            <ol className="list-decimal list-inside space-y-1">
-              <li>{t("dev.docs.mcp.github.step1")}</li>
-              <li>{t("dev.docs.mcp.github.step2")}</li>
-              <li>{t("dev.docs.mcp.github.step3")}</li>
-            </ol>
+            <p>
+              <a
+                href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                {t("dev.docs.mcp.github.tokenLinkText")}
+              </a>
+            </p>
           </div>
         </section>
 

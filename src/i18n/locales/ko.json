@@ -233,9 +233,7 @@
           "title": "GitHub MCP 서버",
           "description": "GitHub 저장소 접근을 위한 MCP 서버입니다.",
           "tokenTitle": "GitHub Token 발급:",
-          "step1": "GitHub → Settings → Developer settings → Personal access tokens",
-          "step2": "\"Generate new token (classic)\" 클릭",
-          "step3": "필요한 권한 선택 (repo, read:user 등)"
+          "tokenLinkText": "공식 문서에서 자세한 발급 방법을 확인하세요."
         },
         "sqlite": {
           "title": "SQLite 데이터베이스 MCP",

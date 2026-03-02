@@ -233,9 +233,7 @@
           "title": "GitHub MCP サーバー",
           "description": "GitHub リポジトリにアクセスするための MCP サーバーです。",
           "tokenTitle": "GitHub Token の取得方法:",
-          "step1": "GitHub → Settings → Developer settings → Personal access tokens",
-          "step2": "「Generate new token (classic)」をクリック",
-          "step3": "必要な権限を選択 (repo, read:user など)"
+          "tokenLinkText": "詳細な手順は公式ドキュメントをご覧ください。"
         },
         "sqlite": {
           "title": "SQLite データベース MCP",

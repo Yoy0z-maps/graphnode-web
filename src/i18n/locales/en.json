@@ -233,9 +233,7 @@
           "title": "GitHub MCP Server",
           "description": "MCP server for accessing GitHub repositories.",
           "tokenTitle": "How to get GitHub Token:",
-          "step1": "GitHub → Settings → Developer settings → Personal access tokens",
-          "step2": "Click \"Generate new token (classic)\"",
-          "step3": "Select required permissions (repo, read:user, etc.)"
+          "tokenLinkText": "See the official documentation for detailed instructions."
         },
         "sqlite": {
           "title": "SQLite Database MCP",
