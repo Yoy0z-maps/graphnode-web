@@ -121,10 +121,18 @@ export default function DataPrivacyPanel() {
           handleClearTarget={handleClearNotes}
         />
       </div>
+      <button
+        onClick={() => {
+          resetOnboarding();
+          startOnboarding();
+        }}
+        className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors w-fit"
+      >
+        restart onboarding
+      </button>
+      {/* Dev Tools - 개발 테스트용 (주석 처리)
 
-      {/* Dev Tools - 개발 테스트용 (주석 처리) */}
-
-      {/* <div className="mt-8">
+      <div className="mt-8">
         <SettingCategoryTitle
           title="Developer Tools"
           subtitle="For testing purposes only"

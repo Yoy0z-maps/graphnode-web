@@ -1,11 +1,11 @@
 {
-  "1.0.0": {
+  "0.1.0": {
     "date": "2025-03-02",
     "title": {
-      "ko": "GraphNode 2.0 출시",
-      "en": "GraphNode 2.0 Release",
-      "ja": "GraphNode 2.0 リリース",
-      "zh": "GraphNode 2.0 发布"
+      "ko": "GraphNode 0.1.0 출시",
+      "en": "GraphNode 0.1.0 Release",
+      "ja": "GraphNode 0.1.0 リリース",
+      "zh": "GraphNode 0.1.0 发布"
     },
     "features": {
       "ko": [
