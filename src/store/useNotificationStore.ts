@@ -42,7 +42,6 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
     // 그래프 생성 상태 업데이트
     if (event.type === "GRAPH_GENERATION_REQUESTED") {
       useGraphGenerationStore.getState().setGenerating(true);
-      return; // 알림 목록에는 추가하지 않음
     }
 
     if (
@@ -122,6 +121,11 @@ function getNotificationContent(notification: Notification): {
   const t = i18n.t.bind(i18n);
 
   switch (notification.type) {
+    case "GRAPH_GENERATION_REQUESTED":
+      return {
+        title: t("notification.graphGeneration.requestedTitle", "Graph Generation Started"),
+        body: t("notification.graphGeneration.requestedBody", "Graph generation has started. Please wait."),
+      };
     case "GRAPH_GENERATION_COMPLETED":
       return {
         title: t("notification.graphGeneration.completedTitle", "Graph Generation Complete"),

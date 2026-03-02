@@ -110,6 +110,9 @@
       "generate": "グラフを生成",
       "generating": "生成中...",
       "generatingNotice": "生成が完了したら通知します。アプリを閉じないでください。",
+      "generatingHelp": "グラフ生成開始の通知を受け取れませんでしたか？または生成に時間がかかりすぎていますか？データ量によって通常10〜30分かかります。100MB以上のチャット履歴の場合は1時間以上かかることがあります。",
+      "checkStatus": "グラフの状態を確認",
+      "retryGenerate": "再リクエスト",
       "notice": "グラフは保存されたチャットとメモに基づいて生成されます。チャットまたはメモがない場合、グラフは生成できません。"
     },
     "patternType": {
@@ -142,6 +145,8 @@
   },
   "notification": {
     "graphGeneration": {
+      "requestedTitle": "グラフ生成開始",
+      "requestedBody": "グラフの生成が開始されました。しばらくお待ちください。",
       "completedTitle": "グラフ生成完了",
       "completedBody": "グラフが正常に生成されました。（ノード: {{nodeCount}}、エッジ: {{edgeCount}}）"
     },

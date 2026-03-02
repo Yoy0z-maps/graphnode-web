@@ -110,6 +110,9 @@
       "generate": "그래프 생성",
       "generating": "생성 중...",
       "generatingNotice": "생성이 완료되면 알림을 보내드립니다. 앱을 종료하지 마세요.",
+      "generatingHelp": "그래프 생성 시작 알림을 못 받으셨거나, 생성에 너무 오랜 시간이 걸리나요? 일반적으로 데이터 양에 따라 10~30분, 100MB 이상의 채팅 내역이라면 1시간 이상이 소요될 수 있습니다.",
+      "checkStatus": "내 그래프 상태 확인하기",
+      "retryGenerate": "다시 요청하기",
       "notice": "그래프는 저장된 채팅과 노트를 기반으로 생성됩니다. 채팅이나 노트가 없으면 그래프를 생성할 수 없습니다."
     },
     "patternType": {
@@ -142,6 +145,8 @@
   },
   "notification": {
     "graphGeneration": {
+      "requestedTitle": "그래프 생성 시작",
+      "requestedBody": "그래프 생성이 시작되었습니다. 잠시만 기다려주세요.",
       "completedTitle": "그래프 생성 완료",
       "completedBody": "그래프가 성공적으로 생성되었습니다. (노드: {{nodeCount}}, 엣지: {{edgeCount}})"
     },
