@@ -11,7 +11,6 @@ import { Me } from "@/types/Me";
 
 export default function Settings({ userInfo }: { userInfo: Me }) {
   const { selectedCategory, setSelectedCategory } = useSidebarSettingsStore();
-  console.log(userInfo);
 
   useEffect(() => {
     return () => {

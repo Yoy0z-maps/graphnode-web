@@ -31,6 +31,8 @@ import Toaster from "./components/Toaster";
 import { useNotificationConnection } from "./hooks/useNotification";
 import { useSettingsStore } from "./store/useSettingsStore";
 import { loadAndApplyGraphColors } from "./utils/graphColors";
+import { useChangelogStore } from "./store/useChangelogStore";
+import ChangelogModal from "./components/changelog/ChangelogModal";
 
 export default function App() {
   return (
@@ -55,11 +57,23 @@ function MainLayout() {
   // SSE 알림 연결
   useNotificationConnection();
 
+  // Changelog 모달 상태
+  const { lastSeenVersion, setModalOpen } = useChangelogStore();
+
   // 설정 로드
   useEffect(() => {
     useSettingsStore.getState().loadSettings();
     loadAndApplyGraphColors(); // 커스텀 그래프 색상 로드
   }, []);
+
+  // 버전 체크 및 Changelog 모달 표시
+  useEffect(() => {
+    const currentVersion = __APP_VERSION__;
+    // 온보딩이 완료되지 않았으면 Changelog 모달 표시하지 않음
+    if (hasCompletedOnboarding && lastSeenVersion !== currentVersion) {
+      setModalOpen(true);
+    }
+  }, [lastSeenVersion, setModalOpen, hasCompletedOnboarding]);
 
   // 휴지통 만료 항목 정리
   useEffect(() => {
@@ -212,6 +226,7 @@ function MainLayout() {
         {!isVisualizePage && <AgentToolTipButton setIsOpen={setIsOpen} />}
         {isOpen && <AiAgentChatBox setIsOpen={setIsOpen} />}
         <Toaster />
+        <ChangelogModal />
       </div>
     </div>
   );

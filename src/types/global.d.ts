@@ -13,6 +13,7 @@ export {};
 type Result<T> = { ok: true; data: T } | { ok: false; error: string };
 
 declare global {
+  const __APP_VERSION__: string;
   interface File {
     path?: string;
   }
