@@ -6,6 +6,7 @@ import AppearancePanel from "@/components/settings/AppearancePanel";
 import NotificationPanel from "@/components/settings/NotificationPanel";
 import KeybindsPanel from "@/components/settings/KeybindsPanel";
 import LanguageTimePanel from "@/components/settings/LanguageTimePanel";
+import MCPPanel from "@/components/settings/MCPPanel";
 import { Me } from "@/types/Me";
 
 export default function Settings({ userInfo }: { userInfo: Me }) {
@@ -31,6 +32,8 @@ export default function Settings({ userInfo }: { userInfo: Me }) {
       return <KeybindsPanel />;
     case "language-time":
       return <LanguageTimePanel />;
+    case "mcp":
+      return <MCPPanel />;
     default:
       return <MyAccountPanel userInfo={userInfo} />;
   }

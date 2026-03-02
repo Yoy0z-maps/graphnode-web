@@ -217,7 +217,8 @@
       "appearance": "外観",
       "notification": "通知",
       "keybinds": "キーバインド",
-      "language-time": "言語と時刻"
+      "language-time": "言語と時刻",
+      "mcp": "MCPサーバー"
     },
     "feedback": "フィードバックを送る",
     "logout": "ログアウト",
@@ -318,6 +319,123 @@
         "newNote": "新しいメモを作成",
         "newFolder": "新しいフォルダを作成",
         "newChat": "新しいチャットを作成"
+      }
+    },
+    "developerMode": {
+      "title": "開発者モード",
+      "subtitle": "開発者向けの高度なカスタマイズ機能を有効化",
+      "toggle": "開発者モードを有効にする",
+      "toggleDescription": "カスタムMCPサーバーやグラフの色などの高度な機能でアプリをカスタマイズするには、開発者モードを有効にしてください。"
+    },
+    "graphColors": {
+      "title": "グラフの色",
+      "hint": "グラフのノードとエッジの色をカスタマイズ（Cmd/Ctrl + Sで保存）",
+      "preview": "プレビュー",
+      "reset": "リセット",
+      "formatTitle": "JSON形式",
+      "enableDevMode": "グラフの色をカスタマイズするには、マイアカウント設定で開発者モードを有効にしてください。",
+      "errorGraphObject": "\"graph\"はオブジェクトである必要があります",
+      "errorInvalidColor": "{{field}}の色形式が無効です（#RRGGBB形式を使用）",
+      "errorPaletteArray": "\"clusterPalette\"は配列である必要があります",
+      "errorInvalidPaletteColor": "clusterPaletteに無効な色があります"
+    },
+    "mcp": {
+      "title": "MCPサーバー",
+      "subtitle": "Model Context Protocolサーバーを管理してAI機能を拡張します",
+      "builtinSection": "組み込みサーバー",
+      "customSection": "カスタムサーバー",
+      "enableDevMode": "カスタムMCPサーバーを追加するには、マイアカウント設定で開発者モードを有効にしてください。",
+      "status": {
+        "connected": "接続済み",
+        "connecting": "接続中...",
+        "disconnected": "未接続",
+        "error": "エラー"
+      },
+      "toolsCount": "{{count}}個のツールが利用可能",
+      "configure": "設定",
+      "delete": "削除",
+      "filesystem": {
+        "title": "ファイルシステム設定",
+        "description": "AIがアクセスできるディレクトリを追加します。これらのディレクトリ内のファイルのみ読み取り可能です。",
+        "placeholder": "ディレクトリパスを入力（例：/Users/name/Documents）",
+        "examplePaths": "パスの例",
+        "noPathsAdded": "まだディレクトリが追加されていません",
+        "securityWarning": "セキュリティ：信頼できるディレクトリのみ追加してください。AIはこれらの場所のファイルを読み取ることができます。",
+        "saved": "保存して接続完了"
+      },
+      "custom": {
+        "addServer": "カスタムサーバーを追加",
+        "addTitle": "カスタムMCPサーバーを追加",
+        "noServers": "カスタムサーバーが追加されていません",
+        "name": "サーバー名",
+        "namePlaceholder": "マイカスタムサーバー",
+        "command": "コマンド",
+        "commandPlaceholder": "npx -y @example/mcp-server",
+        "args": "引数（スペース区切り）",
+        "argsPlaceholder": "--port 3000 --verbose",
+        "env": "環境変数（行ごとにKEY=VALUE）",
+        "envPlaceholder": "API_KEY=your-key\nDEBUG=true",
+        "add": "サーバーを追加",
+        "confirmDelete": "このサーバーを削除してもよろしいですか？",
+        "warning": "警告：カスタムMCPサーバーはシステム権限で実行されます。信頼できるソースからのサーバーのみ追加してください。"
+      },
+      "notion": {
+        "title": "Notion 設定",
+        "description": "Notion ワークスペースにアクセスするには API キーを入力してください。",
+        "apiKeyLabel": "Notion API キー（内部インテグレーショントークン）",
+        "apiKeyPlaceholder": "secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "howToGetKey": "API キーを取得するには、Notion で内部インテグレーションを作成し、内部インテグレーショントークンをコピーしてください。",
+        "openIntegrations": "Notion インテグレーションを開く",
+        "saved": "保存して接続完了"
+      },
+      "google": {
+        "title": "{{service}} 設定",
+        "description": "AIアシスタントが {{service}} にアクセスできるよう、Googleアカウントを接続します。",
+        "credentialsFile": "OAuth 認証情報ファイル",
+        "credentialsLoaded": "認証情報ファイルが読み込まれました",
+        "clickToChange": "クリックして別のファイルを選択",
+        "dropOrClick": "JSON ファイルをドロップするかクリックして選択",
+        "uploadFirst": "先に認証情報ファイルをアップロードしてください",
+        "credentialsPathLabel": "OAuth 認証情報 JSON ファイルパス",
+        "credentialsPathPlaceholder": "/path/to/credentials.json",
+        "credentialsPathHint": "Google Cloud Console から認証情報 JSON ファイルをダウンロードしてください",
+        "howToGetCredentials": "認証前に OAuth 認証情報を設定してください：",
+        "step1": "Google Cloud Console に移動",
+        "step2": "プロジェクトを作成または選択",
+        "step3": "必要な API を有効化（Drive/Calendar）",
+        "step4": "OAuth 2.0 デスクトップ認証情報を作成し JSON ファイルをダウンロード",
+        "openConsole": "Google Cloud Console を開く",
+        "authenticated": "接続済み",
+        "notAuthenticated": "未接続",
+        "authRequired": "このサービスを使用するには認証が必要です",
+        "connectedTo": "{{service}} に正常に接続しました",
+        "authenticate": "Google で接続",
+        "authenticating": "接続中...",
+        "disconnect": "接続を解除"
+      },
+      "vscode": {
+        "title": "VS Code 設定",
+        "description": "VS Code MCP サーバーにより、AI が VS Code ワークスペースと開いているファイルにアクセスできます。"
+      },
+      "developerMode": {
+        "title": "開発者モード",
+        "description": "カスタムMCPサーバーを追加するには開発者モードを有効にしてください"
+      },
+      "json": {
+        "hint": "JSONを編集してカスタムMCPサーバーを設定（Cmd/Ctrl + Sで保存）",
+        "saved": "保存済み",
+        "formatTitle": "JSON形式",
+        "errorParse": "無効なJSON形式です",
+        "errorMcpArray": "\"mcp\"は配列である必要があります",
+        "errorName": "サーバー{{index}}：\"name\"が必要です",
+        "errorCommand": "サーバー{{index}}：\"command\"が必要です",
+        "errorSave": "設定の保存に失敗しました"
+      },
+      "about": {
+        "title": "MCPについて",
+        "description": "Model Context Protocol（MCP）は、AIアシスタントが外部ツールやデータソースに接続し、組み込み機能を超えて機能を拡張できるようにします。",
+        "docsLink": "MCPドキュメントを見る（GraphNode）",
+        "learnMore": "MCPについて詳しく（公式）"
       }
     }
   }
