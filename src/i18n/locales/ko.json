@@ -16,6 +16,37 @@
       "appleLoginFailed": "Apple 로그인 시작에 실패했습니다."
     }
   },
+  "onboarding": {
+    "skip": "건너뛰기",
+    "next": "다음",
+    "complete": "완료",
+    "intro": {
+      "title": "당신의 지식은 지금 어디에 있나요?",
+      "subtitle": "열심히 대화하고 노트를 써도, 시간이 지나면 흔적도 없이 사라지죠.",
+      "painPoint1": "ChatGPT, Claude, Gemini 등에서 나눈 인사이트는 스크롤 저 아래 어딘가에 묻혀 있어요.",
+      "painPoint2": "Notion, Obsidian 노트는 폴더 속에 묻혀 서로 연결되지 않은 채로 방치되어 있어요.",
+      "painPoint3": "분명 어딘가에서 기록했는데, 검색해도 맥락이 없어서 찾을 수가 없어요."
+    },
+    "solution": {
+      "title": "대화와 노트가 살아있는 지식 지도로",
+      "subtitle": "GraphNode AI가 내용을 읽고, 분석하여 주제를 파악하고 자동으로 연결해요. 직접 태그 달거나 연결할 필요 없어요.",
+      "start": "시작하기"
+    },
+    "apiKey": {
+      "title": "AI와 대화하기",
+      "description": "AI와 대화를 원하시면 API 키를 설정해주세요. 키가 없어도 그래프 기능은 사용할 수 있어요.",
+      "linkText": "API 키 발급 방법 알아보기"
+    },
+    "dataImport": {
+      "title": "기존 데이터 가져오기",
+      "description": "기존 노트(마크다운 파일)나 ChatGPT 대화 기록을 드래그 앤 드롭으로 가져올 수 있어요.",
+      "linkText": "대화 내보내기 방법 알아보기"
+    },
+    "visualize": {
+      "title": "그래프 생성하기",
+      "description": "이제 '그래프 생성' 버튼을 눌러서 당신의 지식 지도를 만들어보세요!"
+    }
+  },
   "toast": {
     "apiKeyRequired": "API 키를 먼저 등록해주세요.",
     "goToSettings": "설정으로 이동"
@@ -151,6 +182,11 @@
     "noResultFound": "{{provider}} 검색 결과 없음",
     "shortcut": "단축키"
   },
+  "changelog": {
+    "newFeatures": "새로운 기능",
+    "improvements": "개선 사항",
+    "gotIt": "확인했어요!"
+  },
   "notification": {
     "graphGeneration": {
       "requestedTitle": "그래프 생성 시작",
@@ -251,7 +287,7 @@
     "logout": "로그아웃",
     "dropJsonZone": {
       "title": "드래그 & 드롭으로 JSON 파일 업로드하기",
-      "description": "여기로 conversation.json 파일을 끌어다 놓으세요",
+      "description": "conversation.json 파일을 끌어다 놓으세요",
       "maxSize": "파일 하나만 드랍 (최대 512MB 권장)",
       "uploading": "업로드(읽는 중)… {progress}%",
       "parsing": "분석(파싱) 중…",

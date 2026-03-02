@@ -137,6 +137,7 @@ export default function EmptyGraph() {
         {/* 생성 버튼 */}
         <button
           onClick={handleGenerate}
+          data-onboarding="generate-graph-button"
           className="mt-2 px-6 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium flex items-center gap-2"
         >
           {t("visualize.empty.generate")}

@@ -9,12 +9,16 @@ import { noteRepo } from "@/managers/noteRepo";
 import DropMdZone from "./DropMdZone";
 import DangerZoneItem from "./DangerZoneItem";
 import TrashPanel from "./TrashPanel";
+import { useOnboardingStore } from "@/store/useOnboardingStore";
+import { useChangelogStore } from "@/store/useChangelogStore";
 
 export default function DataPrivacyPanel() {
   const { t } = useTranslation();
   const [showChatConfirm, setShowChatConfirm] = useState(false);
   const [showNoteConfirm, setShowNoteConfirm] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const { resetOnboarding, startOnboarding } = useOnboardingStore();
+  const { resetLastSeenVersion, setModalOpen } = useChangelogStore();
 
   const handleClearChats = async () => {
     setIsDeleting(true);
@@ -42,16 +46,18 @@ export default function DataPrivacyPanel() {
   return (
     <SettingsPanelLayout>
       {/* Import Data Section */}
-      <SettingCategoryTitle
-        title={t("settings.dataPrivacy.import.title", "Import Data")}
-        subtitle={t(
-          "settings.dataPrivacy.import.subtitle",
-          "Import your data from external sources",
-        )}
-      />
-      <div className="flex flex-col gap-4 w-full">
-        <DropJsonZone />
-        <DropMdZone />
+      <div data-onboarding="data-import-section" className="w-full">
+        <SettingCategoryTitle
+          title={t("settings.dataPrivacy.import.title", "Import Data")}
+          subtitle={t(
+            "settings.dataPrivacy.import.subtitle",
+            "Import your data from external sources",
+          )}
+        />
+        <div className="flex gap-4 w-full mt-4">
+          <DropJsonZone />
+          <DropMdZone />
+        </div>
       </div>
 
       {/* Trash Section */}
@@ -118,7 +124,7 @@ export default function DataPrivacyPanel() {
 
       {/* Dev Tools - 개발 테스트용 (주석 처리) */}
 
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <SettingCategoryTitle
           title="Developer Tools"
           subtitle="For testing purposes only"
@@ -200,7 +206,25 @@ export default function DataPrivacyPanel() {
         >
           get summary
         </button>
-      </div>
+        <button
+          onClick={() => {
+            resetOnboarding();
+            startOnboarding();
+          }}
+          className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors w-fit"
+        >
+          restart onboarding
+        </button>
+        <button
+          onClick={() => {
+            resetLastSeenVersion();
+            setModalOpen(true);
+          }}
+          className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors w-fit"
+        >
+          show changelog
+        </button>
+      </div> */}
     </SettingsPanelLayout>
   );
 }

@@ -33,6 +33,8 @@ import { useSettingsStore } from "./store/useSettingsStore";
 import { loadAndApplyGraphColors } from "./utils/graphColors";
 import { useChangelogStore } from "./store/useChangelogStore";
 import ChangelogModal from "./components/changelog/ChangelogModal";
+import { useOnboardingStore } from "./store/useOnboardingStore";
+import Onboarding from "./components/onboarding/Onboarding";
 
 export default function App() {
   return (
@@ -59,6 +61,9 @@ function MainLayout() {
 
   // Changelog 모달 상태
   const { lastSeenVersion, setModalOpen } = useChangelogStore();
+
+  // 온보딩 상태
+  const { hasCompletedOnboarding, startOnboarding } = useOnboardingStore();
 
   // 설정 로드
   useEffect(() => {
@@ -227,6 +232,7 @@ function MainLayout() {
         {isOpen && <AiAgentChatBox setIsOpen={setIsOpen} />}
         <Toaster />
         <ChangelogModal />
+        <Onboarding />
       </div>
     </div>
   );

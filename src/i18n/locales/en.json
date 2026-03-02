@@ -16,6 +16,37 @@
       "appleLoginFailed": "Failed to start Apple login."
     }
   },
+  "onboarding": {
+    "skip": "Skip",
+    "next": "Next",
+    "complete": "Complete",
+    "intro": {
+      "title": "Where is your knowledge right now?",
+      "subtitle": "No matter how much you chat and write notes, they fade away without a trace over time.",
+      "painPoint1": "Insights from ChatGPT, Claude, Gemini are buried somewhere down the scroll.",
+      "painPoint2": "Notion, Obsidian notes are buried in folders, left disconnected from each other.",
+      "painPoint3": "You know you recorded it somewhere, but you can't find it because there's no context."
+    },
+    "solution": {
+      "title": "Turn conversations and notes into a living knowledge map",
+      "subtitle": "GraphNode AI reads, analyzes, identifies topics, and auto-connects them. No need to tag or link manually.",
+      "start": "Get Started"
+    },
+    "apiKey": {
+      "title": "Chat with AI",
+      "description": "Set up your API key to chat with AI. You can still use graph features without a key.",
+      "linkText": "Learn how to get an API key"
+    },
+    "dataImport": {
+      "title": "Import your data",
+      "description": "Drag and drop your existing notes (markdown files) or ChatGPT conversation exports.",
+      "linkText": "Learn how to export conversations"
+    },
+    "visualize": {
+      "title": "Generate your graph",
+      "description": "Now press 'Generate Graph' to create your knowledge map!"
+    }
+  },
   "toast": {
     "apiKeyRequired": "Please register your API key first.",
     "goToSettings": "Go to Settings"
@@ -150,6 +181,11 @@
     "notes": "Notes",
     "noResultFound": "No {{provider}} Found",
     "shortcut": "shortcut"
+  },
+  "changelog": {
+    "newFeatures": "New Features",
+    "improvements": "Improvements",
+    "gotIt": "Got it!"
   },
   "notification": {
     "graphGeneration": {

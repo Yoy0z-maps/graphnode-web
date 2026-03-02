@@ -165,7 +165,10 @@ export default function MyAccountPanel({ userInfo }: { userInfo: Me }) {
       </div>
 
       {/* API Keys Section */}
-      <div className="flex flex-col items-start justify-start gap-4 w-full">
+      <div
+        className="flex flex-col items-start justify-start gap-4 w-full"
+        data-onboarding="api-key-section"
+      >
         <SettingCategoryTitle
           title={t("settings.my.api.title")}
           subtitle={t("settings.my.api.subtitle")}

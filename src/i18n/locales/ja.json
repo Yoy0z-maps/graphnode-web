@@ -16,6 +16,37 @@
       "appleLoginFailed": "Appleログインの開始に失敗しました。"
     }
   },
+  "onboarding": {
+    "skip": "スキップ",
+    "next": "次へ",
+    "complete": "完了",
+    "intro": {
+      "title": "あなたの知識は今どこにありますか？",
+      "subtitle": "どんなに会話やメモを書いても、時間が経てば跡形もなく消えてしまいます。",
+      "painPoint1": "ChatGPT、Claude、Geminiで得たインサイトは、スクロールの彼方に埋もれています。",
+      "painPoint2": "Notion、Obsidianのメモはフォルダの中に埋もれ、互いに繋がっていません。",
+      "painPoint3": "どこかに記録したはずなのに、文脈がないため検索しても見つかりません。"
+    },
+    "solution": {
+      "title": "会話とメモが生きた知識マップに",
+      "subtitle": "GraphNode AIが内容を読み、分析し、トピックを把握して自動で繋げます。タグ付けやリンク作成は不要です。",
+      "start": "始める"
+    },
+    "apiKey": {
+      "title": "AIと会話する",
+      "description": "AIと会話するにはAPIキーを設定してください。キーがなくてもグラフ機能は使えます。",
+      "linkText": "APIキーの取得方法を見る"
+    },
+    "dataImport": {
+      "title": "データをインポート",
+      "description": "既存のメモ（マークダウンファイル）やChatGPTの会話履歴をドラッグ＆ドロップでインポートできます。",
+      "linkText": "会話のエクスポート方法を見る"
+    },
+    "visualize": {
+      "title": "グラフを生成する",
+      "description": "「グラフを生成」ボタンを押して、あなたの知識マップを作りましょう！"
+    }
+  },
   "toast": {
     "apiKeyRequired": "まずAPIキーを登録してください。",
     "goToSettings": "設定へ移動"
@@ -150,6 +181,11 @@
     "notes": "メモ",
     "noResultFound": "{{provider}}が見つかりません",
     "shortcut": "ショートカット"
+  },
+  "changelog": {
+    "newFeatures": "新機能",
+    "improvements": "改善点",
+    "gotIt": "了解しました！"
   },
   "notification": {
     "graphGeneration": {

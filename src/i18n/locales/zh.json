@@ -16,6 +16,37 @@
       "appleLoginFailed": "无法启动 Apple 登录。"
     }
   },
+  "onboarding": {
+    "skip": "跳过",
+    "next": "下一步",
+    "complete": "完成",
+    "intro": {
+      "title": "你的知识现在在哪里？",
+      "subtitle": "无论多努力地对话和记笔记，随着时间流逝都会消失无踪。",
+      "painPoint1": "在 ChatGPT、Claude、Gemini 中获得的洞察埋藏在滚动条的某处。",
+      "painPoint2": "Notion、Obsidian 笔记埋在文件夹里，彼此之间没有关联。",
+      "painPoint3": "明明在某处记录过，但搜索时因为没有上下文而找不到。"
+    },
+    "solution": {
+      "title": "将对话和笔记变成活的知识地图",
+      "subtitle": "GraphNode AI 阅读、分析内容，识别主题并自动连接。无需手动添加标签或链接。",
+      "start": "开始使用"
+    },
+    "apiKey": {
+      "title": "与 AI 对话",
+      "description": "如需与 AI 对话，请设置 API 密钥。没有密钥也可以使用图谱功能。",
+      "linkText": "了解如何获取 API 密钥"
+    },
+    "dataImport": {
+      "title": "导入数据",
+      "description": "将现有笔记（Markdown 文件）或 ChatGPT 对话记录拖放导入。",
+      "linkText": "了解如何导出对话"
+    },
+    "visualize": {
+      "title": "生成图谱",
+      "description": "现在点击「生成图谱」按钮，创建你的知识地图吧！"
+    }
+  },
   "toast": {
     "apiKeyRequired": "请先注册您的 API 密钥。",
     "goToSettings": "前往设置"
@@ -150,6 +181,11 @@
     "notes": "笔记",
     "noResultFound": "未找到相关{{provider}}",
     "shortcut": "快捷键"
+  },
+  "changelog": {
+    "newFeatures": "新功能",
+    "improvements": "改进",
+    "gotIt": "知道了！"
   },
   "notification": {
     "graphGeneration": {
