@@ -88,15 +88,6 @@ export default function TrashPanel() {
     <div className="flex flex-col gap-4">
       {/* Header */}
       <div className="flex items-center justify-between">
-        {totalItems > 0 && !showEmptyConfirm && (
-          <button
-            onClick={() => setShowEmptyConfirm(true)}
-            className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors"
-          >
-            <IoTrash className="text-base" />
-            {t("settings.dataPrivacy.trash.empty", "Empty Trash")}
-          </button>
-        )}
         {showEmptyConfirm && (
           <div className="flex items-center gap-2">
             <button
@@ -187,6 +178,17 @@ export default function TrashPanel() {
               />
             ))}
           </>
+        )}
+      </div>
+      <div>
+        {totalItems > 0 && !showEmptyConfirm && (
+          <button
+            onClick={() => setShowEmptyConfirm(true)}
+            className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors"
+          >
+            <IoTrash className="text-base" />
+            {t("settings.dataPrivacy.trash.empty", "Empty Trash")}
+          </button>
         )}
       </div>
     </div>
