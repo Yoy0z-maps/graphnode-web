@@ -176,6 +176,14 @@ export default function DataPrivacyPanel() {
         </button>
         <button
           onClick={async () => {
+            const result = await api.graphAi.deleteGraph();
+            console.log(result);
+          }}
+        >
+          delete graph
+        </button>
+        <button
+          onClick={async () => {
             const result = await api.graphAi.requestSummary();
             console.log(result);
           }}

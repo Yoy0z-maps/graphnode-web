@@ -30,6 +30,7 @@ import { useTranslation } from "react-i18next";
 import Toaster from "./components/Toaster";
 import { useNotificationConnection } from "./hooks/useNotification";
 import { useSettingsStore } from "./store/useSettingsStore";
+import { loadAndApplyGraphColors } from "./utils/graphColors";
 
 export default function App() {
   return (
@@ -57,6 +58,7 @@ function MainLayout() {
   // 설정 로드
   useEffect(() => {
     useSettingsStore.getState().loadSettings();
+    loadAndApplyGraphColors(); // 커스텀 그래프 색상 로드
   }, []);
 
   // 휴지통 만료 항목 정리

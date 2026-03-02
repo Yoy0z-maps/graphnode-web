@@ -460,7 +460,7 @@ function layoutWithBoundedForce(
 // 노드 크기 계산 (엣지 수 기반)
 const BASE_NODE_RADIUS = 3;
 const MAX_NODE_RADIUS = 5;
-const SUBCLUSTER_FOCUS_COLORS = [
+const DEFAULT_CLUSTER_COLORS = [
   "#4aa8c0",
   "#e74c3c",
   "#2ecc71",
@@ -471,6 +471,27 @@ const SUBCLUSTER_FOCUS_COLORS = [
   "#2d98da",
   "#ff9f43",
 ];
+
+// 커스텀 클러스터 팔레트 가져오기 (CSS 변수에서)
+function getClusterPalette(): string[] {
+  try {
+    const paletteStr = document.documentElement.style.getPropertyValue(
+      "--graph-cluster-palette"
+    );
+    if (paletteStr) {
+      const parsed = JSON.parse(paletteStr);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch {
+    // ignore
+  }
+  return DEFAULT_CLUSTER_COLORS;
+}
+
+// SUBCLUSTER_FOCUS_COLORS를 동적으로 가져오는 함수로 대체
+const SUBCLUSTER_FOCUS_COLORS = getClusterPalette();
 
 function getNodeRadius(edgeCount: number, maxEdgeCount: number): number {
   if (maxEdgeCount === 0) return BASE_NODE_RADIUS;
