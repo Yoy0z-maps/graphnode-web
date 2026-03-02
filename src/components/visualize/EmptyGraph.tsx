@@ -1,6 +1,8 @@
 import { api } from "@/apiClient";
 import { useTranslation } from "react-i18next";
 import { useGraphGenerationStore } from "@/store/useGraphGenerationStore";
+import { useToastStore } from "@/store/useToastStore";
+import { unwrapResponse } from "@/utils/httpResponse";
 import Lottie from "lottie-react";
 import loadingAnimation from "@/assets/lottie/loading.json";
 
@@ -8,6 +10,7 @@ export default function EmptyGraph() {
   const { t } = useTranslation();
   const isGenerating = useGraphGenerationStore((state) => state.isGenerating);
   const setGenerating = useGraphGenerationStore((state) => state.setGenerating);
+  const addToast = useToastStore((state) => state.addToast);
 
   const handleGenerate = async () => {
     if (isGenerating) return;
@@ -20,7 +23,18 @@ export default function EmptyGraph() {
   };
 
   const handleCheckStatus = async () => {
-    // TODO: 그래프 상태 확인 API 호출
+    try {
+      const { status } = unwrapResponse(await api.graph.getStats());
+      addToast({
+        message: t(`visualize.empty.status.${status}`),
+        type: status === "CREATING" || status === "UPDATING" ? "info" : "success",
+      });
+    } catch {
+      addToast({
+        message: t("visualize.empty.status.error"),
+        type: "error",
+      });
+    }
   };
 
   const handleRetry = async () => {

@@ -113,6 +113,14 @@
       "generatingHelp": "Didn't receive the graph generation notification, or is it taking too long? Depending on the amount of data, it typically takes 10-30 minutes. For chat histories over 100MB, it may take more than 1 hour.",
       "checkStatus": "Check my graph status",
       "retryGenerate": "Request again",
+      "status": {
+        "NOT_CREATED": "Graph has not been created yet.",
+        "CREATING": "Graph is currently being generated. Please wait.",
+        "CREATED": "Graph has been created. Please refresh the page.",
+        "UPDATING": "Graph is currently being updated. Please wait.",
+        "UPDATED": "Graph has been updated. Please refresh the page.",
+        "error": "An error occurred while checking graph status."
+      },
       "notice": "Graphs are generated based on your saved chats and notes. If you have no chats or notes, graph generation is not possible."
     },
     "patternType": {
