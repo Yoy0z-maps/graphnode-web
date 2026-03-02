@@ -31,7 +31,21 @@
     "summary": "Summarize this content",
     "note": "Make a note of this content",
     "placeholder": "Ask, search, or tell me anything",
-    "selectSourceFirst": "Please select a source first (click @ to select a chat or note)"
+    "selectSourceFirst": "Please select a source first (click @ to select a chat or note)",
+    "chatHistory": "Chat History",
+    "newChat": "+ New Chat",
+    "noChatHistory": "No chat history",
+    "newConversation": "New Conversation",
+    "noChats": "No chats",
+    "noNotes": "No notes",
+    "generatingResponse": "Generating response...",
+    "roleUser": "User",
+    "roleAI": "AI",
+    "analyzing": "Analyzing request...",
+    "done": "Done",
+    "noteCreated": "Note has been created!",
+    "error": "Error",
+    "errorOccurred": "Error occurred"
   },
   "home": {
     "title": "Hello {{provider}}",

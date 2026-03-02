@@ -31,7 +31,21 @@
     "summary": "この内容を要約",
     "note": "この内容をメモに",
     "placeholder": "質問、検索、または何でもお聞きください",
-    "selectSourceFirst": "まずソースを選択してください（@をクリックしてチャットまたはメモを選択）"
+    "selectSourceFirst": "まずソースを選択してください（@をクリックしてチャットまたはメモを選択）",
+    "chatHistory": "チャット履歴",
+    "newChat": "+ 新しいチャット",
+    "noChatHistory": "チャット履歴がありません",
+    "newConversation": "新しい会話",
+    "noChats": "チャットがありません",
+    "noNotes": "メモがありません",
+    "generatingResponse": "応答を生成中...",
+    "roleUser": "ユーザー",
+    "roleAI": "AI",
+    "analyzing": "リクエストを分析中...",
+    "done": "完了",
+    "noteCreated": "メモが作成されました！",
+    "error": "エラー",
+    "errorOccurred": "エラーが発生しました"
   },
   "home": {
     "title": "こんにちは、{{provider}}さん",

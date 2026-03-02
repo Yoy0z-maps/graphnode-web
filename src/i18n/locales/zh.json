@@ -31,7 +31,21 @@
     "summary": "总结这个内容",
     "note": "将这个内容做成笔记",
     "placeholder": "问、搜索、或者告诉我任何事情",
-    "selectSourceFirst": "请先选择来源 (点击 @ 选择聊天或笔记)"
+    "selectSourceFirst": "请先选择来源 (点击 @ 选择聊天或笔记)",
+    "chatHistory": "聊天记录",
+    "newChat": "+ 新对话",
+    "noChatHistory": "没有聊天记录",
+    "newConversation": "新对话",
+    "noChats": "没有聊天",
+    "noNotes": "没有笔记",
+    "generatingResponse": "正在生成回复...",
+    "roleUser": "用户",
+    "roleAI": "AI",
+    "analyzing": "分析请求中...",
+    "done": "完成",
+    "noteCreated": "笔记已创建！",
+    "error": "错误",
+    "errorOccurred": "发生错误"
   },
   "home": {
     "title": "你好，{{provider}}。",

@@ -118,7 +118,7 @@ export default function DataPrivacyPanel() {
 
       {/* Dev Tools - 개발 테스트용 (주석 처리) */}
 
-      {/* <div className="mt-8">
+      <div className="mt-8">
         <SettingCategoryTitle
           title="Developer Tools"
           subtitle="For testing purposes only"
@@ -200,7 +200,7 @@ export default function DataPrivacyPanel() {
         >
           get summary
         </button>
-      </div> */}
+      </div>
     </SettingsPanelLayout>
   );
 }
