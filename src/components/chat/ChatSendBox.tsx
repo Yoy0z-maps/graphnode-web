@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 import { useToastStore } from "@/store/useToastStore";
 import { OPENAI_MODEL_DEFAULT, type OpenAIModel } from "@/constants/OPENAI_MODEL";
 import ModelSelector from "@/components/common/ModelSelector";
+import { playSound } from "@/utils/sound";
 
 export default function ChatSendBox({
   setIsTyping,
@@ -159,6 +160,9 @@ export default function ChatSendBox({
                 setIsTyping(false);
                 setSending(false);
                 sendingRef.current = false;
+
+                // 메시지 수신 완료 사운드
+                playSound("message");
                 break;
 
               case "error":
