@@ -360,11 +360,19 @@
       },
       "clearChats": {
         "title": "すべてのチャットをクリア",
-        "description": "すべてのチャット会話を完全に削除"
+        "description": "すべてのチャット会話を完全に削除",
+        "toast": {
+          "success": "すべてのチャットが削除されました",
+          "error": "チャットの削除に失敗しました"
+        }
       },
       "clearNotes": {
         "title": "すべてのメモをクリア",
-        "description": "すべてのメモとフォルダを完全に削除"
+        "description": "すべてのメモとフォルダを完全に削除",
+        "toast": {
+          "success": "すべてのメモが削除されました",
+          "error": "メモの削除に失敗しました"
+        }
       },
       "delete": "削除",
       "cancel": "キャンセル",

@@ -11,6 +11,8 @@ import DangerZoneItem from "./DangerZoneItem";
 import TrashPanel from "./TrashPanel";
 import { useOnboardingStore } from "@/store/useOnboardingStore";
 import { useChangelogStore } from "@/store/useChangelogStore";
+import { useToastStore } from "@/store/useToastStore";
+import { unwrapResponse } from "@/utils/httpResponse";
 
 export default function DataPrivacyPanel() {
   const { t } = useTranslation();
@@ -19,13 +21,26 @@ export default function DataPrivacyPanel() {
   const [isDeleting, setIsDeleting] = useState(false);
   const { resetOnboarding, startOnboarding } = useOnboardingStore();
   const { resetLastSeenVersion, setModalOpen } = useChangelogStore();
+  const { addToast } = useToastStore();
 
   const handleClearChats = async () => {
     setIsDeleting(true);
     try {
+      unwrapResponse(await api.conversations.deleteAll());
       await threadRepo.clearAll();
-      await api.conversations.deleteAll();
       setShowChatConfirm(false);
+      addToast({
+        message: t("settings.dataPrivacy.clearChats.toast.success"),
+        type: "success",
+      });
+    } catch (err) {
+      addToast({
+        message:
+          err instanceof Error
+            ? err.message
+            : t("settings.dataPrivacy.clearChats.toast.error"),
+        type: "error",
+      });
     } finally {
       setIsDeleting(false);
     }
@@ -34,10 +49,22 @@ export default function DataPrivacyPanel() {
   const handleClearNotes = async () => {
     setIsDeleting(true);
     try {
+      unwrapResponse(await api.note.deleteAllNotes());
+      unwrapResponse(await api.note.deleteAllFolders());
       await noteRepo.clearAll();
-      await api.note.deleteAllNotes();
-      await api.note.deleteAllFolders();
       setShowNoteConfirm(false);
+      addToast({
+        message: t("settings.dataPrivacy.clearNotes.toast.success"),
+        type: "success",
+      });
+    } catch (err) {
+      addToast({
+        message:
+          err instanceof Error
+            ? err.message
+            : t("settings.dataPrivacy.clearNotes.toast.error"),
+        type: "error",
+      });
     } finally {
       setIsDeleting(false);
     }
@@ -124,10 +151,10 @@ export default function DataPrivacyPanel() {
             title="Developer Tools"
             subtitle="For testing purposes only"
           />
-          <div className="flex flex-col gap-5 w-full mt-4 p-4 bg-bg-secondary rounded-lg border border-dashed border-text-tertiary">
+          <div className="w-full mt-4 bg-bg-secondary rounded-lg border border-dashed border-text-tertiary divide-y divide-text-tertiary/20">
             {/* Chat */}
-            <div>
-              <p className="text-xs font-medium text-text-tertiary mb-2 uppercase tracking-wide">
+            <div className="p-4">
+              <p className="text-[10px] font-semibold text-text-tertiary mb-3 uppercase tracking-widest">
                 Chat
               </p>
               <div className="flex gap-2 flex-wrap">
@@ -136,7 +163,7 @@ export default function DataPrivacyPanel() {
                     const result = await threadRepo.getThreadList();
                     console.log(result);
                   }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   get client chat
                 </button>
@@ -145,15 +172,25 @@ export default function DataPrivacyPanel() {
                     const result = await api.conversations.list();
                     console.log(result);
                   }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   get server chat
+                </button>
+                <button
+                  onClick={async () => {
+                    await threadRepo.clearAll();
+                    const result = await api.conversations.deleteAll();
+                    console.log(result);
+                  }}
+                  className="px-3 py-1.5 text-xs text-red-400/70 hover:text-red-400 bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
+                >
+                  delete server, client chat
                 </button>
               </div>
             </div>
             {/* Notes */}
-            <div>
-              <p className="text-xs font-medium text-text-tertiary mb-2 uppercase tracking-wide">
+            <div className="p-4">
+              <p className="text-[10px] font-semibold text-text-tertiary mb-3 uppercase tracking-widest">
                 Notes
               </p>
               <div className="flex gap-2 flex-wrap">
@@ -162,7 +199,7 @@ export default function DataPrivacyPanel() {
                     const result = await noteRepo.getAllNotes();
                     console.log(result);
                   }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   get client notes
                 </button>
@@ -171,15 +208,15 @@ export default function DataPrivacyPanel() {
                     const result = await api.note.listNotes();
                     console.log(result);
                   }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   get server notes
                 </button>
               </div>
             </div>
             {/* Graph */}
-            <div>
-              <p className="text-xs font-medium text-text-tertiary mb-2 uppercase tracking-wide">
+            <div className="p-4">
+              <p className="text-[10px] font-semibold text-text-tertiary mb-3 uppercase tracking-widest">
                 Graph
               </p>
               <div className="flex gap-2 flex-wrap">
@@ -188,25 +225,16 @@ export default function DataPrivacyPanel() {
                     const result = await api.graphAi.generateGraph();
                     console.log(result);
                   }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   generate graph
-                </button>
-                <button
-                  onClick={async () => {
-                    const result = await api.graphAi.deleteGraph();
-                    console.log(result);
-                  }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
-                >
-                  delete graph
                 </button>
                 <button
                   onClick={async () => {
                     const result = await api.graph.getSnapshot();
                     console.log(result);
                   }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   get graph
                 </button>
@@ -215,7 +243,7 @@ export default function DataPrivacyPanel() {
                     const result = await api.graphAi.requestSummary();
                     console.log(result);
                   }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   generate summary
                 </button>
@@ -224,15 +252,24 @@ export default function DataPrivacyPanel() {
                     const result = await api.graphAi.getSummary();
                     console.log(result);
                   }}
-                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   get summary
+                </button>
+                <button
+                  onClick={async () => {
+                    const result = await api.graphAi.deleteGraph();
+                    console.log(result);
+                  }}
+                  className="px-3 py-1.5 text-xs text-red-400/70 hover:text-red-400 bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
+                >
+                  delete graph
                 </button>
               </div>
             </div>
             {/* UI */}
-            <div>
-              <p className="text-xs font-medium text-text-tertiary mb-2 uppercase tracking-wide">
+            <div className="p-4">
+              <p className="text-[10px] font-semibold text-text-tertiary mb-3 uppercase tracking-widest">
                 UI
               </p>
               <div className="flex gap-2 flex-wrap">
@@ -241,7 +278,7 @@ export default function DataPrivacyPanel() {
                     resetOnboarding();
                     startOnboarding();
                   }}
-                  className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   restart onboarding
                 </button>
@@ -250,7 +287,7 @@ export default function DataPrivacyPanel() {
                     resetLastSeenVersion();
                     setModalOpen(true);
                   }}
-                  className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded transition-colors"
                 >
                   show changelog
                 </button>

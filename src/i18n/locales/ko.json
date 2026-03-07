@@ -360,11 +360,19 @@
       },
       "clearChats": {
         "title": "모든 채팅 삭제",
-        "description": "모든 채팅 대화를 영구적으로 삭제합니다"
+        "description": "모든 채팅 대화를 영구적으로 삭제합니다",
+        "toast": {
+          "success": "모든 채팅이 삭제되었습니다",
+          "error": "채팅 삭제에 실패했습니다"
+        }
       },
       "clearNotes": {
         "title": "모든 노트 삭제",
-        "description": "모든 노트와 폴더를 영구적으로 삭제합니다"
+        "description": "모든 노트와 폴더를 영구적으로 삭제합니다",
+        "toast": {
+          "success": "모든 노트가 삭제되었습니다",
+          "error": "노트 삭제에 실패했습니다"
+        }
       },
       "delete": "삭제",
       "cancel": "취소",

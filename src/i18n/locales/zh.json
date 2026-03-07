@@ -360,11 +360,19 @@
       },
       "clearChats": {
         "title": "清除所有聊天",
-        "description": "永久删除所有聊天对话"
+        "description": "永久删除所有聊天对话",
+        "toast": {
+          "success": "所有对话已清除",
+          "error": "清除对话失败"
+        }
       },
       "clearNotes": {
         "title": "清除所有笔记",
-        "description": "永久删除所有笔记和文件夹"
+        "description": "永久删除所有笔记和文件夹",
+        "toast": {
+          "success": "所有笔记已清除",
+          "error": "清除笔记失败"
+        }
       },
       "delete": "删除",
       "cancel": "取消",
