@@ -118,125 +118,147 @@ export default function DataPrivacyPanel() {
           handleClearTarget={handleClearNotes}
         />
       </div>
-      <button
-        onClick={() => {
-          resetOnboarding();
-          startOnboarding();
-        }}
-        className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors w-fit"
-      >
-        restart onboarding
-      </button>
-      {/* Dev Tools - 개발 테스트용 (주석 처리)
-      <div className="mt-8">
-        <SettingCategoryTitle
-          title="Developer Tools"
-          subtitle="For testing purposes only"
-        />
-      </div>
-      <div className="flex flex-col gap-3 w-full p-4 bg-bg-secondary rounded-lg border border-dashed border-text-tertiary">
-        <div className="flex gap-4">
-          <button
-            onClick={async () => {
-              const result = await threadRepo.getThreadList();
-              console.log(result);
-            }}
-            className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
-          >
-            get client chat
-          </button>
-          <button
-            onClick={async () => {
-              const result = await api.conversations.list();
-              console.log(result);
-            }}
-            className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
-          >
-            get server chat
-          </button>
+      {import.meta.env.DEV && (
+        <div className="mt-8 w-full">
+          <SettingCategoryTitle
+            title="Developer Tools"
+            subtitle="For testing purposes only"
+          />
+          <div className="flex flex-col gap-5 w-full mt-4 p-4 bg-bg-secondary rounded-lg border border-dashed border-text-tertiary">
+            {/* Chat */}
+            <div>
+              <p className="text-xs font-medium text-text-tertiary mb-2 uppercase tracking-wide">
+                Chat
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <button
+                  onClick={async () => {
+                    const result = await threadRepo.getThreadList();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  get client chat
+                </button>
+                <button
+                  onClick={async () => {
+                    const result = await api.conversations.list();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  get server chat
+                </button>
+              </div>
+            </div>
+            {/* Notes */}
+            <div>
+              <p className="text-xs font-medium text-text-tertiary mb-2 uppercase tracking-wide">
+                Notes
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <button
+                  onClick={async () => {
+                    const result = await noteRepo.getAllNotes();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  get client notes
+                </button>
+                <button
+                  onClick={async () => {
+                    const result = await api.note.listNotes();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  get server notes
+                </button>
+              </div>
+            </div>
+            {/* Graph */}
+            <div>
+              <p className="text-xs font-medium text-text-tertiary mb-2 uppercase tracking-wide">
+                Graph
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <button
+                  onClick={async () => {
+                    const result = await api.graphAi.generateGraph();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  generate graph
+                </button>
+                <button
+                  onClick={async () => {
+                    const result = await api.graphAi.deleteGraph();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  delete graph
+                </button>
+                <button
+                  onClick={async () => {
+                    const result = await api.graph.getSnapshot();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  get graph
+                </button>
+                <button
+                  onClick={async () => {
+                    const result = await api.graphAi.requestSummary();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  generate summary
+                </button>
+                <button
+                  onClick={async () => {
+                    const result = await api.graphAi.getSummary();
+                    console.log(result);
+                  }}
+                  className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
+                >
+                  get summary
+                </button>
+              </div>
+            </div>
+            {/* UI */}
+            <div>
+              <p className="text-xs font-medium text-text-tertiary mb-2 uppercase tracking-wide">
+                UI
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <button
+                  onClick={() => {
+                    resetOnboarding();
+                    startOnboarding();
+                  }}
+                  className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors"
+                >
+                  restart onboarding
+                </button>
+                <button
+                  onClick={() => {
+                    resetLastSeenVersion();
+                    setModalOpen(true);
+                  }}
+                  className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors"
+                >
+                  show changelog
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex gap-4">
-          <button
-            onClick={async () => {
-              const result = await noteRepo.getAllNotes();
-              console.log(result);
-            }}
-            className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
-          >
-            get client notes
-          </button>
-          <button
-            onClick={async () => {
-              const result = await api.note.listNotes();
-              console.log(result);
-            }}
-            className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors"
-          >
-            get server notes
-          </button>
-        </div>
-        <button
-          onClick={async () => {
-            const result = await api.graphAi.generateGraph();
-            console.log(result);
-          }}
-          className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors w-fit"
-        >
-          generate graph
-        </button>
-        <button
-          onClick={async () => {
-            const result = await api.graphAi.deleteGraph();
-            console.log(result);
-          }}
-        >
-          delete graph
-        </button>
-        <button
-          onClick={async () => {
-            const result = await api.graph.getSnapshot();
-            console.log(result);
-          }}
-        >
-          get graph
-        </button>
-        <button
-          onClick={async () => {
-            const result = await api.graphAi.requestSummary();
-            console.log(result);
-          }}
-          className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors w-fit"
-        >
-          generate summar
-        </button>
-        <button
-          onClick={async () => {
-            const result = await api.graphAi.getSummary();
-            console.log(result);
-          }}
-          className="px-3 py-2 text-sm text-text-secondary hover:text-text-primary bg-bg-tertiary hover:bg-bg-primary rounded-lg transition-colors w-fit"
-        >
-          get summary
-        </button>
-        <button
-          onClick={() => {
-            resetOnboarding();
-            startOnboarding();
-          }}
-          className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors w-fit"
-        >
-          restart onboarding
-        </button>
-        <button
-          onClick={() => {
-            resetLastSeenVersion();
-            setModalOpen(true);
-          }}
-          className="px-3 py-2 text-sm text-white bg-primary hover:bg-primary/80 rounded-lg transition-colors w-fit"
-        >
-          show changelog
-        </button>
-      </div> */}
+      )}
     </SettingsPanelLayout>
   );
 }
