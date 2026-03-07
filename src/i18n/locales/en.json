@@ -287,7 +287,7 @@
     "logout": "Logout",
     "dropJsonZone": {
       "title": "Drag & Drop JSON File Upload",
-      "description": "Drop your conversation.json file here",
+      "description": "Drop your conversations.json file here",
       "maxSize": "Only one file can be dropped (maximum 512MB recommended)",
       "uploading": "Uploading (reading)… {progress}%",
       "parsing": "Parsing (parsing)…",
@@ -299,6 +299,10 @@
         "readFailed": "File read failed",
         "parseFailed": "JSON parsing failed",
         "processingFailed": "Processing failed"
+      },
+      "toast": {
+        "success": "Conversations imported successfully",
+        "error": "Failed to import conversations"
       }
     },
     "dropMdZone": {
@@ -308,6 +312,10 @@
       "errorMessage": {
         "notMd": "Only Markdown files can be uploaded (.md)",
         "exceptOther": "Some files were excluded because they are not in MD format."
+      },
+      "toast": {
+        "success": "Markdown files imported successfully",
+        "error": "Failed to import markdown files"
       }
     },
     "notification": {

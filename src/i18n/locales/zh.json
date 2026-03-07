@@ -287,7 +287,7 @@
     "logout": "登出",
     "dropJsonZone": {
       "title": "拖拽 & 上传 JSON 文件",
-      "description": "将 conversation.json 文件拖拽到这里",
+      "description": "将 conversations.json 文件拖拽到这里",
       "maxSize": "只能上传一个文件 (最大 512MB 推荐)",
       "uploading": "上传中 (读取)… {progress}%",
       "parsing": "解析中 (解析)…",
@@ -299,6 +299,10 @@
         "readFailed": "文件读取失败",
         "parseFailed": "JSON 解析失败",
         "processingFailed": "处理中失败"
+      },
+      "toast": {
+        "success": "对话导入成功",
+        "error": "对话导入失败"
       }
     },
     "dropMdZone": {
@@ -308,6 +312,10 @@
       "errorMessage": {
         "notMd": "只能上传 MARKDOWN 文件 (.md)",
         "exceptOther": "部分文件因不是 MD 格式而被排除。"
+      },
+      "toast": {
+        "success": "Markdown 文件导入成功",
+        "error": "Markdown 文件导入失败"
       }
     },
     "notification": {
