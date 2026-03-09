@@ -2,7 +2,13 @@ import { api } from "@/apiClient";
 import { AiProvider } from "@/types/AiProvider";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { IoCheckmarkCircle, IoTrash, IoEye, IoEyeOff, IoAlertCircle } from "react-icons/io5";
+import {
+  IoCheckmarkCircle,
+  IoTrash,
+  IoEye,
+  IoEyeOff,
+  IoAlertCircle,
+} from "react-icons/io5";
 import { unwrapResponse } from "@/utils/httpResponse";
 
 export default function ApiKeyManager({
@@ -106,7 +112,9 @@ export default function ApiKeyManager({
                 <input
                   type={showKey ? "text" : "password"}
                   value={apiKey}
-                  placeholder={t("settings.my.api.placeholder", { provider: title })}
+                  placeholder={t("settings.my.api.placeholder", {
+                    provider: title,
+                  })}
                   onChange={(e) => {
                     setApiKey(e.target.value);
                     if (error) setError(null);
@@ -119,9 +127,11 @@ export default function ApiKeyManager({
                     focus:outline-none focus:ring-1
                     placeholder:text-text-placeholder text-text-primary
                     disabled:opacity-50 transition-all duration-200
-                    ${error
-                      ? "border-red-500 focus:border-red-500 focus:ring-red-500/20"
-                      : "border-transparent focus:border-primary focus:ring-primary/20"}
+                    ${
+                      error
+                        ? "border-red-500 focus:border-red-500 focus:ring-red-500/20"
+                        : "border-transparent focus:border-primary focus:ring-primary/20"
+                    }
                   `}
                 />
                 <button
