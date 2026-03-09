@@ -258,6 +258,7 @@
     "language": {
       "title": "Select a Language",
       "subtitle": "Choose the language you want GraphNode to display.",
+      "auto": "🌐 System Language",
       "ko": "🇰🇷 한국어",
       "en": "🇺🇸 English",
       "zh": "🇨🇳 简体中文",
