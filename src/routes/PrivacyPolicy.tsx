@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import privacyPolicyData from "../data/privacy-policy";
+import privacyPolicyData, { type PolicyVersion } from "../data/privacy-policy";
 import logo from "../assets/icons/logo_white.svg";
 
 function getLangKey(lang: string): string {
@@ -45,7 +45,8 @@ const UI_LABELS: Record<string, Record<string, string>> = {
     current: "Current",
     superseded: "Superseded",
     changesFrom: "Key Changes in This Version",
-    viewingOld: "You are viewing a past version. This is not the currently active policy.",
+    viewingOld:
+      "You are viewing a past version. This is not the currently active policy.",
     present: "Present",
   },
   zh: {
@@ -65,7 +66,8 @@ const UI_LABELS: Record<string, Record<string, string>> = {
     current: "現行",
     superseded: "旧版",
     changesFrom: "今回の改訂における主な変更点",
-    viewingOld: "旧バージョンを閲覧中です。現在適用中のバージョンではありません。",
+    viewingOld:
+      "旧バージョンを閲覧中です。現在適用中のバージョンではありません。",
     present: "現在",
   },
 };
@@ -78,7 +80,7 @@ function VersionList({
   langKey,
   ui,
 }: {
-  versions: ReturnType<typeof privacyPolicyData[string]["versions"][number]>[];
+  versions: PolicyVersion[];
   selectedIdx: number;
   onSelect: (idx: number) => void;
   langKey: string;
@@ -92,29 +94,31 @@ function VersionList({
         return (
           <li key={v.version} className="mb-1 ml-4">
             <span
-              className={`absolute -left-[7px] w-3.5 h-3.5 rounded-full border-2 mt-2.5 transition-all ${
+              className={`absolute -left-1.75 w-3.5 h-3.5 rounded-full border-2 mt-2.5 transition-all ${
                 isFirst
-                  ? "bg-[#2b89f8] border-[#2b89f8]"
+                  ? "bg-primary border-primary"
                   : "bg-[#23272a] border-[#40444b]"
-              } ${isActive ? "ring-2 ring-[#2b89f8]/40" : ""}`}
+              } ${isActive ? "ring-2 ring-primary/40" : ""}`}
             />
             <button
               onClick={() => onSelect(idx)}
               className={`w-full text-left px-3 py-2.5 rounded-lg transition-all text-sm ${
                 isActive
-                  ? "bg-[#2b89f8]/10 text-[#2b89f8] font-medium"
+                  ? "bg-primary/10 text-primary font-medium"
                   : "text-gray-400 hover:text-white hover:bg-[#40444b]/30"
               }`}
             >
               <div className="font-medium">{v.label}</div>
-              <div className={`text-xs mt-0.5 ${isActive ? "text-[#2b89f8]/70" : "text-gray-500"}`}>
+              <div
+                className={`text-xs mt-0.5 ${isActive ? "text-primary/70" : "text-gray-500"}`}
+              >
                 {formatDate(v.effectiveDate, langKey)}
                 {v.endDate
                   ? ` ~ ${formatDate(v.endDate, langKey)}`
                   : ` ~ ${ui.present}`}
               </div>
               {isFirst ? (
-                <span className="inline-block mt-1 text-[10px] px-1.5 py-0.5 bg-[#2b89f8]/20 text-[#2b89f8] rounded font-medium">
+                <span className="inline-block mt-1 text-[10px] px-1.5 py-0.5 bg-primary/20 text-primary rounded font-medium">
                   {ui.current}
                 </span>
               ) : (
@@ -147,7 +151,7 @@ export default function PrivacyPolicy() {
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 group">
             <img src={logo} alt="GraphNode" className="w-7 h-7" />
-            <span className="font-semibold group-hover:text-[#2b89f8] transition-colors">
+            <span className="font-semibold group-hover:text-primary transition-colors">
               GraphNode
             </span>
           </Link>
@@ -155,8 +159,18 @@ export default function PrivacyPolicy() {
             to="/"
             className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             {ui.backHome}
           </Link>
@@ -180,7 +194,7 @@ export default function PrivacyPolicy() {
             <select
               value={selectedIdx}
               onChange={(e) => setSelectedIdx(Number(e.target.value))}
-              className="xl:hidden shrink-0 bg-[#2c2f33] border border-[#40444b] rounded-lg px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-[#2b89f8] transition-colors cursor-pointer"
+              className="xl:hidden shrink-0 bg-[#2c2f33] border border-[#40444b] rounded-lg px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-primary transition-colors cursor-pointer"
             >
               {data.versions.map((v, idx) => (
                 <option key={v.version} value={idx}>
@@ -192,9 +206,19 @@ export default function PrivacyPolicy() {
 
           {/* Effective date */}
           <div className="flex flex-wrap items-center gap-3 text-sm mb-4">
-            <span className="flex items-center gap-1.5 text-[#2b89f8]">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            <span className="flex items-center gap-1.5 text-primary">
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
               </svg>
               {ui.effectiveDate}: {formatDate(selected.effectiveDate, langKey)}
             </span>
@@ -208,8 +232,18 @@ export default function PrivacyPolicy() {
           {/* 이전 버전 경고 */}
           {!isLatest && (
             <div className="mb-6 flex items-start gap-2.5 px-4 py-3 bg-yellow-500/10 border border-yellow-500/30 rounded-xl text-yellow-400 text-sm">
-              <svg className="w-4 h-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                className="w-4 h-4 shrink-0 mt-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
               <span>{ui.viewingOld}</span>
             </div>
@@ -223,8 +257,11 @@ export default function PrivacyPolicy() {
               </p>
               <ul className="space-y-1.5">
                 {selected.changesFrom.map((change, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
-                    <span className="text-[#2b89f8] mt-0.5 shrink-0">•</span>
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-sm text-gray-300"
+                  >
+                    <span className="text-primary mt-0.5 shrink-0">•</span>
                     <span>{change}</span>
                   </li>
                 ))}
@@ -233,13 +270,20 @@ export default function PrivacyPolicy() {
           )}
 
           {/* 소개 */}
-          <p className="text-gray-300 text-sm leading-relaxed mb-8">{data.intro}</p>
+          <p className="text-gray-300 text-sm leading-relaxed mb-8">
+            {data.intro}
+          </p>
 
           {/* 본문 섹션 */}
           <div className="space-y-7">
             {selected.sections.map((section, idx) => (
-              <section key={idx} className="border-b border-[#40444b]/25 pb-7 last:border-0">
-                <h2 className="text-base font-semibold text-white mb-2.5">{section.title}</h2>
+              <section
+                key={idx}
+                className="border-b border-[#40444b]/25 pb-7 last:border-0"
+              >
+                <h2 className="text-base font-semibold text-white mb-2.5">
+                  {section.title}
+                </h2>
                 <div className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">
                   {section.body}
                 </div>
@@ -270,9 +314,15 @@ export default function PrivacyPolicy() {
         <div className="max-w-3xl mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-gray-400">
           <span>© 2025 TACO - GraphNode. All rights reserved.</span>
           <div className="flex gap-6">
-            <span className="text-[#2b89f8]">{data.title}</span>
+            <span className="text-primary">{data.title}</span>
             <Link to="/terms" className="hover:text-white transition-colors">
-              {langKey === "ko" ? "이용약관" : langKey === "zh" ? "服务条款" : langKey === "ja" ? "利用規約" : "Terms of Service"}
+              {langKey === "ko"
+                ? "이용약관"
+                : langKey === "zh"
+                  ? "服务条款"
+                  : langKey === "ja"
+                    ? "利用規約"
+                    : "Terms of Service"}
             </Link>
           </div>
         </div>
