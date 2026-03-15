@@ -10,6 +10,17 @@ import DocsChangeLog from "./routes/dev/docs/ChangeLog";
 import DocsApiReference from "./routes/dev/docs/ApiReference";
 import DocsMCP from "./routes/dev/docs/MCP";
 import InteractionsOverview from "./routes/dev/docs/interactions/Overview";
+import PrivacyPolicy from "./routes/PrivacyPolicy";
+import Terms from "./routes/Terms";
+import AdminLogin from "./routes/admin/AdminLogin";
+import AdminLayout from "./routes/admin/AdminLayout";
+import Dashboard from "./routes/admin/Dashboard";
+import Notices from "./routes/admin/Notices";
+import NoticeForm from "./routes/admin/NoticeForm";
+import Plans from "./routes/admin/Plans";
+import AdminPrivacy from "./routes/admin/AdminPrivacy";
+import AdminTerms from "./routes/admin/AdminTerms";
+import LegalEditor from "./routes/admin/LegalEditor";
 
 function App() {
   return (
@@ -30,6 +41,23 @@ function App() {
         </Route>
       </Route>
       <Route path="/feedback" element={<Feedback />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<Terms />} />
+
+      {/* Admin */}
+      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="notices" element={<Notices />} />
+        <Route path="notices/new" element={<NoticeForm />} />
+        <Route path="notices/:id/edit" element={<NoticeForm />} />
+        <Route path="plans" element={<Plans />} />
+        <Route path="privacy" element={<AdminPrivacy />} />
+        <Route path="privacy/new" element={<LegalEditor />} />
+        <Route path="privacy/:version/edit" element={<LegalEditor />} />
+        <Route path="terms" element={<AdminTerms />} />
+        <Route path="terms/edit" element={<LegalEditor />} />
+      </Route>
     </Routes>
   );
 }
