@@ -164,7 +164,9 @@
         "changeLog": "更新日志",
         "apiReference": "API 参考",
         "interactions": "交互",
-        "overview": "概览"
+        "overview": "概览",
+        "extendingGraphNode": "Extending GraphNode",
+        "cli": "CLI"
       },
       "intro": {
         "title": "介绍",
@@ -460,6 +462,43 @@
           "githubIssues": "GitHub Issues",
           "githubIssuesDesc": "错误报告和功能请求",
           "email": "电子邮件"
+        }
+      },
+      "cli": {
+        "title": "GraphNode CLI",
+        "description": "GraphNode CLI 是一个终端友好的配套工具，让您可以直接从命令行创建和管理笔记，无需打开桌面应用。",
+        "toc": "本页内容",
+        "overview": {
+          "title": "概述",
+          "description": "CLI 作为 @graphnode/cli 包附带在 GraphNode Front 仓库中，以轻量级终端界面对 Electron 应用进行补充。",
+          "feature1": "从终端创建 Markdown 笔记",
+          "feature2": "使用 doctor 命令检查本地运行时环境",
+          "feature3": "列出工作区中存储的笔记",
+          "feature4": "零配置 — 笔记相对于当前工作目录存储"
+        },
+        "quickstart": {
+          "title": "快速开始",
+          "description": "无需全局安装，直接通过 npm 运行 CLI：",
+          "note": "笔记存储在相对于当前工作目录的 .graphnode-cli/notes 中。"
+        },
+        "install": {
+          "title": "全局安装",
+          "description": "将包链接到全局，以便从任何地方运行 graphnode 命令："
+        },
+        "commands": {
+          "title": "命令",
+          "description": "所有可用命令及其用法。",
+          "help": "help",
+          "helpDesc": "打印所有可用命令列表和使用示例。",
+          "doctor": "doctor",
+          "doctorDesc": "显示本地运行时信息，包括平台、Node.js 版本、主目录、工作目录和笔记目录路径。",
+          "note": "note",
+          "noteDesc": "管理存储在 .graphnode-cli/notes 中的本地 Markdown 笔记。",
+          "noteAdd": "note add <title> — 创建新笔记",
+          "noteList": "note list — 列出所有笔记",
+          "noteStorage": "笔记以带日期前缀的 slug 文件名保存为 Markdown 文件。",
+          "demo": "demo",
+          "demoDesc": "运行一个小型演示工作流，介绍 CLI 功能。"
         }
       }
     }

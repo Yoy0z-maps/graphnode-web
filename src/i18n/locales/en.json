@@ -164,7 +164,9 @@
         "changeLog": "Change Log",
         "apiReference": "API Reference",
         "interactions": "Interactions",
-        "overview": "Overview"
+        "overview": "Overview",
+        "extendingGraphNode": "Extending GraphNode",
+        "cli": "CLI"
       },
       "intro": {
         "title": "Introduction",
@@ -460,6 +462,43 @@
           "githubIssues": "GitHub Issues",
           "githubIssuesDesc": "Bug reports and feature requests",
           "email": "Email"
+        }
+      },
+      "cli": {
+        "title": "GraphNode CLI",
+        "description": "The GraphNode CLI is a terminal-friendly companion tool that lets you create and manage notes directly from the command line, without opening the desktop app.",
+        "toc": "On this page",
+        "overview": {
+          "title": "Overview",
+          "description": "The CLI ships as the @graphnode/cli package inside the GraphNode Front repository. It complements the Electron app with a lightweight terminal interface.",
+          "feature1": "Create markdown notes from your terminal",
+          "feature2": "Inspect local runtime environment with doctor",
+          "feature3": "List notes stored in your workspace",
+          "feature4": "Zero config — notes are stored relative to your working directory"
+        },
+        "quickstart": {
+          "title": "Quick Start",
+          "description": "Run the CLI directly via npm without a global install:",
+          "note": "Notes are stored in .graphnode-cli/notes relative to the current working directory."
+        },
+        "install": {
+          "title": "Global Install",
+          "description": "Link the package globally so you can run graphnode from anywhere:"
+        },
+        "commands": {
+          "title": "Commands",
+          "description": "All available commands and their usage.",
+          "help": "help",
+          "helpDesc": "Prints the full list of available commands and usage examples.",
+          "doctor": "doctor",
+          "doctorDesc": "Displays local runtime information including platform, Node.js version, home directory, working directory, and the notes directory path.",
+          "note": "note",
+          "noteDesc": "Manage local markdown notes stored in .graphnode-cli/notes.",
+          "noteAdd": "note add <title> — Create a new note",
+          "noteList": "note list — List all notes",
+          "noteStorage": "Notes are saved as markdown files with a date-prefixed slug filename.",
+          "demo": "demo",
+          "demoDesc": "Runs a small demo workflow that explains the CLI capabilities."
         }
       }
     }

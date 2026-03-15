@@ -109,6 +109,19 @@ export default function DocsLayout() {
               {t("dev.docs.sidebar.overview")}
             </NavLink>
           </nav>
+
+          {/* Extending GraphNode Section */}
+          <h3 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-6 mb-2 px-3">
+            {t("dev.docs.sidebar.extendingGraphNode")}
+          </h3>
+          <nav className="flex flex-col gap-1">
+            <NavLink
+              to="/dev/docs/extending/cli"
+              className={navLinkClass}
+            >
+              {t("dev.docs.sidebar.cli")}
+            </NavLink>
+          </nav>
         </aside>
 
         {/* Main Content */}

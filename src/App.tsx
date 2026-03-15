@@ -10,6 +10,7 @@ import DocsChangeLog from "./routes/dev/docs/ChangeLog";
 import DocsApiReference from "./routes/dev/docs/ApiReference";
 import DocsMCP from "./routes/dev/docs/MCP";
 import InteractionsOverview from "./routes/dev/docs/interactions/Overview";
+import ExtendingCLI from "./routes/dev/docs/extending/CLI";
 import PrivacyPolicy from "./routes/PrivacyPolicy";
 import Terms from "./routes/Terms";
 import AdminLogin from "./routes/admin/AdminLogin";
@@ -38,6 +39,7 @@ function App() {
             path="interactions/overview"
             element={<InteractionsOverview />}
           />
+          <Route path="extending/cli" element={<ExtendingCLI />} />
         </Route>
       </Route>
       <Route path="/feedback" element={<Feedback />} />
