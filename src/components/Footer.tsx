@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
@@ -13,12 +14,12 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex space-x-6 text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">
+            <Link to="/privacy" className="hover:text-white transition-colors">
               {t("footer.privacy")}
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
+            </Link>
+            <Link to="/terms" className="hover:text-white transition-colors">
               {t("footer.terms")}
-            </a>
+            </Link>
             <a href="#" className="hover:text-white transition-colors">
               {t("footer.contact")}
             </a>
