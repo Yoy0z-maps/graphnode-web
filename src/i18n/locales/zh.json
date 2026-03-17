@@ -466,24 +466,32 @@
       },
       "cli": {
         "title": "GraphNode CLI",
-        "description": "GraphNode CLI 是一个终端友好的配套工具，让您可以直接从命令行创建和管理笔记，无需打开桌面应用。",
+        "description": "GraphNode CLI 是一个终端友好的配套工具，可让您直接从命令行创建和检查基于 SQLite 的笔记。无需打开桌面应用，也能完成运行时检查和旧版文件笔记访问。",
         "toc": "本页内容",
         "overview": {
           "title": "概述",
-          "description": "CLI 作为 @graphnode/cli 包附带在 GraphNode Front 仓库中，以轻量级终端界面对 Electron 应用进行补充。",
-          "feature1": "从终端创建 Markdown 笔记",
-          "feature2": "使用 doctor 命令检查本地运行时环境",
-          "feature3": "列出工作区中存储的笔记",
-          "feature4": "零配置 — 笔记相对于当前工作目录存储"
+          "description": "CLI 作为 GraphNode Front 仓库中的 @graphnode/cli 包提供，可与 Electron 应用共享同一个 GraphNode 主目录和 SQLite 笔记存储。",
+          "feature1": "从终端创建和搜索基于 SQLite 的笔记",
+          "feature2": "通过 doctor 和 sqlite 命令检查本地环境与引导状态",
+          "feature3": "支持解析笔记 ID、打印内容、打开预览和软删除",
+          "feature4": "通过 file-note 命令访问旧版文件型笔记"
         },
         "quickstart": {
           "title": "快速开始",
           "description": "无需全局安装，直接通过 npm 运行 CLI：",
-          "note": "笔记存储在相对于当前工作目录的 .graphnode-cli/notes 中。"
+          "note": "SQLite 笔记默认存储在 ~/.graphnode/graphnode.db 中，旧版文件笔记仍保留在 ~/.graphnode/cli/notes。"
         },
         "install": {
           "title": "全局安装",
-          "description": "将包链接到全局，以便从任何地方运行 graphnode 命令："
+          "description": "在本地开发阶段，可以通过链接包的方式从任何位置运行 graphnode 命令：",
+          "note": "这只适用于本地开发，普通用户不需要 npm link。"
+        },
+        "distribution": {
+          "title": "分发方式",
+          "description": "根据 GraphNode Front 最新 CLI README，目前主要考虑三种分发路径。",
+          "option1": "npm 包：适合将 GraphNode CLI 作为独立开发者工具发布。发布前可运行 graphnode:release-check 检查 standalone bundle。",
+          "option2": "Homebrew：适合面向 macOS 的分发。用户可通过 brew install graphnode 安装后直接运行 graphnode help。",
+          "option3": "随应用捆绑 CLI：适合桌面应用安装器同时提供 CLI 的场景。当前 release build 已打包 CLI 资源，但将 graphnode 暴露到 PATH 仍需按平台处理。"
         },
         "commands": {
           "title": "命令",
@@ -491,14 +499,15 @@
           "help": "help",
           "helpDesc": "打印所有可用命令列表和使用示例。",
           "doctor": "doctor",
-          "doctorDesc": "显示本地运行时信息，包括平台、Node.js 版本、主目录、工作目录和笔记目录路径。",
+          "doctorDesc": "显示本地运行时信息，包括平台、Node.js 版本、主目录、工作目录、GraphNode 主目录以及旧版笔记目录路径。",
           "note": "note",
-          "noteDesc": "管理存储在 .graphnode-cli/notes 中的本地 Markdown 笔记。",
-          "noteAdd": "note add <title> — 创建新笔记",
-          "noteList": "note list — 列出所有笔记",
-          "noteStorage": "笔记以带日期前缀的 slug 文件名保存为 Markdown 文件。",
+          "noteDesc": "创建、查看、搜索、打开和删除存储在 SQLite 中的笔记。",
+          "noteQuery": "<query> 可以填写精确的笔记 ID，或填写出现在标题/正文中的搜索词。当前 CLI 新建的笔记 ID 仍使用 cli-时间戳 格式。",
+          "noteAdd": "note add <title> — 创建新的 SQLite 笔记",
+          "noteList": "note list — 列出 SQLite 笔记",
+          "noteStorage": "SQLite 笔记默认存储在 ~/.graphnode/graphnode.db 中。旧版文件笔记仍可通过 file-note 命令从 ~/.graphnode/cli/notes 访问，并且可以通过 GRAPHNODE_HOME 覆盖存储根目录。",
           "demo": "demo",
-          "demoDesc": "运行一个小型演示工作流，介绍 CLI 功能。"
+          "demoDesc": "运行一个小型演示工作流，介绍终端记笔记、共享 GraphNode 主目录和 SQLite 启动同步状态检查。"
         }
       }
     }

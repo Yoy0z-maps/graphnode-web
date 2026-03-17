@@ -466,24 +466,32 @@
       },
       "cli": {
         "title": "GraphNode CLI",
-        "description": "GraphNode CLI は、デスクトップアプリを開かずにコマンドラインから直接ノートを作成・管理できるターミナル向けのツールです。",
+        "description": "GraphNode CLI は、コマンドラインから SQLite ベースのノートを作成・確認できるターミナル向けツールです。デスクトップアプリを開かずに状態確認やレガシーなファイルノートの参照も行えます。",
         "toc": "このページ",
         "overview": {
           "title": "概要",
-          "description": "CLI は GraphNode Front リポジトリ内の @graphnode/cli パッケージとして提供され、軽量なターミナルインターフェースで Electron アプリを補完します。",
-          "feature1": "ターミナルから Markdown ノートを作成",
-          "feature2": "doctor コマンドでローカルランタイム環境を確認",
-          "feature3": "ワークスペースに保存されたノートの一覧表示",
-          "feature4": "設定不要 — ノートは作業ディレクトリ基準で保存"
+          "description": "CLI は GraphNode Front リポジトリ内の @graphnode/cli パッケージとして提供され、Electron アプリと同じ GraphNode ホームディレクトリと SQLite ノート保存領域を扱えます。",
+          "feature1": "ターミナルから SQLite ベースのノートを作成・検索",
+          "feature2": "doctor / sqlite コマンドでローカル状態とブートストラップ状態を確認",
+          "feature3": "ノート ID 解決、内容表示、プレビュー起動、ソフト削除に対応",
+          "feature4": "file-note コマンドでレガシーなファイルノートも参照可能"
         },
         "quickstart": {
           "title": "クイックスタート",
           "description": "グローバルインストールなしで npm から直接 CLI を実行できます：",
-          "note": "ノートは現在の作業ディレクトリ基準の .graphnode-cli/notes に保存されます。"
+          "note": "SQLite ノートはデフォルトで ~/.graphnode/graphnode.db に保存され、レガシーなファイルノートは ~/.graphnode/cli/notes に残ります。"
         },
         "install": {
           "title": "グローバルインストール",
-          "description": "パッケージをグローバルにリンクして、どこからでも graphnode コマンドを実行できるようにします："
+          "description": "ローカル開発では、パッケージをリンクしてどこからでも graphnode コマンドを実行できるようにします：",
+          "note": "これはローカル開発専用です。一般ユーザーに npm link は不要です。"
+        },
+        "distribution": {
+          "title": "配布オプション",
+          "description": "GraphNode Front の最新 CLI README では、現在 3 つの配布経路が想定されています。",
+          "option1": "npm パッケージ: 独立した開発者向けツールとして配布する場合に適しています。公開前に graphnode:release-check で standalone バンドルを確認します。",
+          "option2": "Homebrew: macOS 中心の配布に適しています。ユーザーは brew install graphnode 後に graphnode help を実行できます。",
+          "option3": "アプリ同梱 CLI: デスクトップアプリのインストーラーが CLI も提供する場合に適しています。最新のリリースビルドは CLI リソースを同梱しますが、PATH への公開はプラットフォームごとの仕上げが必要です。"
         },
         "commands": {
           "title": "コマンド",
@@ -491,14 +499,15 @@
           "help": "help",
           "helpDesc": "利用可能なコマンドの一覧と使用例を表示します。",
           "doctor": "doctor",
-          "doctorDesc": "プラットフォーム、Node.js バージョン、ホームディレクトリ、作業ディレクトリ、ノートディレクトリのパスなどのローカルランタイム情報を表示します。",
+          "doctorDesc": "プラットフォーム、Node.js バージョン、ホームディレクトリ、作業ディレクトリ、GraphNode ホーム、レガシーノートディレクトリなどのローカルランタイム情報を表示します。",
           "note": "note",
-          "noteDesc": ".graphnode-cli/notes に保存されたローカル Markdown ノートを管理します。",
-          "noteAdd": "note add <title> — 新しいノートを作成",
-          "noteList": "note list — すべてのノートを一覧表示",
-          "noteStorage": "ノートは日付プレフィックス付きのスラッグファイル名で Markdown ファイルとして保存されます。",
+          "noteDesc": "SQLite に保存されたノートの作成、確認、検索、表示、削除を行います。",
+          "noteQuery": "<query> にはノート ID の完全一致、またはタイトル/本文に含まれる検索語を指定できます。現在の CLI が新規作成するノート ID は cli-タイムスタンプ形式です。",
+          "noteAdd": "note add <title> — 新しい SQLite ノートを作成",
+          "noteList": "note list — SQLite ノートを一覧表示",
+          "noteStorage": "SQLite ノートはデフォルトで ~/.graphnode/graphnode.db に保存されます。レガシーなファイルノートは file-note コマンドで ~/.graphnode/cli/notes から引き続き参照でき、保存ルートは GRAPHNODE_HOME で変更できます。",
           "demo": "demo",
-          "demoDesc": "CLI の機能を説明する小さなデモワークフローを実行します。"
+          "demoDesc": "ターミナルでのノート作成、共有 GraphNode ホームディレクトリ、SQLite 起動同期状態の確認を説明する小さなデモを実行します。"
         }
       }
     }

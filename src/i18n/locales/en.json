@@ -466,24 +466,32 @@
       },
       "cli": {
         "title": "GraphNode CLI",
-        "description": "The GraphNode CLI is a terminal-friendly companion tool that lets you create and manage notes directly from the command line, without opening the desktop app.",
+        "description": "The GraphNode CLI is a terminal-friendly companion tool for creating and inspecting SQLite-backed notes from the command line. It also exposes runtime checks and legacy file-note access without opening the desktop app.",
         "toc": "On this page",
         "overview": {
           "title": "Overview",
-          "description": "The CLI ships as the @graphnode/cli package inside the GraphNode Front repository. It complements the Electron app with a lightweight terminal interface.",
-          "feature1": "Create markdown notes from your terminal",
-          "feature2": "Inspect local runtime environment with doctor",
-          "feature3": "List notes stored in your workspace",
-          "feature4": "Zero config — notes are stored relative to your working directory"
+          "description": "The CLI ships as the @graphnode/cli package inside the GraphNode Front repository. It complements the Electron app by working against the same GraphNode home directory and SQLite note storage.",
+          "feature1": "Create and search SQLite-backed notes from your terminal",
+          "feature2": "Inspect local runtime and bootstrap state with doctor and sqlite commands",
+          "feature3": "Resolve note ids, print note contents, open previews, and soft-delete notes",
+          "feature4": "Access legacy file-backed notes through the file-note commands"
         },
         "quickstart": {
           "title": "Quick Start",
           "description": "Run the CLI directly via npm without a global install:",
-          "note": "Notes are stored in .graphnode-cli/notes relative to the current working directory."
+          "note": "SQLite notes are stored in ~/.graphnode/graphnode.db by default, while legacy file notes remain available in ~/.graphnode/cli/notes."
         },
         "install": {
           "title": "Global Install",
-          "description": "Link the package globally so you can run graphnode from anywhere:"
+          "description": "For local development, link the package so you can run graphnode from anywhere:",
+          "note": "This is only for local development. End users should not need npm link."
+        },
+        "distribution": {
+          "title": "Distribution Options",
+          "description": "Based on the latest CLI README in GraphNode Front, the current distribution plan covers three paths.",
+          "option1": "npm package: best when GraphNode CLI is shipped as a standalone developer tool. Run graphnode:release-check before publish to verify the standalone bundle.",
+          "option2": "Homebrew: best for macOS-focused distribution. Users can install with brew install graphnode and immediately run graphnode help.",
+          "option3": "App bundle included CLI: best when the desktop installer should also ship the CLI. Release builds already bundle the CLI resources, but exposing graphnode on PATH is still platform-specific."
         },
         "commands": {
           "title": "Commands",
@@ -491,14 +499,15 @@
           "help": "help",
           "helpDesc": "Prints the full list of available commands and usage examples.",
           "doctor": "doctor",
-          "doctorDesc": "Displays local runtime information including platform, Node.js version, home directory, working directory, and the notes directory path.",
+          "doctorDesc": "Displays local runtime information including platform, Node.js version, home directory, working directory, GraphNode home, and the legacy notes directory path.",
           "note": "note",
-          "noteDesc": "Manage local markdown notes stored in .graphnode-cli/notes.",
-          "noteAdd": "note add <title> — Create a new note",
-          "noteList": "note list — List all notes",
-          "noteStorage": "Notes are saved as markdown files with a date-prefixed slug filename.",
+          "noteDesc": "Create, inspect, search, open, and delete notes stored in SQLite.",
+          "noteQuery": "Use <query> as either an exact note ID or a search term contained in the note title/body. Notes created by the current CLI use a cli-timestamp ID format.",
+          "noteAdd": "note add <title> — Create a new SQLite note",
+          "noteList": "note list — List SQLite notes",
+          "noteStorage": "SQLite notes are stored in ~/.graphnode/graphnode.db by default. Legacy file notes remain available in ~/.graphnode/cli/notes through the file-note commands, and you can override the storage root with GRAPHNODE_HOME.",
           "demo": "demo",
-          "demoDesc": "Runs a small demo workflow that explains the CLI capabilities."
+          "demoDesc": "Runs a small demo workflow covering terminal note creation, the shared GraphNode home directory, and SQLite startup sync inspection."
         }
       }
     }
