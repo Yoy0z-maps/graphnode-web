@@ -58,28 +58,59 @@
     },
     "members": {
       "kanghyunil": {
+        "name": "Hyunil Kang",
         "role": "社长兼后端工程师",
         "description": "喜欢思考逻辑和架构设计"
       },
       "kimkyungdeok": {
+        "name": "Kyungdeok Kim",
         "role": "AI 团队",
         "description": "对 AI 充满热情，最终目标是在建筑 AI 行业工作"
       },
       "kojunseo": {
+        "name": "Junseo Ko",
         "role": "AI 团队",
         "description": "希望深入体验实际项目"
       },
       "noisaak": {
+        "name": "Isaac Noh",
         "role": "项目经理",
         "description": "希望亲身体验 IT 行业的结构和各种职位"
       },
       "hanwooseok": {
+        "name": "Wooseok Han",
         "role": "AI 团队",
-        "description": ""
+        "description": "对AI方向充满热情，喜欢基于扎实理论构建高效的AI相关服务"
       },
       "hanyohan": {
+        "name": "Yohan Han",
         "role": "前端工程师",
         "description": "编程是我人生中最好的爱好"
+      },
+      "seouminji": {
+        "name": "Minji Seo",
+        "role": "AI 团队",
+        "description": "正在攻读金融与AI专业"
+      },
+      "parkjunbeom": {
+        "name": "Junbeom Park",
+        "role": "后端工程师",
+        "description": "在推进项目的过程中积累经验和实力，乐在其中"
+      },
+      "leejeongheon": {
+        "name": "Jeongheon Lee",
+        "role": "项目经理",
+        "description": "希望借助解决方案经验与协作经验，担任PM职务，积累多样化经历"
+      },
+      "kwongeunmo": {
+        "name": "Geunmo Kwon",
+        "role": "法务团队",
+        "description": "以法学为主专业，希望与各领域人士协作，积累相关实务经验"
+      },
+      "immuryang": {
+        "name": "Muryang Lim",
+        "role": "AI 团队",
+        "description": "不太喜欢写代码，但对人工智能很有自信"
       }
     }
   },

@@ -58,28 +58,59 @@
     },
     "members": {
       "kanghyunil": {
+        "name": "강현일",
         "role": "동아리 회장 및 백엔드 엔지니어",
         "description": "로직 및 구조 설계를 위해 고민하는 것을 좋아합니다"
       },
       "kimkyungdeok": {
+        "name": "김경덕",
         "role": "AI팀",
         "description": "AI에 관심이 많고, 궁극적으로는 건축 AI 산업에서 일을 하고 싶은 열정이 있습니다"
       },
       "kojunseo": {
+        "name": "고준서",
         "role": "AI팀",
         "description": "실질적으로 깊게 프로젝트를 경험해보고 싶습니다"
       },
       "noisaak": {
+        "name": "노이삭",
         "role": "PM",
         "description": "IT 산업의 구조와 다양한 직무를 몸소 체험하고 싶습니다"
       },
       "hanwooseok": {
+        "name": "한우석",
         "role": "AI 팀",
-        "description": ""
+        "description": "AI방향에 관심이 많고, 탄탄한 이론에 기반하여 효율적인 AI 관련 서비스를 구현하는 것을 좋아합니다"
       },
       "hanyohan": {
+        "name": "한요한",
         "role": "프론트엔드 엔지니어",
         "description": "코딩은 제 인생 가장 훌륭한 취미입니다"
+      },
+      "seouminji": {
+        "name": "서민지",
+        "role": "AI 팀",
+        "description": "Finance&AI 전공 중 입니다"
+      },
+      "parkjunbeom": {
+        "name": "박준범",
+        "role": "백엔드 엔지니어",
+        "description": "프로젝트를 진행하면서 경험과 실력을 쌓는 것에 재미를 느낍니다"
+      },
+      "leejeongheon": {
+        "name": "이종헌",
+        "role": "PM",
+        "description": "솔루션 경험 노하우와 협업 노하우를 통해 PM 업무를 맡아서 다양한 경험을 해보고 싶습니다"
+      },
+      "kwongeunmo": {
+        "name": "권근모",
+        "role": "법무팀",
+        "description": "법학을 주 전공으로 공부하며, 다양한 분들과 협업하며 관련 실무를 쌓고 싶습니다"
+      },
+      "immuryang": {
+        "name": "임무량",
+        "role": "AI 팀",
+        "description": "코딩은 안 좋아하지만 인공지능에는 자신있습니다"
       }
     }
   },

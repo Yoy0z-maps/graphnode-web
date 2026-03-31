@@ -7,6 +7,11 @@ const memberKeys = [
   { key: "noisaak", name: "노이삭", avatar: "📊" },
   { key: "hanwooseok", name: "한우석", avatar: "🤖" },
   { key: "hanyohan", name: "한요한", avatar: "💻" },
+  { key: "seouminji", name: "서민지", avatar: "📈" },
+  { key: "parkjunbeom", name: "박준범", avatar: "🚀" },
+  { key: "leejeongheon", name: "이종헌", avatar: "📋" },
+  { key: "kwongeunmo", name: "권근모", avatar: "⚖️" },
+  { key: "immuryang", name: "임무량", avatar: "🧠" },
 ] as const;
 
 export default function TeamSection() {
@@ -33,7 +38,7 @@ export default function TeamSection() {
             >
               <div className="text-6xl mb-4 text-center">{member.avatar}</div>
               <h3 className="text-xl font-semibold mb-2 text-center">
-                {member.name}
+                {t(`team.members.${member.key}.name`, { defaultValue: member.name })}
               </h3>
               <p className="text-[#5865f2] font-medium mb-2 text-center">
                 {t(`team.members.${member.key}.role`)}

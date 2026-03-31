@@ -58,28 +58,59 @@
     },
     "members": {
       "kanghyunil": {
+        "name": "Hyunil Kang",
         "role": "Club President & Backend Engineer",
         "description": "Enjoys thinking about logic and architecture design"
       },
       "kimkyungdeok": {
+        "name": "Kyungdeok Kim",
         "role": "AI Team",
         "description": "Passionate about AI with the ultimate goal of working in the architectural AI industry"
       },
       "kojunseo": {
+        "name": "Junseo Ko",
         "role": "AI Team",
         "description": "Wants to gain deep, hands-on project experience"
       },
       "noisaak": {
+        "name": "Isaac Noh",
         "role": "PM",
         "description": "Wants to experience the structure of the IT industry and various roles firsthand"
       },
       "hanwooseok": {
+        "name": "Wooseok Han",
         "role": "AI Team",
-        "description": ""
+        "description": "Passionate about AI and enjoys building efficient AI services grounded in solid theory"
       },
       "hanyohan": {
+        "name": "Yohan Han",
         "role": "Frontend Engineer",
         "description": "Coding is the finest hobby of my life"
+      },
+      "seouminji": {
+        "name": "Minji Seo",
+        "role": "AI Team",
+        "description": "Currently majoring in Finance & AI"
+      },
+      "parkjunbeom": {
+        "name": "Junbeom Park",
+        "role": "Backend Engineer",
+        "description": "Finds joy in gaining experience and skills through hands-on projects"
+      },
+      "leejeongheon": {
+        "name": "Jeongheon Lee",
+        "role": "PM",
+        "description": "Wants to take on PM responsibilities and gain diverse experience through solution expertise and collaboration know-how"
+      },
+      "kwongeunmo": {
+        "name": "Geunmo Kwon",
+        "role": "Legal Team",
+        "description": "Studies law as a main major and wants to build practical experience by collaborating with diverse people"
+      },
+      "immuryang": {
+        "name": "Muryang Lim",
+        "role": "AI Team",
+        "description": "Not a fan of coding, but confident when it comes to AI"
       }
     }
   },

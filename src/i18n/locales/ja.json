@@ -58,28 +58,59 @@
     },
     "members": {
       "kanghyunil": {
+        "name": "Hyunil Kang",
         "role": "部長兼バックエンドエンジニア",
         "description": "ロジックとアーキテクチャ設計について考えることが好きです"
       },
       "kimkyungdeok": {
+        "name": "Kyungdeok Kim",
         "role": "AI チーム",
         "description": "AI に強い関心があり、最終的には建築 AI 業界で働くことを目指しています"
       },
       "kojunseo": {
+        "name": "Junseo Ko",
         "role": "AI チーム",
         "description": "実践的にプロジェクトを深く体験したいです"
       },
       "noisaak": {
+        "name": "Isaac Noh",
         "role": "PM",
         "description": "IT 業界の構造と様々な職種を身をもって体験したいです"
       },
       "hanwooseok": {
+        "name": "Wooseok Han",
         "role": "AI チーム",
-        "description": ""
+        "description": "AIの方向性に強い関心を持ち、確かな理論に基づいて効率的なAI関連サービスを実装することが好きです"
       },
       "hanyohan": {
+        "name": "Yohan Han",
         "role": "フロントエンドエンジニア",
         "description": "コーディングは人生で最高の趣味です"
+      },
+      "seouminji": {
+        "name": "Minji Seo",
+        "role": "AI チーム",
+        "description": "Finance & AIを専攻中です"
+      },
+      "parkjunbeom": {
+        "name": "Junbeom Park",
+        "role": "バックエンドエンジニア",
+        "description": "プロジェクトを進めながら経験とスキルを積むことに楽しさを感じます"
+      },
+      "leejeongheon": {
+        "name": "Jeongheon Lee",
+        "role": "PM",
+        "description": "ソリューション経験と協業ノウハウを活かしてPM業務を担い、多様な経験を積みたいです"
+      },
+      "kwongeunmo": {
+        "name": "Geunmo Kwon",
+        "role": "法務チーム",
+        "description": "法学を主専攻として学びながら、多様な方々と協業して関連実務を積みたいです"
+      },
+      "immuryang": {
+        "name": "Muryang Lim",
+        "role": "AI チーム",
+        "description": "コーディングは得意ではありませんが、人工知能には自信があります"
       }
     }
   },

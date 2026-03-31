@@ -13,196 +13,244 @@ export type TermsData = {
 const termsData: Record<string, TermsData> = {
   ko: {
     title: "이용약관",
-    effectiveDate: "2025-03-01",
+    effectiveDate: "2026-04-01",
     intro:
-      "본 이용약관은 GraphNode(이하 '회사')가 제공하는 서비스의 이용에 관한 조건과 절차를 규정합니다. 서비스를 이용하시면 본 약관에 동의한 것으로 간주합니다.",
+      "GraphNode 서비스(이하 '서비스')를 이용해 주셔서 감사합니다. GraphNode는 이용자가 입력한 노트, 문서, 대화 및 기타 정보(이하 \"콘텐츠\")를 기반으로 지식 그래프를 생성하고 시각화하는 서비스입니다.\n본 약관은 GraphNode 서비스 운영자(이하 \"운영자\")가 제공하는 서비스의 이용과 관련하여 운영자와 이용자 간의 권리, 의무 및 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.",
     sections: [
       {
-        title: "제1조 (목적)",
-        body: "본 약관은 회사가 제공하는 GraphNode 서비스(이하 '서비스')의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.",
+        title: "약관의 효력 및 변경",
+        body: "본 약관은 이용자가 GraphNode 서비스에 가입하거나 서비스를 이용하기 시작하는 시점부터 효력이 발생합니다. 운영자는 서비스 운영, 관련 법령의 변경 또는 기술적·관리적 필요가 있는 경우 본 약관을 변경할 수 있으며, 약관이 변경되는 경우 변경 내용과 적용일자를 서비스 화면 또는 관련 페이지를 통해 사전에 공지합니다. 이용자가 변경된 약관에 동의하지 않을 경우 서비스 이용을 중단하고 계정을 탈퇴할 수 있습니다.",
       },
       {
-        title: "제2조 (정의)",
-        body: "① '서비스'란 회사가 제공하는 지식 그래프 기반 AI 대화 관리 플랫폼 및 관련 부가 서비스를 의미합니다.\n② '이용자'란 본 약관에 동의하고 서비스를 이용하는 자를 의미합니다.\n③ '계정'이란 이용자가 서비스를 이용하기 위해 생성한 Google 인증 기반의 식별 정보를 의미합니다.",
+        title: "서비스의 제공",
+        body: "운영자는 이용자에게 다음과 같은 서비스를 제공합니다.\n\n• 노트 및 문서 입력 기능\n• 인공지능 기반 콘텐츠 분석 기능\n• 지식 그래프 생성 및 시각화 기능\n• 콘텐츠 간 관계 분석 기능\n• 지식 탐색 및 검색 기능\n• 그래프 재구성 및 연결 추천 기능\n• 기타 운영자가 추가로 제공하는 기능\n\n서비스의 일부 기능은 그래프 토큰 또는 구독 플랜에 따라 이용이 제한될 수 있습니다.",
       },
       {
-        title: "제3조 (약관의 효력 및 변경)",
-        body: "① 본 약관은 서비스 화면에 게시하거나 기타 방법으로 이용자에게 공지함으로써 효력이 발생합니다.\n② 회사는 관련 법령을 위배하지 않는 범위에서 본 약관을 개정할 수 있으며, 변경 시 적용 일자 및 사유를 명시하여 최소 7일 전에 공지합니다.",
+        title: "계정",
+        body: "이용자는 서비스 이용을 위하여 개인 계정을 생성하여야 하며, 해당 계정은 이용자 본인만 사용할 수 있고 제3자에게 양도·대여하거나 공유할 수 없습니다. 이용자는 자신의 계정 정보에 대한 관리 책임을 부담하며, 계정 정보의 관리 소홀 또는 제3자의 부정 사용으로 인하여 발생하는 손해에 대하여 운영자는 책임을 지지 않습니다.",
       },
       {
-        title: "제4조 (서비스 이용)",
-        body: "① 서비스는 Google OAuth 인증을 통해 이용할 수 있습니다.\n② 이용자는 서비스를 개인적, 비상업적 목적으로만 이용할 수 있습니다.\n③ 회사는 서비스의 품질 개선을 위해 사전 통지 후 서비스의 일부 또는 전부를 변경하거나 중단할 수 있습니다.",
+        title: "서비스 이용 및 요금",
+        body: "서비스는 다음과 같은 방식으로 제공될 수 있습니다.\n\n• 무료 플랜\n• 유료 구독 플랜\n\n유료 서비스 이용 시 이용자는 서비스에 표시된 요금 및 결제 조건에 따라 요금을 지불해야 합니다. 그래프 토큰은 서비스에서 인공지능 연산을 수행할 때 자동으로 차감될 수 있습니다.",
       },
       {
-        title: "제5조 (이용자의 의무)",
-        body: "이용자는 다음 행위를 해서는 안 됩니다.\n\n① 타인의 정보를 도용하거나 허위 정보를 등록하는 행위\n② 회사의 지식재산권을 침해하는 행위\n③ 서비스의 안정적 운영을 방해하는 행위 (해킹, 과부하 유발 등)\n④ 불법·유해 콘텐츠를 생성, 전송, 게시하는 행위\n⑤ 상업적 광고·홍보 목적의 무단 사용\n⑥ 관련 법령을 위반하는 행위",
+        title: "서비스의 변경 및 중단",
+        body: "운영자는 다음과 같은 경우 서비스의 전부 또는 일부를 변경하거나 중단할 수 있습니다.\n\n• 서비스 개선 또는 기술적 필요\n• 제3자 서비스 변경\n• 불가항력적 사유",
       },
       {
-        title: "제6조 (콘텐츠의 권리)",
-        body: "① 이용자가 서비스 내에서 생성한 콘텐츠(노트, 대화 내역 등)의 저작권은 이용자에게 귀속됩니다.\n② 회사는 서비스 운영, 개선 및 홍보 목적으로 이용자의 콘텐츠를 익명화하여 활용할 수 있습니다.\n③ 서비스에서 제공하는 소프트웨어, 디자인, 로고 등의 지식재산권은 회사에 귀속됩니다.",
+        title: "이용자의 의무",
+        body: "이용자는 다음 행위를 하여서는 안 됩니다.\n\n• 타인의 계정을 도용하는 행위\n• 서비스 운영을 방해하는 행위\n• 불법 콘텐츠를 업로드하는 행위\n• 서비스 시스템을 해킹하거나 침해하는 행위\n• 법령 또는 공공질서에 반하는 행위",
       },
       {
-        title: "제7조 (서비스 이용 제한)",
-        body: "회사는 이용자가 본 약관을 위반하거나 다음에 해당하는 경우 서비스 이용을 제한하거나 계정을 해지할 수 있습니다.\n\n① 타인의 권리를 침해하거나 법령에 위반되는 행위\n② 서비스 운영을 고의로 방해하는 행위\n③ 장기간 미이용 시 (12개월 이상)",
+        title: "콘텐츠",
+        body: "이용자가 서비스에 업로드하거나 입력한 콘텐츠에 대한 저작권 및 관련 권리는 원칙적으로 이용자에게 귀속됩니다. 다만 이용자는 서비스 제공 및 운영을 위하여 필요한 범위 내에서 운영자가 해당 콘텐츠를 저장, 처리 및 분석하는 것에 동의하며, 운영자는 서비스 품질 향상 및 기능 개선을 위하여 콘텐츠를 익명화 또는 비식별화된 형태로 분석할 수 있습니다.",
       },
       {
-        title: "제8조 (면책 조항)",
-        body: "① 회사는 천재지변, 전쟁, 해킹 등 불가항력적 사유로 서비스를 제공하지 못한 경우 책임을 지지 않습니다.\n② 회사는 이용자의 귀책 사유로 발생한 서비스 이용 장애에 대해 책임을 지지 않습니다.\n③ 회사는 이용자가 서비스를 통해 기대하는 수익이나 결과를 보장하지 않습니다.",
+        title: "AI 기능 및 결과",
+        body: "서비스는 인공지능 기술을 활용하여 분석 결과, 요약, 지식 그래프 및 기타 자동 생성 정보를 제공할 수 있으며, 이러한 인공지능 생성 결과는 참고를 위한 정보로 제공됩니다. 운영자는 해당 결과의 정확성, 완전성 또는 신뢰성을 보장하지 않으며, 이용자는 인공지능 결과를 기반으로 한 판단 또는 행위로 인해 발생하는 결과에 대하여 스스로 책임을 부담합니다.",
       },
       {
-        title: "제9조 (준거법 및 분쟁 해결)",
-        body: "① 본 약관은 대한민국 법률에 따라 해석됩니다.\n② 서비스 이용과 관련한 분쟁은 회사의 소재지를 관할하는 법원에서 해결합니다.",
+        title: "외부 서비스 및 데이터",
+        body: "서비스는 Google, OpenAI, Deepseek 등 제3자 인공지능 서비스 또는 클라우드 서비스를 이용하여 제공될 수 있으며, MCP(Model Context Protocol) 또는 기타 외부 데이터 소스를 통해 데이터를 수집하거나 활용할 수 있습니다. 다만 외부 서비스의 정책 변경, 장애 또는 서비스 중단 등의 사유로 인해 서비스의 일부 기능이 제한되거나 변경될 수 있습니다.\n\n서비스는 이용자의 데이터를 다음 환경에 저장할 수 있습니다.\n\n• Google Cloud Platform 또는 기타 클라우드 인프라",
       },
       {
-        title: "부칙",
-        body: "본 약관은 2025년 3월 1일부터 시행됩니다.",
+        title: "책임의 제한",
+        body: "운영자는 다음 사항에 대해 책임을 지지 않습니다.\n\n• 이용자의 귀책 사유로 발생한 손해\n• 인공지능 분석 결과에 대한 의존으로 발생한 손해\n• 외부 서비스 장애로 발생한 손해\n• 불가항력적 사유로 발생한 서비스 중단",
+      },
+      {
+        title: "서비스 업데이트",
+        body: "GraphNode 서비스는 서비스 개선 및 기술 발전을 위하여 지속적인 기능 업데이트가 이루어질 수 있으며, 이러한 업데이트에는 인공지능 모델의 변경, 그래프 생성 방식의 변경, 사용자 인터페이스의 변경, 기능의 추가 또는 삭제 등이 포함될 수 있습니다. 이용자는 이러한 서비스 업데이트로 인해 서비스의 기능, 구성 또는 인터페이스가 변경될 수 있음에 동의합니다.",
+      },
+      {
+        title: "서비스 종료",
+        body: "운영자는 서비스 운영이 어려운 경우 서비스를 종료할 수 있습니다. 서비스 종료 시 운영자는 합리적인 기간 동안 이용자에게 사전 공지합니다.",
+      },
+      {
+        title: "준거법 및 관할",
+        body: "본 약관은 대한민국 법률에 따라 해석됩니다. 서비스 이용과 관련하여 분쟁이 발생할 경우 대한민국 법원을 전속 관할 법원으로 합니다.\n\n적용 일자: 2026년 04월 01일",
       },
     ],
   },
 
   en: {
     title: "Terms of Service",
-    effectiveDate: "2025-03-01",
+    effectiveDate: "2026-04-01",
     intro:
-      "These Terms of Service govern your use of the services provided by GraphNode (hereinafter 'the Company'). By using our services, you agree to these terms.",
+      "Thank you for using GraphNode (hereinafter 'Service'). GraphNode is a service that generates and visualizes knowledge graphs based on notes, documents, conversations, and other information (hereinafter \"Content\") entered by users.\nThese Terms govern the rights, obligations, responsibilities, and other matters between the operator (hereinafter \"Operator\") of GraphNode and users with respect to the use of the service.",
     sections: [
       {
-        title: "Article 1 (Purpose)",
-        body: "These Terms govern the relationship between the Company and users with respect to the use of the GraphNode service (hereinafter 'Service'), including the rights, obligations, and responsibilities of each party.",
+        title: "Effect and Changes to Terms",
+        body: "These Terms take effect when a user registers for or begins using the GraphNode service. The Operator may amend these Terms as necessary for service operation, changes in applicable laws, or technical/administrative needs. If the Terms are amended, the changes and effective date will be announced in advance through the service interface or relevant pages. If a user does not agree to the amended Terms, they may discontinue use and withdraw their account.",
       },
       {
-        title: "Article 2 (Definitions)",
-        body: "① 'Service' refers to the knowledge graph-based AI conversation management platform and related services provided by the Company.\n② 'User' refers to any person who agrees to these Terms and uses the Service.\n③ 'Account' refers to the Google OAuth-based identity created by a user to access the Service.",
+        title: "Service Provision",
+        body: "The Operator provides users with the following services:\n\n• Note and document input\n• AI-based content analysis\n• Knowledge graph generation and visualization\n• Relationship analysis between content\n• Knowledge exploration and search\n• Graph restructuring and connection recommendations\n• Other features additionally provided by the Operator\n\nSome features may be restricted depending on graph tokens or subscription plans.",
       },
       {
-        title: "Article 3 (Effect and Changes to Terms)",
-        body: "① These Terms take effect when posted on the Service interface or otherwise communicated to users.\n② The Company may revise these Terms within the scope permitted by applicable law. Users will be notified at least 7 days before changes take effect, with the effective date and reason clearly stated.",
+        title: "Account",
+        body: "Users must create a personal account to use the service. The account may only be used by the account holder and may not be transferred, loaned, or shared with third parties. Users are responsible for managing their account information, and the Operator is not liable for any damages resulting from negligent account management or unauthorized use by third parties.",
       },
       {
-        title: "Article 4 (Use of Service)",
-        body: "① The Service is accessible via Google OAuth authentication.\n② Users may use the Service for personal, non-commercial purposes only.\n③ The Company may change or suspend part or all of the Service after prior notice for quality improvement.",
+        title: "Service Use and Fees",
+        body: "The service may be provided in the following ways:\n\n• Free plan\n• Paid subscription plan\n\nFor paid services, users must pay fees according to the rates and payment terms displayed in the service. Graph tokens may be automatically deducted when AI computations are performed within the service.",
       },
       {
-        title: "Article 5 (User Obligations)",
-        body: "Users must not:\n\n① Impersonate others or register false information\n② Infringe the Company's intellectual property rights\n③ Disrupt the stable operation of the Service (e.g., hacking, overloading)\n④ Create, transmit, or post illegal or harmful content\n⑤ Use the Service for unauthorized commercial advertising or promotion\n⑥ Violate applicable laws and regulations",
+        title: "Changes and Suspension of Service",
+        body: "The Operator may change or suspend all or part of the service in the following cases:\n\n• Service improvement or technical necessity\n• Changes to third-party services\n• Force majeure events",
       },
       {
-        title: "Article 6 (Content Rights)",
-        body: "① Copyright in content created by users within the Service (notes, conversation history, etc.) belongs to the respective users.\n② The Company may use anonymized user content for the purpose of operating, improving, and promoting the Service.\n③ Intellectual property rights to the software, design, and logos provided by the Service belong to the Company.",
+        title: "User Obligations",
+        body: "Users must not engage in the following activities:\n\n• Unauthorized use of another user's account\n• Interfering with service operations\n• Uploading illegal content\n• Hacking or infringing the service system\n• Acts contrary to law or public order",
       },
       {
-        title: "Article 7 (Service Restrictions)",
-        body: "The Company may restrict service access or terminate accounts in the following cases:\n\n① Acts that infringe the rights of others or violate applicable law\n② Intentional interference with Service operation\n③ Extended inactivity (12 months or more)",
+        title: "Content",
+        body: "Copyright and related rights to content uploaded or entered by users into the service belong in principle to the user. However, users agree that the Operator may store, process, and analyze such content to the extent necessary for service provision and operation. The Operator may analyze content in anonymized or de-identified form for service quality improvement and feature enhancement.",
       },
       {
-        title: "Article 8 (Disclaimers)",
-        body: "① The Company is not liable for service disruptions caused by force majeure events such as natural disasters, war, or hacking.\n② The Company is not liable for service disruptions caused by the user's own actions.\n③ The Company does not guarantee any specific results or revenue from using the Service.",
+        title: "AI Features and Results",
+        body: "The service may use AI technology to provide analysis results, summaries, knowledge graphs, and other automatically generated information. Such AI-generated results are provided for reference purposes only. The Operator does not guarantee the accuracy, completeness, or reliability of such results, and users bear sole responsibility for any consequences arising from decisions or actions based on AI-generated results.",
       },
       {
-        title: "Article 9 (Governing Law and Dispute Resolution)",
-        body: "① These Terms are governed by and construed in accordance with the laws of the Republic of Korea.\n② Disputes related to the use of the Service shall be resolved in the court having jurisdiction over the Company's location.",
+        title: "External Services and Data",
+        body: "The service may be provided using third-party AI services or cloud services such as Google, OpenAI, and Deepseek, and may collect or utilize data through MCP (Model Context Protocol) or other external data sources. However, some service features may be restricted or changed due to policy changes, outages, or service interruptions by external services.\n\nThe service may store user data in the following environments:\n\n• Google Cloud Platform or other cloud infrastructure",
       },
       {
-        title: "Supplementary Provisions",
-        body: "These Terms are effective as of March 1, 2025.",
+        title: "Limitation of Liability",
+        body: "The Operator is not liable for:\n\n• Damages caused by the user's own actions\n• Damages resulting from reliance on AI analysis results\n• Damages caused by external service failures\n• Service interruptions due to force majeure events",
+      },
+      {
+        title: "Service Updates",
+        body: "GraphNode may undergo continuous feature updates for service improvement and technological advancement. Such updates may include changes to AI models, changes to graph generation methods, changes to the user interface, and addition or removal of features. Users agree that the service's features, configuration, or interface may change as a result of these updates.",
+      },
+      {
+        title: "Service Termination",
+        body: "The Operator may terminate the service if service operation becomes difficult. Upon termination, the Operator will notify users in advance within a reasonable period.",
+      },
+      {
+        title: "Governing Law and Jurisdiction",
+        body: "These Terms are governed by and construed in accordance with the laws of the Republic of Korea. Any disputes related to the use of the service shall be subject to the exclusive jurisdiction of the courts of the Republic of Korea.\n\nEffective Date: April 1, 2026",
       },
     ],
   },
 
   zh: {
     title: "服务条款",
-    effectiveDate: "2025-03-01",
+    effectiveDate: "2026-04-01",
     intro:
-      "本服务条款规定了使用GraphNode（以下简称「公司」）提供的服务的相关条件与程序。使用本服务即表示您同意本条款。",
+      "感谢您使用 GraphNode（以下简称「服务」）。GraphNode 是一项基于用户输入的笔记、文档、对话及其他信息（以下简称「内容」）生成并可视化知识图谱的服务。\n本条款旨在规定 GraphNode 服务运营者（以下简称「运营者」）与用户之间在使用服务方面的权利、义务、责任事项及其他必要事宜。",
     sections: [
       {
-        title: "第一条（目的）",
-        body: "本条款旨在规定公司与用户在使用GraphNode服务（以下简称「服务」）过程中的权利、义务及责任事项。",
+        title: "条款的效力及变更",
+        body: "本条款自用户注册 GraphNode 服务或开始使用服务之时起生效。运营者可因服务运营、相关法律法规变更或技术·管理需要而修改本条款。条款变更时，将通过服务页面或相关页面提前公告变更内容及适用日期。如用户不同意变更后的条款，可停止使用服务并注销账户。",
       },
       {
-        title: "第二条（定义）",
-        body: "① 「服务」是指公司提供的基于知识图谱的AI对话管理平台及相关附加服务。\n② 「用户」是指同意本条款并使用服务的任何人。\n③ 「账户」是指用户为使用服务而创建的基于Google认证的身份信息。",
+        title: "服务内容",
+        body: "运营者向用户提供以下服务：\n\n• 笔记及文档输入功能\n• 基于人工智能的内容分析功能\n• 知识图谱生成与可视化功能\n• 内容间关系分析功能\n• 知识探索与搜索功能\n• 图谱重构及关联推荐功能\n• 运营者额外提供的其他功能\n\n部分功能可能因图谱令牌或订阅计划而受到限制。",
       },
       {
-        title: "第三条（条款的效力及变更）",
-        body: "① 本条款自发布在服务页面或以其他方式通知用户之日起生效。\n② 公司可在法律允许的范围内修订本条款，变更时将注明生效日期及理由，并至少提前7天通知用户。",
+        title: "账户",
+        body: "用户须创建个人账户方可使用服务，该账户仅限用户本人使用，不得转让、出借或与第三方共享。用户对自身账户信息负有管理责任，因账户信息管理疏忽或第三方未经授权使用而造成的损失，运营者不承担责任。",
       },
       {
-        title: "第四条（服务使用）",
-        body: "① 服务通过Google OAuth认证方式使用。\n② 用户只能将服务用于个人非商业目的。\n③ 公司可在事先通知后，为提升服务质量对服务部分或全部内容进行变更或中断。",
+        title: "服务使用及费用",
+        body: "服务可通过以下方式提供：\n\n• 免费计划\n• 付费订阅计划\n\n使用付费服务时，用户须按服务中显示的费率及支付条件支付费用。在服务中执行人工智能运算时，图谱令牌可能会被自动扣除。",
       },
       {
-        title: "第五条（用户义务）",
-        body: "用户不得进行以下行为：\n\n① 盗用他人信息或登记虚假信息\n② 侵害公司知识产权\n③ 妨碍服务稳定运营的行为（如黑客攻击、制造过载等）\n④ 创建、传播、发布违法有害内容\n⑤ 未经授权将服务用于商业广告或推广\n⑥ 违反相关法律法规",
+        title: "服务变更及中断",
+        body: "运营者在以下情况下可变更或中断全部或部分服务：\n\n• 服务改进或技术需要\n• 第三方服务变更\n• 不可抗力事由",
       },
       {
-        title: "第六条（内容权利）",
-        body: "① 用户在服务中创建的内容（笔记、对话记录等）的著作权归用户所有。\n② 公司可将用户内容匿名化后用于服务运营、改善及推广目的。\n③ 服务提供的软件、设计、标志等知识产权归公司所有。",
+        title: "用户义务",
+        body: "用户不得进行以下行为：\n\n• 盗用他人账户\n• 妨碍服务运营\n• 上传违法内容\n• 入侵或侵害服务系统\n• 违反法律法规或公共秩序的行为",
       },
       {
-        title: "第七条（服务限制）",
-        body: "在以下情况下，公司可限制用户使用服务或注销账户：\n\n① 侵害他人权利或违反法律的行为\n② 故意妨碍服务运营\n③ 长期未使用（12个月以上）",
+        title: "内容",
+        body: "用户上传或输入至服务中的内容，其著作权及相关权利原则上归属于用户。但用户同意运营者在提供及运营服务所需范围内对相关内容进行存储、处理和分析。运营者可将内容以匿名化或去标识化形式进行分析，以提升服务质量和改善功能。",
       },
       {
-        title: "第八条（免责条款）",
-        body: "① 因自然灾害、战争、黑客攻击等不可抗力因素导致服务中断的，公司不承担责任。\n② 因用户自身原因导致的服务障碍，公司不承担责任。\n③ 公司不保证用户通过服务获得特定收益或结果。",
+        title: "AI功能及结果",
+        body: "服务可利用人工智能技术提供分析结果、摘要、知识图谱及其他自动生成信息，此类人工智能生成结果仅作参考信息提供。运营者不保证相关结果的准确性、完整性或可靠性，用户须自行承担基于人工智能结果作出判断或行动所产生的一切后果。",
       },
       {
-        title: "第九条（准据法及争议解决）",
-        body: "① 本条款依据大韩民国法律进行解释。\n② 与服务使用相关的争议，在公司所在地有管辖权的法院解决。",
+        title: "外部服务及数据",
+        body: "服务可能通过 Google、OpenAI、Deepseek 等第三方人工智能服务或云服务提供，并可通过 MCP（模型上下文协议）或其他外部数据源收集或利用数据。但因外部服务政策变更、故障或服务中断等原因，服务的部分功能可能受到限制或变更。\n\n服务可能将用户数据存储于以下环境：\n\n• Google Cloud Platform 或其他云基础设施",
       },
       {
-        title: "附则",
-        body: "本条款自2025年3月1日起施行。",
+        title: "责任限制",
+        body: "运营者对以下事项不承担责任：\n\n• 因用户自身原因造成的损失\n• 因依赖人工智能分析结果造成的损失\n• 因外部服务故障造成的损失\n• 因不可抗力导致的服务中断",
+      },
+      {
+        title: "服务更新",
+        body: "GraphNode 服务可能为改善服务及推动技术发展而持续进行功能更新，此类更新可能包括人工智能模型变更、图谱生成方式变更、用户界面变更、功能增减等。用户同意因服务更新导致服务的功能、构成或界面发生变更。",
+      },
+      {
+        title: "服务终止",
+        body: "运营者在服务运营困难时可终止服务。服务终止时，运营者将在合理期限内提前通知用户。",
+      },
+      {
+        title: "准据法及管辖",
+        body: "本条款依据大韩民国法律进行解释。与服务使用相关的争议，以大韩民国法院为专属管辖法院。\n\n适用日期：2026年04月01日",
       },
     ],
   },
 
   ja: {
     title: "利用規約",
-    effectiveDate: "2025-03-01",
+    effectiveDate: "2026-04-01",
     intro:
-      "本利用規約は、GraphNode（以下「当社」）が提供するサービスの利用に関する条件と手続きを定めます。サービスを利用することにより、本規約に同意したものとみなされます。",
+      "GraphNode（以下「サービス」）をご利用いただきありがとうございます。GraphNode は、ユーザーが入力したノート、ドキュメント、会話その他の情報（以下「コンテンツ」）を基に知識グラフを生成・可視化するサービスです。\n本規約は、GraphNode サービス運営者（以下「運営者」）が提供するサービスの利用に関し、運営者とユーザーとの間の権利・義務・責任事項およびその他必要な事項を定めることを目的とします。",
     sections: [
       {
-        title: "第1条（目的）",
-        body: "本規約は、当社が提供するGraphNodeサービス（以下「サービス」）の利用に関して、当社とユーザーとの間の権利・義務・責任事項を定めることを目的とします。",
+        title: "規約の効力および変更",
+        body: "本規約は、ユーザーが GraphNode サービスに登録またはサービスの利用を開始した時点から効力を有します。運営者は、サービス運営、関連法令の変更、または技術的・管理的必要がある場合に本規約を変更することができます。規約が変更される場合、変更内容および適用日をサービス画面または関連ページを通じて事前に告知します。ユーザーが変更された規約に同意しない場合、サービスの利用を停止しアカウントを退会することができます。",
       },
       {
-        title: "第2条（定義）",
-        body: "① 「サービス」とは、当社が提供するナレッジグラフベースのAI会話管理プラットフォームおよび関連サービスをいいます。\n② 「ユーザー」とは、本規約に同意してサービスを利用する者をいいます。\n③ 「アカウント」とは、ユーザーがサービスを利用するために作成したGoogle認証ベースの識別情報をいいます。",
+        title: "サービスの提供",
+        body: "運営者はユーザーに以下のサービスを提供します。\n\n• ノートおよびドキュメント入力機能\n• AI ベースのコンテンツ分析機能\n• 知識グラフの生成および可視化機能\n• コンテンツ間の関係分析機能\n• 知識の探索および検索機能\n• グラフの再構成および接続推薦機能\n• 運営者が追加で提供するその他の機能\n\n一部の機能はグラフトークンまたはサブスクリプションプランによって利用が制限される場合があります。",
       },
       {
-        title: "第3条（規約の効力および変更）",
-        body: "① 本規約は、サービス画面に掲示またはその他の方法でユーザーに通知した時点から効力を有します。\n② 当社は法令の範囲内で本規約を改定することができ、変更の際は施行日および理由を明記し、少なくとも7日前に通知します。",
+        title: "アカウント",
+        body: "ユーザーはサービスを利用するために個人アカウントを作成する必要があり、当該アカウントはユーザー本人のみが使用でき、第三者への譲渡・貸与・共有はできません。ユーザーは自身のアカウント情報の管理責任を負い、アカウント情報の管理不備または第三者による不正使用により生じた損害について運営者は責任を負いません。",
       },
       {
-        title: "第4条（サービスの利用）",
-        body: "① サービスはGoogle OAuth認証を通じて利用できます。\n② ユーザーはサービスを個人的・非商業的目的のみに利用できます。\n③ 当社は品質向上のため、事前通知の上でサービスの一部または全部を変更または中断することがあります。",
+        title: "サービスの利用および料金",
+        body: "サービスは以下の方式で提供される場合があります。\n\n• 無料プラン\n• 有料サブスクリプションプラン\n\n有料サービスを利用する場合、ユーザーはサービスに表示された料金および支払条件に従って料金を支払う必要があります。グラフトークンは、サービス内で AI 演算を実行する際に自動的に消費される場合があります。",
       },
       {
-        title: "第5条（ユーザーの義務）",
-        body: "ユーザーは以下の行為を行ってはなりません。\n\n① 他人の情報を盗用したり、虚偽情報を登録する行為\n② 当社の知的財産権を侵害する行為\n③ サービスの安定的な運営を妨害する行為（ハッキング、過負荷誘発など）\n④ 不法・有害なコンテンツを作成・送信・投稿する行為\n⑤ 商業的広告・宣伝目的の無断利用\n⑥ 関連法令に違反する行為",
+        title: "サービスの変更および中断",
+        body: "運営者は以下の場合にサービスの全部または一部を変更または中断することができます。\n\n• サービス改善または技術的必要\n• 第三者サービスの変更\n• 不可抗力による事由",
       },
       {
-        title: "第6条（コンテンツの権利）",
-        body: "① ユーザーがサービス内で作成したコンテンツ（メモ、会話履歴など）の著作権はユーザーに帰属します。\n② 当社はサービスの運営・改善・宣伝目的で、ユーザーのコンテンツを匿名化して利用することができます。\n③ サービスが提供するソフトウェア、デザイン、ロゴ等の知的財産権は当社に帰属します。",
+        title: "ユーザーの義務",
+        body: "ユーザーは以下の行為を行ってはなりません。\n\n• 他人のアカウントを不正使用する行為\n• サービス運営を妨害する行為\n• 違法なコンテンツをアップロードする行為\n• サービスシステムをハッキングまたは侵害する行為\n• 法令または公序良俗に反する行為",
       },
       {
-        title: "第7条（サービス利用の制限）",
-        body: "ユーザーが本規約に違反した場合や以下に該当する場合、当社はサービス利用を制限またはアカウントを解約できます。\n\n① 他人の権利を侵害したり、法令に違反する行為\n② サービス運営を故意に妨害する行為\n③ 長期間未利用（12ヶ月以上）",
+        title: "コンテンツ",
+        body: "ユーザーがサービスにアップロードまたは入力したコンテンツの著作権および関連する権利は原則としてユーザーに帰属します。ただし、ユーザーはサービスの提供および運営に必要な範囲内で、運営者が当該コンテンツを保存・処理・分析することに同意します。運営者はサービス品質の向上および機能改善のためにコンテンツを匿名化または非識別化した形で分析することができます。",
       },
       {
-        title: "第8条（免責事項）",
-        body: "① 天災、戦争、ハッキングなど不可抗力によりサービスを提供できなかった場合、当社は責任を負いません。\n② ユーザーの帰責事由によるサービス障害について、当社は責任を負いません。\n③ 当社はユーザーがサービスを通じて期待する収益や結果を保証しません。",
+        title: "AI 機能および結果",
+        body: "サービスは AI 技術を活用して分析結果、要約、知識グラフその他の自動生成情報を提供することがあり、これらの AI 生成結果は参考情報として提供されます。運営者は当該結果の正確性、完全性または信頼性を保証せず、ユーザーは AI 結果に基づいた判断または行為により生じた結果について自ら責任を負います。",
       },
       {
-        title: "第9条（準拠法および紛争解決）",
-        body: "① 本規約は大韓民国の法律に従い解釈されます。\n② サービス利用に関する紛争は、当社の所在地を管轄する裁判所で解決します。",
+        title: "外部サービスおよびデータ",
+        body: "サービスは Google、OpenAI、Deepseek などの第三者 AI サービスまたはクラウドサービスを利用して提供される場合があり、MCP（Model Context Protocol）またはその他の外部データソースを通じてデータを収集・活用することがあります。ただし、外部サービスのポリシー変更、障害またはサービス中断などの理由により、サービスの一部機能が制限または変更される場合があります。\n\nサービスはユーザーのデータを以下の環境に保存することがあります。\n\n• Google Cloud Platform またはその他のクラウドインフラ",
       },
       {
-        title: "附則",
-        body: "本規約は2025年3月1日より施行します。",
+        title: "責任の制限",
+        body: "運営者は以下の事項について責任を負いません。\n\n• ユーザーの帰責事由により生じた損害\n• AI 分析結果への依存により生じた損害\n• 外部サービスの障害により生じた損害\n• 不可抗力による事由によるサービス中断",
+      },
+      {
+        title: "サービスの更新",
+        body: "GraphNode サービスはサービス改善および技術発展のために継続的な機能更新が行われることがあり、このような更新には AI モデルの変更、グラフ生成方式の変更、ユーザーインターフェースの変更、機能の追加または削除などが含まれることがあります。ユーザーはこれらのサービス更新によりサービスの機能、構成またはインターフェースが変更される場合があることに同意します。",
+      },
+      {
+        title: "サービスの終了",
+        body: "運営者はサービスの運営が困難な場合、サービスを終了することができます。サービス終了時、運営者は合理的な期間内にユーザーへ事前に通知します。",
+      },
+      {
+        title: "準拠法および管轄",
+        body: "本規約は大韓民国の法律に従い解釈されます。サービスの利用に関して紛争が生じた場合、大韓民国の裁判所を専属的な管轄裁判所とします。\n\n適用日：2026年04月01日",
       },
     ],
   },
