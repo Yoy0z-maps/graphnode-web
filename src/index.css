@@ -97,6 +97,27 @@ body::selection {
   background: rgba(90, 141, 246, 0.95);
 }
 
+.spotlight-clamp-2,
+.spotlight-clamp-3,
+.spotlight-clamp-4 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.spotlight-clamp-2 {
+  -webkit-line-clamp: 2;
+}
+
+.spotlight-clamp-3 {
+  -webkit-line-clamp: 3;
+}
+
+.spotlight-clamp-4 {
+  -webkit-line-clamp: 4;
+}
+
 /* Preview note markdown styles */
 .preview-markdown h1 {
   font-size: 28px;

@@ -162,14 +162,14 @@
         },
         "microscope": {
           "label": "Microscope",
-          "title": "A deep analysis workspace for turning fragments into findings",
-          "description": "Selected notes and conversations can be grouped into an analysis run, then organized into workspace outputs that lead naturally into next actions.",
+          "title": "A deep workspace for turning fragments into findings",
+          "description": "Selected notes and conversations can be grouped into one analysis run, then organized into outputs that lead into next actions.",
           "points": ["Bundle notes and chat slices into one analysis run", "Group outputs into browsable workspace results", "Send selected findings directly into agent work"]
         },
         "agent": {
           "label": "Agent",
-          "title": "An AI agent that acts on the context you already selected",
-          "description": "Instead of copying context into a blank prompt, you can pass linked notes, graph selections, and analysis results straight into the agent workflow.",
+          "title": "An AI agent that acts on selected context",
+          "description": "Instead of copying context into a blank prompt, you can pass notes, graph selections, and analysis results straight into the workflow.",
           "points": ["Ask with attached sources already in context", "Run quick actions like summaries and note creation", "Keep answers and resulting artifacts in one flow"]
         },
         "searchSync": {
@@ -733,7 +733,11 @@
         { "role": "user", "text": "Turn those into product-level action items." },
         { "role": "assistant", "text": "Here are three concrete next steps:\n\n1. **Entry point for first note → graph** — make it obvious how a note becomes a connected node. One clear affordance, not buried in menus.\n2. **Source chips on agent responses** — every answer should show which notes or conversations it drew from, clickable to jump directly.\n3. **Home screen clarity** — the three modes (notes, chat, graph) need short, visible roles so a new user understands what to open first.\n\nWant me to draft copy or spec any of these?" },
         { "role": "user", "text": "Which of the three should we ship first?" },
-        { "role": "assistant", "text": "Start with source chips. It's the most contained change — it touches every agent response without requiring a layout redesign.\n\nUsers who already understand notes and chat will see the value immediately. It also makes the other two feel more urgent once people realize how much context the agent already has.\n\nThe note → graph entry point is higher leverage but needs more design exploration. Tackle it after you've shipped chips and seen how users respond." }
+        { "role": "assistant", "text": "Start with source chips. It's the most contained change — it touches every agent response without requiring a layout redesign.\n\nUsers who already understand notes and chat will see the value immediately. It also makes the other two feel more urgent once people realize how much context the agent already has.\n\nThe note → graph entry point is higher leverage but needs more design exploration. Tackle it after you've shipped chips and seen how users respond." },
+        { "role": "user", "text": "What should the first release include?" },
+        { "role": "assistant", "text": "Three pieces are enough for the first release.\n\n- Source chips above each answer\n- Clickable jumps back to the note or thread\n- A small row of follow-up actions below the response\n\nThat already makes the agent feel grounded in real workspace context." },
+        { "role": "user", "text": "And what comes right after that?" },
+        { "role": "assistant", "text": "Open the note → graph entry point next.\n\nIf people can see connected structure right after writing a note, GraphNode's core value becomes much easier to understand. After that, tighten the home onboarding copy so the whole flow feels even clearer." }
       ]
     }
   }

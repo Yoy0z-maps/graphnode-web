@@ -45,28 +45,41 @@ const productSpotlights = [
   {
     id: "visualize",
     accent: "from-cyan-400/20 via-sky-500/10 to-transparent",
+    activeCard:
+      "border-cyan-300/45 bg-cyan-300/10 shadow-[0_20px_70px_rgba(34,211,238,0.12)]",
+    activeLabel: "text-cyan-100/85",
   },
   {
     id: "microscope",
     accent: "from-fuchsia-400/20 via-violet-500/10 to-transparent",
+    activeCard:
+      "border-fuchsia-300/40 bg-fuchsia-300/10 shadow-[0_20px_70px_rgba(217,70,239,0.12)]",
+    activeLabel: "text-fuchsia-100/85",
   },
   {
     id: "agent",
     accent: "from-amber-300/20 via-orange-500/10 to-transparent",
+    activeCard:
+      "border-amber-300/40 bg-amber-300/10 shadow-[0_20px_70px_rgba(251,191,36,0.12)]",
+    activeLabel: "text-amber-100/90",
   },
   {
     id: "search-sync",
     accent: "from-emerald-400/20 via-teal-500/10 to-transparent",
+    activeCard:
+      "border-emerald-300/40 bg-emerald-300/10 shadow-[0_20px_70px_rgba(52,211,153,0.12)]",
+    activeLabel: "text-emerald-100/85",
   },
 ] as const;
 
 type SpotlightId = (typeof productSpotlights)[number]["id"];
-type PreviewTab = "home" | "chat" | "notes" | "visualize";
+type PreviewTab = "home" | "chat" | "notes" | "visualize" | "microscope";
 
 const previewNavItems = [
   { id: "chat" as const, label: "Chat" },
   { id: "notes" as const, label: "Notes" },
   { id: "visualize" as const, label: "Graph" },
+  { id: "microscope" as const, label: "Microscope" },
 ] as const;
 
 const orbitingIcons = [
@@ -195,6 +208,56 @@ function PreviewNavIcon({ id, active }: { id: PreviewTab; active: boolean }) {
     );
   }
 
+  if (id === "microscope") {
+    return (
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M6.3335 2.66602H9.00016"
+          stroke={stroke}
+          strokeWidth="1.33333"
+          strokeLinecap="round"
+        />
+        <path
+          d="M8.3335 2.66602V5.33268L10.6668 7.66602"
+          stroke={stroke}
+          strokeWidth="1.33333"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M6.6665 6.33203L4.99984 7.9987"
+          stroke={stroke}
+          strokeWidth="1.33333"
+          strokeLinecap="round"
+        />
+        <path
+          d="M9.3335 8.33203L11.0002 9.9987"
+          stroke={stroke}
+          strokeWidth="1.33333"
+          strokeLinecap="round"
+        />
+        <path
+          d="M4.6665 13.3327H11.3332"
+          stroke={stroke}
+          strokeWidth="1.33333"
+          strokeLinecap="round"
+        />
+        <path
+          d="M6.00016 10.666C6.00016 9.37735 7.04483 8.33268 8.3335 8.33268C9.62216 8.33268 10.6668 9.37735 10.6668 10.666V11.3327H6.00016V10.666Z"
+          stroke={stroke}
+          strokeWidth="1.33333"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
   return (
     <svg
       width="16"
@@ -242,6 +305,7 @@ const sidebarIconScatter = [
   { id: "chat", x: 500, y: 80, rotate: -8, scale: 2.2, delay: 0.1 },
   { id: "notes", x: 290, y: 310, rotate: 15, scale: 2.6, delay: 0.18 },
   { id: "graph", x: 460, y: 230, rotate: -12, scale: 2.3, delay: 0.26 },
+  { id: "microscope", x: 330, y: 140, rotate: 11, scale: 2.15, delay: 0.34 },
 ] as const;
 
 export default function DownloadSection() {
@@ -324,14 +388,13 @@ export default function DownloadSection() {
         defaultValue: "Microscope",
       }),
       title: t("download.productProof.spotlights.microscope.title", {
-        defaultValue:
-          "Workspace-based deep analysis for notes and conversations",
+        defaultValue: "A deep workspace for turning fragments into findings",
       }),
       description: t(
         "download.productProof.spotlights.microscope.description",
         {
           defaultValue:
-            "Microscope creates analysis workspaces from nodes, groups generated results by source, and lets users route selected nodes into the agent toolbox.",
+            "Selected notes and conversations can be grouped into one analysis run, then organized into outputs that lead into next actions.",
         },
       ),
       points: [
@@ -351,11 +414,11 @@ export default function DownloadSection() {
         defaultValue: "Agent",
       }),
       title: t("download.productProof.spotlights.agent.title", {
-        defaultValue: "Source-aware AI actions instead of isolated prompting",
+        defaultValue: "An AI agent that acts on selected context",
       }),
       description: t("download.productProof.spotlights.agent.description", {
         defaultValue:
-          "The app includes an AI agent chat box with note, conversation, and microscope source selection plus quick actions like summary and note creation.",
+          "Instead of copying context into a blank prompt, you can pass notes, graph selections, and analysis results straight into the workflow.",
       }),
       points: [
         t("download.productProof.spotlights.agent.points.0", {
@@ -543,24 +606,10 @@ export default function DownloadSection() {
     { id: "team-sync-friday", title: "Team sync Friday" },
     { id: "mobile-roadmap", title: "Mobile roadmap" },
   ];
-  const previewChatConversation = [
-    {
-      role: "user" as const,
-      text: "이번 주 워크스페이스에서 반복되는 핵심 테마를 정리해줘.",
-    },
-    {
-      role: "assistant" as const,
-      text: "이번 주에는 세 가지 흐름이 반복됩니다.\n\n- 노트와 그래프를 더 자연스럽게 연결하는 경험\n- 에이전트 결과에 출처와 맥락을 더 분명하게 남기는 방식\n- 첫 진입 사용자가 구조를 빠르게 이해하도록 돕는 온보딩 개선",
-    },
-    {
-      role: "user" as const,
-      text: "그걸 제품 관점의 액션 아이템으로 바꿔줘.",
-    },
-    {
-      role: "assistant" as const,
-      text: "좋아요. 우선순위는 다음과 같습니다.\n\n1. 첫 노트를 그래프로 확장하는 진입점 정리\n2. 채팅 응답마다 연결된 노트와 소스 표시\n3. 홈 화면에서 노트, 채팅, 그래프의 역할을 더 명확히 설명",
-    },
-  ];
+  const previewChatConversation = t("preview.chat.messages", {
+    returnObjects: true,
+    defaultValue: [],
+  }) as Array<{ role: "user" | "assistant"; text: string }>;
   const previewNotes = [
     {
       title: "GraphNode Landing Refresh",
@@ -596,6 +645,13 @@ export default function DownloadSection() {
     "Agent workflows",
     "Microscope context",
     "Semantic links",
+  ];
+  const microscopeCollections = [
+    "Telepathy workspace",
+    "Weekly product signals",
+    "Knowledge gaps",
+    "Connected writing themes",
+    "GraphNode beta review",
   ];
   const noteTree = [
     { id: "clippings", name: "Clippings", type: "folder" as const, depth: 0 },
@@ -1143,7 +1199,9 @@ export default function DownloadSection() {
                           }`}
                         >
                           <div className="app-preview-scrollbar h-full min-h-0 flex-1 overflow-y-auto pr-0">
-                            <div className="space-y-2">
+                            <div
+                              className={`space-y-2 ${previewTab === "visualize" || previewTab === "microscope" ? "blur-[3px] opacity-75" : ""}`}
+                            >
                               {previewTab === "chat" && (
                                 <>
                                   <button className="mb-2 flex h-8 w-full items-center gap-1.5 rounded-md px-1.5 text-left text-sm text-[#d1d1d6] transition hover:bg-[#303034] hover:text-[#7ab5fb]">
@@ -1234,6 +1292,25 @@ export default function DownloadSection() {
                                     <p className="truncate text-sm">{item}</p>
                                   </button>
                                 ))}
+                              {previewTab === "microscope" &&
+                                microscopeCollections.map((item, index) => (
+                                  <button
+                                    key={item}
+                                    className={`block h-8 w-full rounded-md border px-1.5 py-[5.5px] text-left transition ${
+                                      index === 0
+                                        ? "border-transparent bg-[#474748] text-white"
+                                        : "border-transparent bg-transparent text-[#d1d1d6] hover:bg-[#303034]"
+                                    }`}
+                                  >
+                                    <div className="flex items-center gap-2">
+                                      <PreviewNavIcon
+                                        id="microscope"
+                                        active={index === 0}
+                                      />
+                                      <p className="truncate text-sm">{item}</p>
+                                    </div>
+                                  </button>
+                                ))}
                             </div>
                           </div>
                         </div>
@@ -1280,7 +1357,7 @@ export default function DownloadSection() {
                                   delay: 0.3,
                                 }}
                               >
-                                <div className="flex w-full flex-col items-center pt-12">
+                                <div className="flex w-full flex-col items-center pt-18">
                                   <div className="flex flex-col items-center gap-2 text-white">
                                     <p className="text-2xl font-semibold">
                                       {t("preview.home.title")}
@@ -1290,32 +1367,40 @@ export default function DownloadSection() {
                                     </p>
                                   </div>
 
-                                  <div className="mx-auto mt-8 w-140 rounded-[14px] border border-white/10 bg-[#111317] px-4 py-4 shadow-[0_2px_20px_0_rgba(186,218,255,0.10)]">
-                                    <div className="min-h-9 text-[13px] text-[#6f7682]">
-                                      {t("preview.home.placeholder")}
+                                  <div className="mx-auto mt-12 flex w-165 flex-col items-center justify-center rounded-xl border border-[rgba(186,218,255,0.2)] bg-transparent py-2.5 pl-3 shadow-[0_2px_20px_0_#badaff]">
+                                    <div className="w-full min-h-16 pr-3 text-[13px] leading-6 text-[#8b93a3]">
+                                      {t("preview.chat.placeholder", {
+                                        defaultValue:
+                                          "Ask GraphNode to summarize notes, search threads, or generate a graph from your latest conversations...",
+                                      })}
                                     </div>
-                                    <div className="mt-3 flex items-center justify-between">
-                                      <div className="rounded-md border border-white/8 bg-[#1f2329] px-3 py-1.5 text-xs text-slate-300">
-                                        GPT-5.4
+                                    <div className="mt-2 flex w-full items-center justify-between">
+                                      <div className="flex items-center gap-3">
+                                        <div className="rounded-md border border-white/8 bg-[#1f2329] px-3 py-1.5 text-xs text-slate-300">
+                                          GPT-5.4
+                                        </div>
+                                        <div className="flex h-7.5 w-[w-7.5ems-center justify-center rounded-md border border-gray-500 text-[14px] text-[#8b93a3]">
+                                          +
+                                        </div>
                                       </div>
-                                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#5a8df6] text-white">
+                                      <div className="mr-3 flex h-6.5 w-6.5 items-center justify-center rounded-lg bg-[#5a8df6] p-1.25 text-[15px] text-white">
                                         →
                                       </div>
                                     </div>
                                   </div>
 
-                                  <div className="mx-auto mt-10 w-full max-w-170 px-4 pb-8">
-                                    <p className="mb-5 text-center text-xl font-medium text-white">
+                                  <div className="mx-auto mt-18 w-full max-w-160 px-4 pb-10">
+                                    <p className="mb-4 text-center text-[19px] font-medium text-white">
                                       {t("preview.home.recentNotes")}
                                     </p>
                                     <div className="grid grid-cols-3 gap-3">
-                                      <div className="flex h-40 items-center justify-center rounded-xl border border-dashed border-white/12 bg-[#242427] text-[28px] text-white/30">
+                                      <div className="flex h-36 items-center justify-center rounded-xl border border-dashed border-white/12 bg-[#242427] text-[26px] text-white/30">
                                         +
                                       </div>
                                       {previewNotes.slice(0, 2).map((note) => (
                                         <div
                                           key={note.title}
-                                          className="h-40 rounded-xl border border-white/8 bg-[#26272b] px-4 py-4"
+                                          className="h-36 rounded-xl border border-white/8 bg-[#26272b] px-4 py-4"
                                         >
                                           <p className="line-clamp-2 text-sm font-medium text-white">
                                             {note.title}
@@ -1425,104 +1510,194 @@ export default function DownloadSection() {
                           )}
 
                           {previewTab === "visualize" && (
-                            <div className="flex h-full flex-col items-start justify-start border-l border-[#2a2a2e] bg-[#1f1f1f] p-5">
-                              <div className="mb-4 flex w-full items-center justify-between">
-                                <div>
-                                  <p className="text-xs text-slate-400">
-                                    {t("download.hero.graphViewLabel", {
-                                      defaultValue: "Graph View",
-                                    })}
-                                  </p>
-                                  <p className="text-lg font-semibold text-white">
-                                    {t("download.hero.previewTitle", {
-                                      defaultValue: "Knowledge map in motion",
-                                    })}
-                                  </p>
-                                </div>
-                                <div className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">
-                                  2D / 3D
-                                </div>
-                              </div>
-                              <div className="grid h-full w-full gap-4 xl:grid-cols-[0.75fr_1.25fr]">
-                                <div className="rounded-2xl border border-[#2a2a2e] bg-[#262626] p-4">
-                                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-                                    Graph Summary
-                                  </p>
-                                  <div className="space-y-3">
-                                    {[
-                                      "Product cluster",
-                                      "Agent workflows",
-                                      "Microscope context",
-                                      "Knowledge search",
-                                    ].map((item, index) => (
-                                      <div
-                                        key={item}
-                                        className={`rounded-2xl border px-3 py-3 ${
-                                          index === 0
-                                            ? "border-cyan-300/18 bg-cyan-300/10"
-                                            : "border-white/8 bg-[#1f1f1f]"
-                                        }`}
-                                      >
-                                        <p className="truncate text-sm font-medium text-white">
-                                          {item}
-                                        </p>
-                                        <p className="mt-1 text-xs text-slate-400">
-                                          12 linked nodes
-                                        </p>
-                                      </div>
-                                    ))}
+                            <div className="app-preview-scrollbar h-full overflow-y-auto border-l border-[#2a2a2e] bg-[#1f1f1f] p-5">
+                              <div className="flex min-h-full flex-col items-start justify-start blur-[3px]">
+                                <div className="mb-4 flex w-full items-center justify-between">
+                                  <div>
+                                    <p className="text-xs text-slate-400">
+                                      {t("download.hero.graphViewLabel", {
+                                        defaultValue: "Graph View",
+                                      })}
+                                    </p>
+                                    <p className="text-lg font-semibold text-white">
+                                      {t("download.hero.previewTitle", {
+                                        defaultValue: "Knowledge map in motion",
+                                      })}
+                                    </p>
+                                  </div>
+                                  <div className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">
+                                    2D / 3D
                                   </div>
                                 </div>
-                                <div className="relative h-full min-h-72.5 overflow-hidden rounded-[22px] border border-[#2a2a2e] bg-[#202020]">
-                                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.18),transparent_45%)]" />
-                                  {previewNodes.map((node, index) => (
-                                    <motion.div
-                                      key={node.label}
-                                      animate={{
-                                        y: [0, index % 2 === 0 ? -12 : 10, 0],
-                                        x: [0, index % 2 === 0 ? 8 : -6, 0],
-                                      }}
-                                      transition={{
-                                        duration: 3.5 + index * 0.4,
-                                        repeat: Number.POSITIVE_INFINITY,
-                                        ease: "easeInOut",
-                                      }}
-                                      className="absolute"
-                                      style={{ left: node.x, top: node.y }}
+                                <div className="grid h-full w-full gap-4 xl:grid-cols-[0.75fr_1.25fr]">
+                                  <div className="rounded-2xl border border-[#2a2a2e] bg-[#262626] p-4">
+                                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                                      Graph Summary
+                                    </p>
+                                    <div className="space-y-3">
+                                      {[
+                                        "Product cluster",
+                                        "Agent workflows",
+                                        "Microscope context",
+                                        "Knowledge search",
+                                      ].map((item, index) => (
+                                        <div
+                                          key={item}
+                                          className={`rounded-2xl border px-3 py-3 ${
+                                            index === 0
+                                              ? "border-cyan-300/18 bg-cyan-300/10"
+                                              : "border-white/8 bg-[#1f1f1f]"
+                                          }`}
+                                        >
+                                          <p className="truncate text-sm font-medium text-white">
+                                            {item}
+                                          </p>
+                                          <p className="mt-1 text-xs text-slate-400">
+                                            12 linked nodes
+                                          </p>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  <div className="relative h-full min-h-72.5 overflow-hidden rounded-[22px] border border-[#2a2a2e] bg-[#202020]">
+                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.18),transparent_45%)]" />
+                                    {previewNodes.map((node, index) => (
+                                      <motion.div
+                                        key={node.label}
+                                        animate={{
+                                          y: [0, index % 2 === 0 ? -12 : 10, 0],
+                                          x: [0, index % 2 === 0 ? 8 : -6, 0],
+                                        }}
+                                        transition={{
+                                          duration: 3.5 + index * 0.4,
+                                          repeat: Number.POSITIVE_INFINITY,
+                                          ease: "easeInOut",
+                                        }}
+                                        className="absolute"
+                                        style={{ left: node.x, top: node.y }}
+                                      >
+                                        <div className="h-3.5 w-3.5 rounded-full bg-white shadow-[0_0_0_4px_rgba(255,255,255,0.06)]" />
+                                      </motion.div>
+                                    ))}
+                                    <svg
+                                      className="absolute inset-0 h-full w-full"
+                                      viewBox="0 0 100 100"
+                                      preserveAspectRatio="none"
                                     >
-                                      <div className="h-3.5 w-3.5 rounded-full bg-white shadow-[0_0_0_4px_rgba(255,255,255,0.06)]" />
-                                    </motion.div>
-                                  ))}
-                                  <svg
-                                    className="absolute inset-0 h-full w-full"
-                                    viewBox="0 0 100 100"
-                                    preserveAspectRatio="none"
-                                  >
-                                    <path
-                                      d="M18 26 C30 18, 40 17, 49 21"
-                                      stroke="rgba(255,255,255,0.28)"
-                                      strokeWidth="0.55"
-                                      fill="none"
-                                    />
-                                    <path
-                                      d="M49 21 C62 24, 71 25, 78 31"
-                                      stroke="rgba(255,255,255,0.24)"
-                                      strokeWidth="0.55"
-                                      fill="none"
-                                    />
-                                    <path
-                                      d="M22 67 C34 58, 44 45, 49 21"
-                                      stroke="rgba(255,255,255,0.2)"
-                                      strokeWidth="0.55"
-                                      fill="none"
-                                    />
-                                    <path
-                                      d="M22 67 C39 71, 51 72, 63 75"
-                                      stroke="rgba(255,255,255,0.18)"
-                                      strokeWidth="0.55"
-                                      fill="none"
-                                    />
-                                  </svg>
+                                      <path
+                                        d="M18 26 C30 18, 40 17, 49 21"
+                                        stroke="rgba(255,255,255,0.28)"
+                                        strokeWidth="0.55"
+                                        fill="none"
+                                      />
+                                      <path
+                                        d="M49 21 C62 24, 71 25, 78 31"
+                                        stroke="rgba(255,255,255,0.24)"
+                                        strokeWidth="0.55"
+                                        fill="none"
+                                      />
+                                      <path
+                                        d="M22 67 C34 58, 44 45, 49 21"
+                                        stroke="rgba(255,255,255,0.2)"
+                                        strokeWidth="0.55"
+                                        fill="none"
+                                      />
+                                      <path
+                                        d="M22 67 C39 71, 51 72, 63 75"
+                                        stroke="rgba(255,255,255,0.18)"
+                                        strokeWidth="0.55"
+                                        fill="none"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
+                          {previewTab === "microscope" && (
+                            <div className="app-preview-scrollbar h-full overflow-y-auto border-l border-[#2a2a2e] bg-[#1f1f1f] p-5">
+                              <div className="flex min-h-full flex-col blur-[3px]">
+                                <div className="mb-4 flex w-full items-center justify-between">
+                                  <div>
+                                    <p className="text-xs text-slate-400">
+                                      Microscope Workspace
+                                    </p>
+                                    <p className="text-lg font-semibold text-white">
+                                      Telepathy pattern analysis
+                                    </p>
+                                  </div>
+                                  <div className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs font-semibold text-white/85">
+                                    Generated
+                                  </div>
+                                </div>
+                                <div className="grid h-full w-full gap-4 xl:grid-cols-[0.82fr_1.18fr]">
+                                  <div className="rounded-2xl border border-[#2a2a2e] bg-[#252527] p-4">
+                                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                                      Workspace Groups
+                                    </p>
+                                    <div className="space-y-3">
+                                      {[
+                                        ["Writing signals", "4 related notes"],
+                                        [
+                                          "Conversation fragments",
+                                          "3 selected chats",
+                                        ],
+                                        [
+                                          "Missing links",
+                                          "2 unresolved clusters",
+                                        ],
+                                      ].map(([title, meta]) => (
+                                        <div
+                                          key={title}
+                                          className="rounded-2xl border border-white/8 bg-[#1f1f1f] px-3 py-3"
+                                        >
+                                          <div className="flex items-center gap-2">
+                                            <PreviewNavIcon
+                                              id="microscope"
+                                              active={false}
+                                            />
+                                            <p className="truncate text-sm font-medium text-white">
+                                              {title}
+                                            </p>
+                                          </div>
+                                          <p className="mt-1 text-xs text-slate-400">
+                                            {meta}
+                                          </p>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  <div className="rounded-[22px] border border-[#2a2a2e] bg-[#202020] p-5">
+                                    <div className="space-y-3">
+                                      {[
+                                        [
+                                          "Patterns",
+                                          "Ideas about telepathy, writing, and transmission cluster around repeated metaphor language.",
+                                        ],
+                                        [
+                                          "Signals",
+                                          "Source overlap suggests the same concept appears across notes, summaries, and graph paths.",
+                                        ],
+                                        [
+                                          "Next actions",
+                                          "Promote the strongest group into an agent task or keep refining the workspace.",
+                                        ],
+                                      ].map(([title, body]) => (
+                                        <div
+                                          key={title}
+                                          className="rounded-[18px] border border-white/8 bg-[#1a1a1c] p-4"
+                                        >
+                                          <p className="text-sm font-semibold text-white">
+                                            {title}
+                                          </p>
+                                          <p className="mt-2 text-sm leading-6 text-slate-300">
+                                            {body}
+                                          </p>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1689,8 +1864,8 @@ export default function DownloadSection() {
             </div>
           </motion.div>
 
-          <div className="grid gap-6 lg:min-h-152 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch">
-            <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 lg:mx-0 lg:grid lg:h-152 lg:grid-rows-4 lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
+          <div className="grid gap-6 lg:min-h-160 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch">
+            <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 lg:mx-0 lg:flex lg:h-160 lg:flex-col lg:gap-4 lg:overflow-visible lg:px-0 lg:pb-0">
               {productSpotlights.map((item, index) => {
                 const isActive = item.id === activeSpotlight.id;
                 return (
@@ -1699,23 +1874,42 @@ export default function DownloadSection() {
                     initial={{ opacity: 0, x: -18 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.25 }}
-                    transition={{ delay: index * 0.06, duration: 0.45 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 210,
+                      damping: 30,
+                      delay: index * 0.06,
+                    }}
+                    animate={{ flexGrow: isActive ? 1.4 : 0.86 }}
+                    style={{ flexBasis: 0 }}
                     onClick={() => setSelectedSpotlight(item.id)}
-                    className={`min-w-70 rounded-[26px] border p-5 text-left transition duration-300 lg:h-full lg:min-h-0 lg:min-w-0 ${
+                    className={`min-w-70 rounded-[26px] border p-5 text-left transition-[background-color,border-color,box-shadow,color] duration-500 ease-out lg:flex lg:min-h-0 lg:min-w-0 lg:flex-col ${
                       isActive
-                        ? "border-cyan-300/40 bg-cyan-300/10 shadow-[0_20px_70px_rgba(34,211,238,0.12)]"
+                        ? item.activeCard
                         : "border-white/10 bg-white/6 hover:border-white/18 hover:bg-white/8"
                     }`}
                   >
-                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-100/80">
+                    <p
+                      className={`text-sm font-semibold uppercase tracking-[0.22em] transition-colors duration-500 ${
+                        isActive ? item.activeLabel : "text-slate-300/80"
+                      }`}
+                    >
                       {spotlightContent[item.id].label}
                     </p>
-                    <h3 className="mt-2 text-xl font-bold text-white">
+                    <h3
+                      className={`mt-2 overflow-hidden pr-1 font-bold text-white transition-colors duration-500 ease-out ${
+                        isActive
+                          ? "text-[1.58rem] leading-[1.2] spotlight-clamp-3"
+                          : "text-[1.4rem] leading-[1.18] spotlight-clamp-2"
+                      }`}
+                    >
                       {spotlightContent[item.id].title}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">
-                      {spotlightContent[item.id].description}
-                    </p>
+                    {isActive && (
+                      <p className="mt-2 overflow-hidden pr-1 text-sm leading-6 text-slate-300 transition-colors duration-500 ease-out spotlight-clamp-4">
+                        {spotlightContent[item.id].description}
+                      </p>
+                    )}
                   </motion.button>
                 );
               })}
@@ -1726,7 +1920,7 @@ export default function DownloadSection() {
               initial={{ opacity: 0, y: 20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="relative overflow-hidden rounded-4xl border border-white/10 bg-slate-950/60 p-6 backdrop-blur-xl lg:h-152 md:p-8"
+              className="relative overflow-hidden rounded-4xl border border-white/10 bg-slate-950/60 p-6 backdrop-blur-xl lg:h-160 md:p-8"
             >
               <div
                 className={`absolute inset-0 bg-linear-to-br ${activeSpotlight.accent}`}
