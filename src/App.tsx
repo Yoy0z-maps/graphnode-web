@@ -2,7 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Status from "./routes/Status";
 import Home from "./routes/Home";
+import Team from "./routes/Team";
 import Feedback from "./routes/Feedback";
+import Pricing from "./routes/Pricing";
 import Dev from "./routes/Dev";
 import DocsLayout from "./routes/dev/docs/DocsLayout";
 import DocsIntro from "./routes/dev/docs/Intro";
@@ -27,6 +29,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/team" element={<Team />} />
+      <Route path="/pricing" element={<Pricing />} />
       <Route path="/dev" element={<Dev />}>
         <Route path="status" element={<Status />} />
         <Route path="docs" element={<DocsLayout />}>
