@@ -2,49 +2,221 @@
   "header": {
     "download": "Download",
     "team": "Team",
+    "pricing": "Pricing",
     "developer": "Developer",
-    "feedback": "Feedback"
+    "feedback": "Feedback",
+    "connectedThinking": "Connected Thinking",
+    "login": "Log In"
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Plans for students, makers, and growing teams",
+    "description": "Start simple, unlock deeper AI workflows, and scale GraphNode across your team when you are ready.",
+    "backHome": "Back Home",
+    "recommended": "Recommended",
+    "tokensLabel": "Tokens:",
+    "teamInquiry": {
+      "eyebrow": "Team Inquiry",
+      "title": "Need a plan for your organization?",
+      "description": "If you need onboarding support, custom integrations, or a team-wide rollout plan, reach out and we will help shape the right GraphNode setup.",
+      "cta": "Contact Team"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "Free",
+        "period": "",
+        "tokens": "10K",
+        "description": "A solid starting point for personal workflows and everyday knowledge capture.",
+        "features": ["Basic AI models", "Community support", "Standard response time", "Core graph workspace", "Desktop access"],
+        "cta": "Current Plan"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$19",
+        "period": "/month",
+        "tokens": "100K",
+        "description": "For power users who want deeper AI workflows and faster day-to-day execution.",
+        "features": ["Advanced AI models", "Priority support", "Faster response time", "API access", "Expanded graph tools"],
+        "cta": "Select Plan"
+      },
+      "max": {
+        "name": "Max",
+        "price": "$49",
+        "period": "/month",
+        "tokens": "Unlimited",
+        "description": "For advanced builders who want the fastest experience and the broadest model access.",
+        "features": ["All AI models", "24/7 Premium support", "Fastest response time", "Full API access", "Custom integrations"],
+        "cta": "Select Plan"
+      },
+      "team": {
+        "name": "Team",
+        "price": "Custom",
+        "period": "",
+        "tokens": "Flexible",
+        "description": "For teams rolling out GraphNode across workflows, members, and internal systems.",
+        "features": ["Shared workspace strategy", "Team onboarding support", "Admin and rollout guidance", "Priority coordination", "Enterprise-style customization"],
+        "cta": "Talk to Us"
+      }
+    }
   },
   "download": {
     "hero": {
       "tagline1": "Powerful Knowledge Management Through Visualization",
       "tagline2": "Designed for Better Learning and Productivity",
       "macDownload": "macOS Download",
-      "windowsDownload": "Windows Download"
+      "windowsDownload": "Windows Download",
+      "eyebrow": "A more alive way to think, write, and connect ideas",
+      "description": "GraphNode brings markdown notes, AI chat, and graph visualization into one cinematic workspace so your ideas stay connected instead of buried.",
+      "badgeOne": "Knowledge Graph Workspace",
+      "badgeTwo": "AI + Notes + Visualization",
+      "badgeThree": "Desktop-first Experience",
+      "metricOne": "Connected workflow surfaces",
+      "metricTwo": "Graph exploration modes",
+      "metricThree": "Built into your thinking loop",
+      "workspaceLabel": "Workspace",
+      "liveMap": "LIVE MAP",
+      "threadsLabel": "Threads",
+      "previewSignal": "linked to notes, chats, and graph nodes",
+      "previewTitle": "Knowledge map in motion",
+      "graphViewLabel": "Graph View",
+      "aiChatLabel": "AI Chat",
+      "chatTitle": "Ask with context already attached",
+      "chatDescription": "Prompt the model with linked notes, connected nodes, and previous discussions without manually gathering everything first.",
+      "realtimeFlowLabel": "Realtime Flow",
+      "flowTitle": "A workspace that reacts while you think",
+      "flowDescription": "Animated states, layered surfaces, and graph motion make the product feel active instead of static.",
+      "keywords": {
+        "secondBrain": "Second Brain",
+        "llmWorkflow": "LLM Workflow",
+        "connectedNotes": "Connected Notes",
+        "visualSearch": "Visual Search",
+        "agentTasks": "Agent Tasks",
+        "realtimeContext": "Realtime Context"
+      }
     },
     "features": {
       "title": "Powerful Features",
+      "eyebrow": "Why it feels different",
+      "description": "Instead of a flat utility page, each surface is designed to communicate momentum, structure, and clarity.",
       "markdownNote": {
         "title": "Markdown Notes",
-        "description": "Record and organize your ideas with a powerful markdown editor"
+        "description": "Record and organize your ideas with a powerful markdown editor",
+        "detail": "Designed for everything from quick notes to longer documents without losing structure."
       },
       "aiChat": {
         "title": "AI Chat",
-        "description": "Chat with an intelligent AI assistant powered by OpenAI and DeepSeek"
+        "description": "Chat with an intelligent AI assistant powered by OpenAI and DeepSeek",
+        "detail": "Ask questions with note and graph context already in place so the next step is faster."
       },
       "graphVisualization": {
         "title": "Graph Visualization",
-        "description": "Visualize your knowledge graph in 2D/3D by connecting notes and chats"
+        "description": "Visualize your knowledge graph in 2D/3D by connecting notes and chats",
+        "detail": "Turn relationships into a visible structure so larger patterns are easier to understand."
       },
       "smartSearch": {
         "title": "Smart Search",
-        "description": "Quickly search all notes and chats to find the information you need"
+        "description": "Quickly search all notes and chats to find the information you need",
+        "detail": "Return to the right note, thread, or concept quickly instead of digging through separate tools."
       },
       "agent": {
         "title": "Agent",
-        "description": "Automate various tasks with the AI assistant"
+        "description": "Automate various tasks with the AI assistant",
+        "detail": "Reduce repetitive work like summarizing and organizing so you can focus on execution."
       },
       "sync": {
         "title": "Sync",
-        "description": "Continue your work across devices with cloud sync"
+        "description": "Continue your work across devices with cloud sync",
+        "detail": "Carry the same workspace context across devices so your flow does not break."
+      }
+    },
+    "workflow": {
+      "eyebrow": "From note to action",
+      "title": "A workflow that looks dynamic because the product itself is dynamic",
+      "description": "Each step is arranged to keep ideas connected, visible, and ready to act on inside one continuous GraphNode workflow.",
+      "signal": "Interactive surface",
+      "capture": {
+        "title": "Capture",
+        "text": "Ideas, notes, references, and AI conversations stay in one graph instead of scattering across apps."
+      },
+      "connect": {
+        "title": "Connect",
+        "text": "Link documents and conversations into a visible structure so relationships become easier to explore."
+      },
+      "execute": {
+        "title": "Execute",
+        "text": "Turn context into actions with AI agents, fast retrieval, and a workspace that feels alive while you use it."
+      }
+    },
+    "productProof": {
+      "eyebrow": "Built from the actual app",
+      "title": "Real product capabilities, turned into an interactive story",
+      "description": "I pulled these themes directly from the sibling front-end and backend repositories so the homepage reflects what GraphNode actually does.",
+      "liveCapability": "Live capability",
+      "spotlights": {
+        "visualize": {
+          "label": "Visualize",
+          "title": "Graph exploration that opens notes and ideas as one connected map",
+          "description": "Notes, chats, and concepts become nodes and relations, so you can follow summaries and nearby links without losing your place.",
+          "points": ["See a focus node and surrounding relations at the same time", "Move through large graphs without losing orientation", "Open subclusters to continue drilling into detail"]
+        },
+        "microscope": {
+          "label": "Microscope",
+          "title": "A deep analysis workspace for turning fragments into findings",
+          "description": "Selected notes and conversations can be grouped into an analysis run, then organized into workspace outputs that lead naturally into next actions.",
+          "points": ["Bundle notes and chat slices into one analysis run", "Group outputs into browsable workspace results", "Send selected findings directly into agent work"]
+        },
+        "agent": {
+          "label": "Agent",
+          "title": "An AI agent that acts on the context you already selected",
+          "description": "Instead of copying context into a blank prompt, you can pass linked notes, graph selections, and analysis results straight into the agent workflow.",
+          "points": ["Ask with attached sources already in context", "Run quick actions like summaries and note creation", "Keep answers and resulting artifacts in one flow"]
+        },
+        "searchSync": {
+          "label": "Search + Sync",
+          "title": "A living knowledge base where search and sync stay in step",
+          "description": "Find notes, threads, and folders quickly, then keep changes moving across devices with recency-aware synchronization underneath.",
+          "points": ["Search across notes and conversations together", "Move with a shortcut-first discovery flow", "Reduce conflicts with recency-based synchronization"]
+        }
+      }
+    },
+    "pipeline": {
+      "eyebrow": "What powers the experience",
+      "title": "A homepage section that now reflects the backend pipeline too",
+      "description": "The backend already supports queued graph generation, summaries, microscope analysis, agent tools, and synchronization, so the landing page now tells that story clearly.",
+      "collect": {
+        "title": "Collect",
+        "text": "Conversation data and markdown notes are gathered, streamed, and prepared as graph-generation input."
+      },
+      "queue": {
+        "title": "Queue",
+        "text": "Graph generation, graph summary, and microscope ingest are orchestrated through SQS-backed background jobs."
+      },
+      "enrich": {
+        "title": "Enrich",
+        "text": "Semantic search, graph stats, clusters, subclusters, and agent tools turn raw content into navigable structure."
+      },
+      "sync": {
+        "title": "Sync",
+        "text": "Notes, folders, conversations, and messages are synchronized with transaction-aware LWW conflict handling."
       }
     },
     "platforms": {
       "title": "Download by Platform",
+      "eyebrow": "Ready to install",
+      "description": "Choose your platform and jump into a more animated, more visual GraphNode experience.",
       "appleSilicon": "Apple Silicon",
       "intel": "Intel",
       "windows1011": "Windows 10/11",
-      "linuxComingSoon": "Coming Soon"
+      "linuxComingSoon": "Coming Soon",
+      "mobile": "Mobile",
+      "iosComingSoon": "iOS Coming Soon",
+      "androidComingSoon": "Android Coming Soon",
+      "macosDescription": "Optimized for Apple Silicon and Intel with a native desktop feel.",
+      "windowsDescription": "Fast install, polished interface, and smooth graph interaction on Windows.",
+      "linuxDescription": "Linux support is on the roadmap and will arrive with a dedicated release.",
+      "mobileDescription": "A dedicated mobile experience is planned so you can browse and continue your graph anywhere.",
+      "mobileEmoji": "📱"
     }
   },
   "team": {
@@ -545,5 +717,24 @@
   },
   "common": {
     "languageName": "English"
+  },
+  "preview": {
+    "home": {
+      "title": "Alex, what should we think through?",
+      "subtitle": "Open a note, ask the agent, or explore your graph.",
+      "placeholder": "Ask GraphNode to summarize your notes, review a conversation, or build a graph from recent context...",
+      "recentNotes": "Recent Notes"
+    },
+    "chat": {
+      "placeholder": "Ask GraphNode to summarize notes, search threads, or generate a graph from your latest conversations...",
+      "messages": [
+        { "role": "user", "text": "Summarize the key themes repeating in this week's workspace." },
+        { "role": "assistant", "text": "Three threads stand out this week.\n\n- Connecting notes and the graph more naturally in the experience\n- Making agent output clearer — sources and reasoning both visible\n- Helping first-time users understand workspace structure faster\n\nEach one points to the same underlying need: the app should feel coherent from the first interaction, not just powerful once you know it." },
+        { "role": "user", "text": "Turn those into product-level action items." },
+        { "role": "assistant", "text": "Here are three concrete next steps:\n\n1. **Entry point for first note → graph** — make it obvious how a note becomes a connected node. One clear affordance, not buried in menus.\n2. **Source chips on agent responses** — every answer should show which notes or conversations it drew from, clickable to jump directly.\n3. **Home screen clarity** — the three modes (notes, chat, graph) need short, visible roles so a new user understands what to open first.\n\nWant me to draft copy or spec any of these?" },
+        { "role": "user", "text": "Which of the three should we ship first?" },
+        { "role": "assistant", "text": "Start with source chips. It's the most contained change — it touches every agent response without requiring a layout redesign.\n\nUsers who already understand notes and chat will see the value immediately. It also makes the other two feel more urgent once people realize how much context the agent already has.\n\nThe note → graph entry point is higher leverage but needs more design exploration. Tackle it after you've shipped chips and seen how users respond." }
+      ]
+    }
   }
 }

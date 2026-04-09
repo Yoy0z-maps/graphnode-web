@@ -2,49 +2,200 @@
   "header": {
     "download": "下载",
     "team": "团队介绍",
+    "pricing": "价格",
     "developer": "开发者",
-    "feedback": "反馈"
+    "feedback": "反馈",
+    "connectedThinking": "连接式思考",
+    "login": "登录"
+  },
+  "pricing": {
+    "eyebrow": "价格",
+    "title": "适合学生、创作者与成长中团队的方案",
+    "description": "从轻量开始，逐步解锁更深入的 AI 工作流，并在需要时扩展到团队协作。",
+    "backHome": "返回首页",
+    "recommended": "推荐",
+    "tokensLabel": "Tokens:",
+    "teamInquiry": {
+      "eyebrow": "团队咨询",
+      "title": "需要适合组织的方案吗？",
+      "description": "如果你需要 onboarding 支持、自定义集成或团队级落地方案，欢迎联系我们，我们会一起制定合适的 GraphNode 方案。",
+      "cta": "联系团队"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "免费",
+        "period": "",
+        "tokens": "10K",
+        "description": "适合作为个人工作流和日常知识整理的起点。",
+        "features": ["基础 AI 模型", "社区支持", "标准响应速度", "基础图谱工作空间", "桌面应用访问"],
+        "cta": "当前方案"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$19",
+        "period": "/month",
+        "tokens": "100K",
+        "description": "适合需要更深入 AI 工作流和更快执行效率的进阶用户。",
+        "features": ["高级 AI 模型", "优先支持", "更快响应速度", "API 访问", "扩展图谱工具"],
+        "cta": "选择方案"
+      },
+      "max": {
+        "name": "Max",
+        "price": "$49",
+        "period": "/month",
+        "tokens": "Unlimited",
+        "description": "面向需要最快体验和最完整模型能力的高级用户。",
+        "features": ["全部 AI 模型", "24/7 高级支持", "最快响应速度", "完整 API 访问", "自定义集成"],
+        "cta": "选择方案"
+      },
+      "team": {
+        "name": "Team",
+        "price": "Custom",
+        "period": "",
+        "tokens": "Flexible",
+        "description": "适合希望将 GraphNode 部署到团队协作与内部系统中的组织。",
+        "features": ["共享工作空间策略", "团队 onboarding 支持", "管理与上线指导", "优先协作支持", "企业级定制"],
+        "cta": "联系我们"
+      }
+    }
   },
   "download": {
     "hero": {
       "tagline1": "通过可视化实现强大的知识管理",
       "tagline2": "为更好的学习和生产力而精心设计",
       "macDownload": "macOS 下载",
-      "windowsDownload": "Windows 下载"
+      "windowsDownload": "Windows 下载",
+      "eyebrow": "一种更生动的思考、书写与连接方式",
+      "description": "GraphNode 将 Markdown 笔记、AI 聊天和图谱可视化整合到一个工作空间中，让你的想法保持连接而不是被埋没。",
+      "badgeOne": "知识图谱工作空间",
+      "badgeTwo": "AI + 笔记 + 可视化",
+      "badgeThree": "桌面优先体验",
+      "metricOne": "已连接的工作流界面",
+      "metricTwo": "图谱探索模式",
+      "metricThree": "融入思考流程的 AI",
+      "workspaceLabel": "工作空间",
+      "liveMap": "实时图谱",
+      "threadsLabel": "线程",
+      "previewSignal": "已连接到笔记、聊天和图谱节点",
+      "previewTitle": "动态知识地图",
+      "graphViewLabel": "图谱视图",
+      "aiChatLabel": "AI 聊天",
+      "chatTitle": "带着上下文直接提问",
+      "chatDescription": "无需手动整理资料，也能结合关联笔记、图谱节点和过往对话一起向模型提问。",
+      "realtimeFlowLabel": "实时流程",
+      "flowTitle": "会随着思考而响应的工作空间",
+      "flowDescription": "动画状态、分层界面和图谱动效让产品更具活力，而不是静态页面。",
+      "keywords": {
+        "secondBrain": "第二大脑",
+        "llmWorkflow": "LLM 工作流",
+        "connectedNotes": "关联笔记",
+        "visualSearch": "可视化搜索",
+        "agentTasks": "代理任务",
+        "realtimeContext": "实时上下文"
+      }
     },
     "features": {
       "title": "强大功能",
+      "eyebrow": "为什么它感觉不一样",
+      "description": "这不只是一个平面的工具页，而是通过每个界面传达节奏感、结构感和清晰度。",
       "markdownNote": {
         "title": "Markdown 笔记",
-        "description": "使用强大的 Markdown 编辑器记录和整理您的想法"
+        "description": "使用强大的 Markdown 编辑器记录和整理您的想法",
+        "detail": "从快速记录到长篇文档，都能在不丢失结构的前提下持续书写。"
       },
       "aiChat": {
         "title": "AI 聊天",
-        "description": "与基于 OpenAI 和 DeepSeek 的智能 AI 助手对话"
+        "description": "与基于 OpenAI 和 DeepSeek 的智能 AI 助手对话",
+        "detail": "基于笔记与图谱上下文发问，让下一步行动来得更快。"
       },
       "graphVisualization": {
         "title": "图谱可视化",
-        "description": "通过连接笔记和聊天，以 2D/3D 方式可视化您的知识图谱"
+        "description": "通过连接笔记和聊天，以 2D/3D 方式可视化您的知识图谱",
+        "detail": "把关系转成可见结构，让更大的模式和脉络更容易被看见。"
       },
       "smartSearch": {
         "title": "智能搜索",
-        "description": "快速搜索所有笔记和聊天，找到您需要的信息"
+        "description": "快速搜索所有笔记和聊天，找到您需要的信息",
+        "detail": "无需来回切换多个工具，也能快速回到正确的笔记、线程或概念。"
       },
       "agent": {
         "title": "智能代理",
-        "description": "通过 AI 助手自动化各种任务"
+        "description": "通过 AI 助手自动化各种任务",
+        "detail": "减少总结、整理等重复动作，把更多精力留给真正的执行。"
       },
       "sync": {
         "title": "同步",
-        "description": "通过云同步在多个设备上继续您的工作"
+        "description": "通过云同步在多个设备上继续您的工作",
+        "detail": "即使切换设备，也能保留同样的工作上下文，不打断思路。"
       }
+    },
+    "workflow": {
+      "eyebrow": "从笔记到执行",
+      "title": "因为产品本身是动态的，所以工作流看起来也更有生命力",
+      "description": "我们把每一步都组织成一条连续的工作流，让想法始终保持可见、可连接，并能顺势进入下一步行动。",
+      "signal": "交互界面",
+      "capture": { "title": "收集", "text": "灵感、笔记、参考资料和 AI 对话都保留在同一张图谱里，而不是分散在多个应用中。" },
+      "connect": { "title": "连接", "text": "把文档和对话连接成可见结构，让关系更容易被探索。" },
+      "execute": { "title": "执行", "text": "借助 AI 代理、快速检索和有活力的工作空间，把上下文真正转化为行动。" }
+    },
+    "productProof": {
+      "eyebrow": "基于真实应用",
+      "title": "把真实产品能力变成可交互的故事",
+      "description": "我参考了同级目录中的前端和后端仓库，让首页展示的内容真正反映 GraphNode 实际具备的能力。",
+      "liveCapability": "真实能力",
+      "spotlights": {
+        "visualize": {
+          "label": "可视化",
+          "title": "把笔记与想法展开成一张连接图谱的探索视图",
+          "description": "笔记、对话和概念会变成节点与关系，你可以一边查看摘要，一边沿着附近连接继续探索。",
+          "points": ["同时看到焦点节点与周边关系", "在大型图谱中也不容易迷失方向", "展开子簇继续深入细节"]
+        },
+        "microscope": {
+          "label": "Microscope",
+          "title": "把碎片内容沉淀为发现的深度分析工作空间",
+          "description": "可将选中的笔记与对话组成一次分析运行，再把结果整理成工作空间输出，顺势衔接后续动作。",
+          "points": ["把笔记和对话片段并入同一次分析", "将结果整理成可回看的工作空间输出", "把选中的发现直接交给 Agent"]
+        },
+        "agent": {
+          "label": "代理",
+          "title": "把已选上下文直接变成动作的 AI Agent",
+          "description": "不需要把上下文复制到空白提示框里，你可以把已选笔记、图谱节点和分析结果直接带入 Agent 工作流。",
+          "points": ["提问时已附带相关来源", "快速执行摘要、生成笔记等动作", "回答与产出保持在同一条工作流中"]
+        },
+        "searchSync": {
+          "label": "搜索 + 同步",
+          "title": "搜索与同步始终协同的活体知识库",
+          "description": "你可以快速找到笔记、线程和文件夹，而不同设备上的变更也会按最新状态稳定衔接。",
+          "points": ["同时搜索笔记与对话内容", "偏快捷键驱动的探索体验", "用基于最新性的同步减少冲突"]
+        }
+      }
+    },
+    "pipeline": {
+      "eyebrow": "驱动体验的系统",
+      "title": "现在首页也能反映后端管线",
+      "description": "后端已经支持队列化图谱生成、摘要、Microscope 分析、Agent 工具和同步，因此首页现在也能更清晰地讲出这条产品故事。",
+      "collect": { "title": "收集", "text": "收集对话数据和 Markdown 笔记，并作为图谱生成输入进行准备。" },
+      "queue": { "title": "队列", "text": "图谱生成、图谱摘要和 Microscope 分析通过基于 SQS 的后台任务进行编排。" },
+      "enrich": { "title": "增强", "text": "语义搜索、图谱统计、聚类、子聚类与 Agent 工具把原始内容转化为可探索结构。" },
+      "sync": { "title": "同步", "text": "笔记、文件夹、对话和消息通过带事务意识的 LWW 冲突处理进行同步。" }
     },
     "platforms": {
       "title": "按平台下载",
+      "eyebrow": "立即开始",
+      "description": "选择你的平台，开始体验更生动、更具可视化表现力的 GraphNode。",
       "appleSilicon": "Apple Silicon",
       "intel": "Intel",
       "windows1011": "Windows 10/11",
-      "linuxComingSoon": "即将支持"
+      "linuxComingSoon": "即将支持",
+      "mobile": "移动端",
+      "iosComingSoon": "iOS 即将推出",
+      "androidComingSoon": "Android 即将推出",
+      "macosDescription": "针对 Apple Silicon 和 Intel 优化，提供原生桌面体验。",
+      "windowsDescription": "在 Windows 上体验快速安装、精致界面与流畅的图谱交互。",
+      "linuxDescription": "Linux 支持已在路线图中，将通过专门版本提供。",
+      "mobileDescription": "我们正在准备专门的移动端体验，让你随时随地浏览并延续图谱工作。",
+      "mobileEmoji": "📱"
     }
   },
   "team": {
@@ -545,5 +696,24 @@
   },
   "common": {
     "languageName": "简体中文"
+  },
+  "preview": {
+    "home": {
+      "title": "Alex，我们来思考什么？",
+      "subtitle": "打开笔记，向智能体提问，或探索你的知识图谱。",
+      "placeholder": "让 GraphNode 总结笔记、回顾对话，或根据最近的上下文生成图谱...",
+      "recentNotes": "最近笔记"
+    },
+    "chat": {
+      "placeholder": "让 GraphNode 总结笔记、搜索话题，或根据最新对话生成图谱...",
+      "messages": [
+        { "role": "user", "text": "帮我整理一下本周工作区中反复出现的核心主题。" },
+        { "role": "assistant", "text": "本周有三条主线反复出现。\n\n- 让笔记与图谱的连接体验更加自然流畅\n- 使智能体输出更清晰——来源与推理过程都应可见\n- 帮助首次使用者更快理解工作区的结构\n\n三者都指向同一个本质需求：从第一次交互起，应用就应该感觉连贯，而不只是熟悉之后才显得强大。" },
+        { "role": "user", "text": "把这些转化为产品层面的行动项。" },
+        { "role": "assistant", "text": "以下是三个具体的下一步行动：\n\n1. **首篇笔记 → 图谱的入口** — 清晰展示笔记如何成为连接节点，一个明确的操作路径，不要藏在菜单里。\n2. **智能体回答中显示来源标签** — 每个回答都应标明引用了哪些笔记或对话，可点击直接跳转。\n3. **主屏幕角色明确化** — 笔记、聊天、图谱三种模式的作用，需要让新用户在三秒内看懂。\n\n需要我起草文案或详细说明其中某一项吗？" },
+        { "role": "user", "text": "这三项中，哪一项应该优先发布？" },
+        { "role": "assistant", "text": "从来源标签开始。这是范围最小的改动——无需重新设计布局，就能应用到每一条智能体回复上。\n\n已经习惯使用笔记和聊天的用户会立刻感受到价值。而且，当他们意识到智能体已经拥有多少上下文时，另外两个改进点的紧迫性也会自然显现。\n\n笔记 → 图谱的入口杠杆效应更大，但需要更多设计探索。等来源标签发布并收集到用户反馈后，再推进这一项。" }
+      ]
+    }
   }
 }
