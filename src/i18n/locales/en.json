@@ -132,8 +132,8 @@
     },
     "workflow": {
       "eyebrow": "From note to action",
-      "title": "A workflow that looks dynamic because the product itself is dynamic",
-      "description": "Each step is arranged to keep ideas connected, visible, and ready to act on inside one continuous GraphNode workflow.",
+      "title": "A workflow where ideas stay visible, connected, and ready to act on",
+      "description": "Each step is arranged as one continuous flow so ideas stay visible, connected, and ready to move into action.",
       "signal": "Interactive surface",
       "capture": {
         "title": "Capture",

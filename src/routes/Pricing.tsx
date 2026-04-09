@@ -47,8 +47,8 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-[#07111f] px-4 pb-16 pt-4 text-white md:px-6">
       <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute left-[-12rem] top-[-8rem] h-[28rem] w-[28rem] rounded-full bg-cyan-500/16 blur-3xl" />
-        <div className="absolute right-[-10rem] top-[10rem] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/12 blur-3xl" />
+        <div className="absolute -left-48 -top-32 h-112 w-md rounded-full bg-cyan-500/16 blur-3xl" />
+        <div className="absolute -right-40 top-40 h-96 w-96 rounded-full bg-fuchsia-500/12 blur-3xl" />
       </div>
 
       <Header currentPage="pricing" />
@@ -75,7 +75,7 @@ export default function Pricing() {
           {plans.map((plan) => (
             <div
               key={plan.key}
-              className={`relative rounded-[32px] border p-7 backdrop-blur ${plan.cardClassName}`}
+              className={`relative rounded-4xl border p-7 backdrop-blur ${plan.cardClassName}`}
             >
               {plan.key === "pro" && (
                 <div className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-[38%] rounded-full bg-[#6fa5ff] px-6 py-2 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(111,165,255,0.35)]">

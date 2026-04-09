@@ -83,7 +83,7 @@ export default function TeamSection() {
             initial={{ opacity: 0, scale: 0.96, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="rounded-[32px] border border-white/10 bg-linear-to-br from-slate-900/88 via-slate-950/88 to-cyan-950/55 p-8"
+            className="rounded-4xl border border-white/10 bg-linear-to-br from-slate-900/88 via-slate-950/88 to-cyan-950/55 p-8"
           >
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-100/80">
               {t("team.projectIntro.title")}
@@ -105,7 +105,7 @@ export default function TeamSection() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.04, duration: 0.5 }}
               whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/6 p-6 backdrop-blur"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur"
             >
               <div className="absolute inset-0 bg-linear-to-br from-cyan-400/10 via-transparent to-fuchsia-400/10 opacity-0 transition duration-500 group-hover:opacity-100" />
               <div className="relative">
@@ -136,7 +136,7 @@ export default function TeamSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ delay: index * 0.08, duration: 0.55 }}
-              className="rounded-[28px] border border-white/10 bg-slate-950/55 p-7"
+              className="rounded-3xl border border-white/10 bg-slate-950/55 p-7"
             >
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">
                 0{index + 1}

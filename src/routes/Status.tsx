@@ -161,7 +161,7 @@ export default function Status() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Header */}
-      <header className="bg-primary h-[340px] text-white flex items-center justify-center gap-8">
+      <header className="bg-primary flex h-85 items-center justify-center gap-8 text-white">
         <img src={logo} alt="logo" className="w-16 h-16" />
         <p className="text-6xl font-bold text-white">GraphNode</p>
       </header>
