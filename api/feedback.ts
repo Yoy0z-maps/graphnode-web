@@ -1,16 +1,17 @@
 import process from "node:process";
 
-const DISCORD_EMBED_COLOR = 0x2b89f8;
-
-const CATEGORY_LABELS = {
-  general: "일반",
-  bug: "버그 리포트",
-  feature: "기능 제안",
-  improvement: "개선 사항",
-  other: "기타",
+const CATEGORY_META = {
+  general: { color: 0x2b89f8, label: "일반" },
+  bug: { color: 0xe03131, label: "버그 리포트" },
+  feature: { color: 0x2f9e44, label: "기능 제안" },
+  improvement: { color: 0xf08c00, label: "개선 사항" },
+  other: { color: 0x6c757d, label: "기타" },
 } as const;
 
-type FeedbackCategory = keyof typeof CATEGORY_LABELS;
+const DISCORD_FIELD_VALUE_LIMIT = 1024;
+const DISCORD_MESSAGE_LIMIT = 3000;
+
+type FeedbackCategory = keyof typeof CATEGORY_META;
 
 type FeedbackRequestBody = {
   category?: unknown;
@@ -66,8 +67,18 @@ function truncate(value: string, limit: number) {
   return `${value.slice(0, limit - 3)}...`;
 }
 
+function chunkText(value: string, chunkSize: number) {
+  const chunks: string[] = [];
+
+  for (let index = 0; index < value.length; index += chunkSize) {
+    chunks.push(value.slice(index, index + chunkSize));
+  }
+
+  return chunks;
+}
+
 function normalizeCategory(value: string): FeedbackCategory {
-  if (value in CATEGORY_LABELS) {
+  if (value in CATEGORY_META) {
     return value as FeedbackCategory;
   }
 
@@ -80,40 +91,57 @@ function buildDiscordPayload(body: FeedbackRequestBody) {
   const email = asTrimmedString(body.email) || "비공개";
   const subject = asTrimmedString(body.subject);
   const message = asTrimmedString(body.message);
+  const categoryMeta = CATEGORY_META[category];
 
   if (!subject || !message) {
     return null;
   }
 
+  const contentChunks = chunkText(
+    truncate(message, DISCORD_MESSAGE_LIMIT),
+    DISCORD_FIELD_VALUE_LIMIT,
+  );
+
   return {
     allowed_mentions: { parse: [] },
-    content: "새로운 GraphNode 피드백이 도착했습니다.",
     embeds: [
       {
-        color: DISCORD_EMBED_COLOR,
-        description: truncate(message, 4000),
+        author: {
+          name: "GraphNode Feedback",
+        },
+        color: categoryMeta.color,
         fields: [
           {
-            inline: true,
-            name: "카테고리",
-            value: CATEGORY_LABELS[category],
+            inline: false,
+            name: "제목",
+            value: truncate(subject, DISCORD_FIELD_VALUE_LIMIT),
           },
+          {
+            inline: false,
+            name: "카테고리",
+            value: categoryMeta.label,
+          },
+          ...contentChunks.map((chunk, index) => ({
+            inline: false,
+            name: index === 0 ? "내용" : "내용 (계속)",
+            value: chunk,
+          })),
           {
             inline: true,
             name: "이름",
-            value: truncate(name, 1024),
+            value: truncate(name, DISCORD_FIELD_VALUE_LIMIT),
           },
           {
             inline: true,
             name: "이메일",
-            value: truncate(email, 1024),
+            value: truncate(email, DISCORD_FIELD_VALUE_LIMIT),
           },
         ],
         footer: {
           text: "GraphNode Feedback",
         },
         timestamp: new Date().toISOString(),
-        title: truncate(subject, 256),
+        title: "새로운 GraphNode 피드백",
       },
     ],
     username: "GraphNode Feedback",
