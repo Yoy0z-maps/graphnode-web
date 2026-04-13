@@ -2,16 +2,33 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/icons/logo_white.svg";
 
+type FeedbackCategory =
+  | "general"
+  | "bug"
+  | "feature"
+  | "improvement"
+  | "other";
+
+type FeedbackFormData = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  category: FeedbackCategory;
+};
+
+const INITIAL_FORM_DATA: FeedbackFormData = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+  category: "general",
+};
+
 export default function Feedback() {
   const { t } = useTranslation();
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    category: "general",
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
     null,
@@ -28,67 +45,41 @@ export default function Feedback() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    const categoryKo: Record<string, string> = {
-      general: "일반",
-      bug: "버그 리포트",
-      feature: "기능 제안",
-      improvement: "개선 사항",
-      other: "기타",
+    const payload: FeedbackFormData = {
+      ...formData,
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      subject: formData.subject.trim(),
+      message: formData.message.trim(),
     };
 
-    const payload = {
-      text: "*새로운 유저 피드백이 도착했습니다*",
-      attachments: [
-        {
-          color: "#2B89F8",
-          fields: [
-            { title: "카테고리", value: categoryKo[formData.category] ?? formData.category, short: false },
-            {
-              title: "이름",
-              value: formData.name.trim() || t("feedback.anonymousName"),
-              short: true,
-            },
-            {
-              title: "이메일",
-              value: formData.email.trim() || t("feedback.privateEmail"),
-              short: true,
-            },
-            {
-              title: "제목",
-              value: formData.subject,
-              short: false,
-            },
-            {
-              title: "내용",
-              value: formData.message,
-              short: false,
-            },
-          ],
-        },
-      ],
-    };
+    if (!payload.subject || !payload.message) {
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
-      const url = import.meta.env.VITE_SLACK_WEBHOOK_URL;
-
-      await fetch(url, {
+      const response = await fetch("/api/feedback", {
         method: "POST",
-        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
+      if (!response.ok) {
+        throw new Error(`Feedback request failed with ${response.status}`);
+      }
+
       setSubmitStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-        category: "general",
-      });
+      setFormData(INITIAL_FORM_DATA);
     } catch (error) {
       console.error(error);
       setSubmitStatus("error");
@@ -239,7 +230,6 @@ export default function Feedback() {
           <div className="flex justify-end">
             <button
               type="submit"
-              onClick={handleSubmit}
               disabled={isSubmitting}
               className={`px-8 py-3 bg-primary text-white rounded-lg font-medium transition-all hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
                 isSubmitting

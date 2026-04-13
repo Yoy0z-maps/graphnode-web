@@ -71,3 +71,9 @@ export default defineConfig([
   },
 ])
 ```
+
+## Discord Feedback Webhook
+
+- Configure `DISCORD_FEEDBACK_WEBHOOK_URL` in your Vercel project environment variables.
+- The feedback page now posts to `/api/feedback`, so the Discord webhook URL no longer needs to be exposed with a `VITE_*` client variable.
+- For local end-to-end testing of the webhook flow, run the app with `vercel dev`. `npm run dev` only starts the Vite frontend and does not serve Vercel API functions.
