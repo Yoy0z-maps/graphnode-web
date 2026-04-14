@@ -2345,7 +2345,7 @@ export default function DownloadSection() {
                       <h3 className="text-xl font-bold text-white sm:text-2xl">
                         {platform.name}
                       </h3>
-                      <p className="text-sm text-slate-400">Beta 2.0.0</p>
+                      <p className="text-sm text-slate-400">V 1.0.0</p>
                     </div>
                   </div>
                 </div>
