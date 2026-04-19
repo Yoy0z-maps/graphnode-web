@@ -1,34 +1,43 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/icons/logo_white.svg";
 
-type FeedbackCategory =
-  | "general"
-  | "bug"
-  | "feature"
-  | "improvement"
-  | "other";
+import { createGraphNodeClient } from "@taco_tsinghua/graphnode-sdk";
+import type { CreateFeedbackRequestDto } from "@taco_tsinghua/graphnode-sdk";
+
+const client = createGraphNodeClient({});
+
+type FeedbackCategory = "general" | "bug" | "feature" | "improvement" | "other";
 
 type FeedbackFormData = {
   name: string;
   email: string;
-  subject: string;
-  message: string;
+  title: string;
+  content: string;
   category: FeedbackCategory;
 };
 
 const INITIAL_FORM_DATA: FeedbackFormData = {
   name: "",
   email: "",
-  subject: "",
-  message: "",
+  title: "",
+  content: "",
   category: "general",
+};
+
+type AttachedImage = {
+  id: string;
+  file: File;
+  previewUrl: string;
 };
 
 export default function Feedback() {
   const { t } = useTranslation();
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [images, setImages] = useState<AttachedImage[]>([]);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
     null,
@@ -43,43 +52,64 @@ export default function Feedback() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
+    const newImages: AttachedImage[] = files.map((file) => ({
+      id: `${Date.now()}-${Math.random()}`,
+      file,
+      previewUrl: URL.createObjectURL(file),
+    }));
+    setImages((prev) => [...prev, ...newImages]);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const removeImage = (id: string) => {
+    setImages((prev) => {
+      const removed = prev.find((img) => img.id === id);
+      if (removed) URL.revokeObjectURL(removed.previewUrl);
+      return prev.filter((img) => img.id !== id);
+    });
+    if (hoveredId === id) setHoveredId(null);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (isSubmitting) {
-      return;
-    }
+    if (isSubmitting) return;
 
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    const payload: FeedbackFormData = {
-      ...formData,
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      subject: formData.subject.trim(),
-      message: formData.message.trim(),
+    const payload: CreateFeedbackRequestDto = {
+      category: formData.category,
+      title: formData.title.trim(),
+      content: formData.content.trim(),
+      userName: formData.name.trim() || null,
+      userEmail: formData.email.trim() || null,
     };
 
-    if (!payload.subject || !payload.message) {
+    if (!payload.title || !payload.content) {
       setSubmitStatus("error");
       setIsSubmitting(false);
       return;
     }
 
     try {
-      const response = await fetch("/api/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Feedback request failed with ${response.status}`);
+      const files = images.map((img) => img.file);
+      const response = await client.feedback.create(
+        payload,
+        files.length > 0 ? files : undefined,
+      );
+      if (!response.isSuccess) {
+        throw new Error(
+          `Feedback request failed with ${response.error.statusCode}`,
+        );
       }
 
       setSubmitStatus("success");
       setFormData(INITIAL_FORM_DATA);
+      images.forEach((img) => URL.revokeObjectURL(img.previewUrl));
+      setImages([]);
     } catch (error) {
       console.error(error);
       setSubmitStatus("error");
@@ -91,7 +121,6 @@ export default function Feedback() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      {/* Header */}
       <header className="bg-primary h-85 text-white flex items-center justify-center gap-8">
         <img src={logo} alt="logo" className="w-16 h-16" />
         <p className="text-6xl font-bold text-white">GraphNode</p>
@@ -189,7 +218,7 @@ export default function Feedback() {
 
           <div>
             <label
-              htmlFor="subject"
+              htmlFor="title"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
               {t("feedback.subject")}{" "}
@@ -197,9 +226,9 @@ export default function Feedback() {
             </label>
             <input
               type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
+              id="title"
+              name="title"
+              value={formData.title}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               placeholder={t("feedback.subjectPlaceholder")}
@@ -209,22 +238,92 @@ export default function Feedback() {
 
           <div>
             <label
-              htmlFor="message"
+              htmlFor="content"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
               {t("feedback.message")}{" "}
               <span className="text-red-500">{t("feedback.required")}</span>
             </label>
             <textarea
-              id="message"
-              name="message"
-              value={formData.message}
+              id="content"
+              name="content"
+              value={formData.content}
               onChange={handleChange}
               rows={8}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
               placeholder={t("feedback.messagePlaceholder")}
               required
             />
+          </div>
+
+          {/* Image attachment */}
+          <div>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              multiple
+              className="hidden"
+              onChange={handleImageSelect}
+            />
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="w-24 h-24 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors shrink-0"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                </svg>
+                <span className="text-xs mt-1">{t("feedback.addPhoto")}</span>
+              </button>
+
+              {images.map((img) => (
+                <div
+                  key={img.id}
+                  className="relative w-24 h-24 rounded-lg overflow-hidden shrink-0 cursor-pointer"
+                  onMouseEnter={() => setHoveredId(img.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <img
+                    src={img.previewUrl}
+                    alt="첨부 이미지"
+                    className="w-full h-full object-cover"
+                  />
+                  {hoveredId === img.id && (
+                    <div className="absolute inset-0 bg-black/40 flex items-start justify-end p-1">
+                      <button
+                        type="button"
+                        onClick={() => removeImage(img.id)}
+                        className="w-5 h-5 bg-black/60 rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+                        aria-label="이미지 삭제"
+                      >
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 10 10"
+                          fill="none"
+                        >
+                          <path
+                            d="M1 1L9 9M9 1L1 9"
+                            stroke="white"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="flex justify-end">

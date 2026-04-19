@@ -319,6 +319,7 @@
     "messagePlaceholder": "피드백 내용을 자세히 입력해주세요...",
     "submitting": "전송 중...",
     "submit": "피드백 보내기",
+    "addPhoto": "사진 추가",
     "guidelines": {
       "title": "피드백 가이드라인",
       "bugReport": "버그 리포트의 경우, 재현 단계와 예상 동작을 포함해주세요.",

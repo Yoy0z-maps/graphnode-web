@@ -298,6 +298,7 @@
     "messagePlaceholder": "フィードバックの内容を詳しく入力してください...",
     "submitting": "送信中...",
     "submit": "フィードバックを送信",
+    "addPhoto": "写真を追加",
     "guidelines": {
       "title": "フィードバックガイドライン",
       "bugReport": "バグレポートの場合、再現手順と期待される動作を含めてください。",

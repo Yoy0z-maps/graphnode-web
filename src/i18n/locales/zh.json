@@ -298,6 +298,7 @@
     "messagePlaceholder": "请详细描述您的反馈...",
     "submitting": "发送中...",
     "submit": "发送反馈",
+    "addPhoto": "添加照片",
     "guidelines": {
       "title": "反馈指南",
       "bugReport": "对于错误报告，请包含重现步骤和预期行为。",

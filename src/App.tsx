@@ -24,6 +24,8 @@ import Plans from "./routes/admin/Plans";
 import AdminPrivacy from "./routes/admin/AdminPrivacy";
 import AdminTerms from "./routes/admin/AdminTerms";
 import LegalEditor from "./routes/admin/LegalEditor";
+import FeedbackList from "./routes/admin/FeedbackList";
+import FeedbackDetail from "./routes/admin/FeedbackDetail";
 
 function App() {
   return (
@@ -63,6 +65,8 @@ function App() {
         <Route path="privacy/:version/edit" element={<LegalEditor />} />
         <Route path="terms" element={<AdminTerms />} />
         <Route path="terms/edit" element={<LegalEditor />} />
+        <Route path="feedback" element={<FeedbackList />} />
+        <Route path="feedback/:id" element={<FeedbackDetail />} />
       </Route>
     </Routes>
   );

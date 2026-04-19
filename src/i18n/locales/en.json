@@ -319,6 +319,7 @@
     "messagePlaceholder": "Please describe your feedback in detail...",
     "submitting": "Sending...",
     "submit": "Send Feedback",
+    "addPhoto": "Add Photo",
     "guidelines": {
       "title": "Feedback Guidelines",
       "bugReport": "For bug reports, please include reproduction steps and expected behavior.",
