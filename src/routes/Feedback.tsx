@@ -100,11 +100,25 @@ export default function Feedback() {
         payload,
         files.length > 0 ? files : undefined,
       );
+
       if (!response.isSuccess) {
         throw new Error(
           `Feedback request failed with ${response.error.statusCode}`,
         );
       }
+
+      // Discord 웹훅은 관리자 알림용 — 결과에 영향 없음
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          category: payload.category,
+          title: payload.title,
+          content: payload.content,
+          name: payload.userName ?? "",
+          email: payload.userEmail ?? "",
+        }),
+      }).catch((e) => console.error("Discord webhook failed:", e));
 
       setSubmitStatus("success");
       setFormData(INITIAL_FORM_DATA);

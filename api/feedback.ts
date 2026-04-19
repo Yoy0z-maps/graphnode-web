@@ -16,9 +16,9 @@ type FeedbackCategory = keyof typeof CATEGORY_META;
 type FeedbackRequestBody = {
   category?: unknown;
   email?: unknown;
-  message?: unknown;
+  content?: unknown;
   name?: unknown;
-  subject?: unknown;
+  title?: unknown;
 };
 
 type ApiResponseWriter = {
@@ -89,16 +89,16 @@ function buildDiscordPayload(body: FeedbackRequestBody) {
   const category = normalizeCategory(asTrimmedString(body.category));
   const name = asTrimmedString(body.name) || "익명";
   const email = asTrimmedString(body.email) || "비공개";
-  const subject = asTrimmedString(body.subject);
-  const message = asTrimmedString(body.message);
+  const title = asTrimmedString(body.title);
+  const content = asTrimmedString(body.content);
   const categoryMeta = CATEGORY_META[category];
 
-  if (!subject || !message) {
+  if (!title || !content) {
     return null;
   }
 
   const contentChunks = chunkText(
-    truncate(message, DISCORD_MESSAGE_LIMIT),
+    truncate(content, DISCORD_MESSAGE_LIMIT),
     DISCORD_FIELD_VALUE_LIMIT,
   );
 
@@ -114,7 +114,7 @@ function buildDiscordPayload(body: FeedbackRequestBody) {
           {
             inline: false,
             name: "제목",
-            value: truncate(subject, DISCORD_FIELD_VALUE_LIMIT),
+            value: truncate(title, DISCORD_FIELD_VALUE_LIMIT),
           },
           {
             inline: false,
