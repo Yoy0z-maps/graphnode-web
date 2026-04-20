@@ -4,6 +4,14 @@ import { createGraphNodeClient } from "@taco_tsinghua/graphnode-sdk";
 import type { FeedbackDto } from "@taco_tsinghua/graphnode-sdk";
 
 const client = createGraphNodeClient({});
+const API_BASE_URL =
+  (globalThis as Record<string, unknown>).__GRAPHNODE_BASE_URL__ as string ||
+  "https://taco4graphnode.online";
+
+function resolveAttachmentUrl(url: string): string {
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
+  return `${API_BASE_URL.replace(/\/$/, "")}/${url}`;
+}
 
 const STATUS_META: Record<
   string,
@@ -25,6 +33,7 @@ export default function FeedbackDetail() {
   const [feedback, setFeedback] = useState<FeedbackDto | null>(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
+  const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -186,23 +195,33 @@ export default function FeedbackDetail() {
       {/* Attachments */}
       {feedback.attachments && feedback.attachments.length > 0 && (
         <div className="bg-[#2c2f33] rounded-xl border border-[#40444b]/50 p-5">
-          <p className="text-xs text-gray-500 mb-3">첨부 이미지</p>
+          <p className="text-xs text-gray-500 mb-3">
+            첨부 파일 ({feedback.attachments.length})
+          </p>
           <div className="flex flex-wrap gap-3">
-            {feedback.attachments.map((att) => (
-              <a
-                key={att.url}
-                href={att.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-24 h-24 rounded-lg overflow-hidden border border-[#40444b]/50 hover:border-primary/60 transition-colors"
-              >
-                {att.mimeType.startsWith("image/") ? (
+            {feedback.attachments.map((att) => {
+              const fullUrl = resolveAttachmentUrl(att.url);
+              return att.mimeType.startsWith("image/") ? (
+                <button
+                  key={att.url}
+                  type="button"
+                  onClick={() => setLightboxUrl(fullUrl)}
+                  className="block w-24 h-24 rounded-lg overflow-hidden border border-[#40444b]/50 hover:border-blue-400/60 transition-colors cursor-zoom-in"
+                >
                   <img
-                    src={att.url}
+                    src={fullUrl}
                     alt={att.name}
                     className="w-full h-full object-cover"
                   />
-                ) : (
+                </button>
+              ) : (
+                <a
+                  key={att.url}
+                  href={fullUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-24 h-24 rounded-lg overflow-hidden border border-[#40444b]/50 hover:border-blue-400/60 transition-colors"
+                >
                   <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 text-xs p-2 text-center gap-1">
                     <svg
                       className="w-6 h-6"
@@ -219,9 +238,47 @@ export default function FeedbackDetail() {
                     </svg>
                     <span className="break-all">{att.name}</span>
                   </div>
-                )}
-              </a>
-            ))}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox */}
+      {lightboxUrl && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setLightboxUrl(null)}
+        >
+          <div
+            className="relative max-w-[90vw] max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={lightboxUrl}
+              alt="첨부 이미지"
+              className="max-w-full max-h-[85vh] rounded-xl object-contain shadow-2xl"
+            />
+            <a
+              href={lightboxUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute top-3 right-12 p-1.5 rounded-lg bg-black/50 text-gray-300 hover:text-white transition-colors"
+              title="새 탭에서 열기"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <button
+              onClick={() => setLightboxUrl(null)}
+              className="absolute top-3 right-3 p-1.5 rounded-lg bg-black/50 text-gray-300 hover:text-white transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
         </div>
       )}
