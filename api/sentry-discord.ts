@@ -117,9 +117,9 @@ function extractDetails(resource: string, payload: SentryPayload): SentryAlertDe
       asString(metricAlert?.title),
     ),
     summary: firstNonEmpty(
-      asString(issue?.culprit),
       asString(metadata?.value),
       asString(event?.message),
+      asString(issue?.culprit),
       asString(metricAlert?.description),
     ),
     title: firstNonEmpty(
@@ -141,14 +141,20 @@ function extractDetails(resource: string, payload: SentryPayload): SentryAlertDe
 function buildDiscordPayload(details: SentryAlertDetails) {
   const action = details.action.toLowerCase();
   const isResolved = action.includes("resolve");
+  const title = details.issueId ? `[${details.issueId}] ${details.title}` : details.title;
+  const description =
+    details.summary && details.summary !== details.title
+      ? truncate(details.summary, DISCORD_DESCRIPTION_LIMIT)
+      : undefined;
   const fields = [
-    { inline: true, name: "프로젝트", value: details.project },
-    { inline: true, name: "리소스", value: details.resource },
-    { inline: true, name: "액션", value: details.action },
     { inline: true, name: "이슈", value: details.issueId },
+    { inline: true, name: "프로젝트", value: details.project },
     { inline: true, name: "환경", value: details.environment },
+    { inline: true, name: "액션", value: details.action },
+    { inline: true, name: "리소스", value: details.resource },
     { inline: true, name: "액터", value: details.actor },
     { inline: false, name: "규칙", value: details.rule },
+    { inline: false, name: "Sentry 바로가기", value: details.url },
   ]
     .filter((field) => field.value.length > 0)
     .map((field) => ({
@@ -160,16 +166,20 @@ function buildDiscordPayload(details: SentryAlertDetails) {
     allowed_mentions: { parse: [] },
     embeds: [
       {
+        author: {
+          name: "GraphNode Sentry",
+          url: details.url || undefined,
+        },
         color: isResolved ? 0x2f9e44 : 0xe03131,
-        description: details.summary
-          ? truncate(details.summary, DISCORD_DESCRIPTION_LIMIT)
-          : undefined,
+        description,
         fields,
         footer: {
-          text: `GraphNode Sentry • ${details.resource}`,
+          text: details.environment
+            ? `GraphNode Sentry • ${details.environment}`
+            : "GraphNode Sentry",
         },
         timestamp: new Date().toISOString(),
-        title: truncate(details.title, DISCORD_TITLE_LIMIT),
+        title: truncate(title, DISCORD_TITLE_LIMIT),
         url: details.url || undefined,
       },
     ],
