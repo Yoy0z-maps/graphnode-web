@@ -5,6 +5,12 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Lottie from "lottie-react";
 import Footer from "./Footer";
+import {
+  createGraphPreviewCollections,
+  createMicroscopePreviewWorkspaces,
+  GraphAppPreview,
+  MicroscopeAppPreview,
+} from "./AppPreviewVisuals";
 import appleIcon from "../assets/images/apple.png";
 import androidIcon from "../assets/images/android.svg";
 import windowsIcon from "../assets/images/windows.png";
@@ -328,6 +334,14 @@ export default function DownloadSection() {
     "research",
     "product",
   ]);
+  const [graphCollections] = useState(() => createGraphPreviewCollections());
+  const [selectedGraphCollectionId, setSelectedGraphCollectionId] =
+    useState("knowledge-graph");
+  const [microscopeCollections] = useState(() =>
+    createMicroscopePreviewWorkspaces(),
+  );
+  const [selectedMicroscopeWorkspaceId, setSelectedMicroscopeWorkspaceId] =
+    useState("telepathy-workspace");
 
   const workflowCards = [
     {
@@ -632,27 +646,9 @@ export default function DownloadSection() {
         "Ideas can travel through time and space without being uttered out loud.",
     },
   ];
-  const previewNodes = [
-    { x: "16%", y: "22%", label: "Notes" },
-    { x: "47%", y: "16%", label: "Agents" },
-    { x: "76%", y: "29%", label: "Context" },
-    { x: "28%", y: "67%", label: "Search" },
-    { x: "61%", y: "74%", label: "Memory" },
-  ];
-  const graphCollections = [
-    "Knowledge Graph",
-    "Product cluster",
-    "Agent workflows",
-    "Microscope context",
-    "Semantic links",
-  ];
-  const microscopeCollections = [
-    "Telepathy workspace",
-    "Weekly product signals",
-    "Knowledge gaps",
-    "Connected writing themes",
-    "GraphNode beta review",
-  ];
+  const activeGraphCollection =
+    graphCollections.find((item) => item.id === selectedGraphCollectionId) ??
+    graphCollections[0];
   const noteTree = [
     { id: "clippings", name: "Clippings", type: "folder" as const, depth: 0 },
     { id: "daily", name: "Daily", type: "folder" as const, depth: 0 },
@@ -1186,22 +1182,24 @@ export default function DownloadSection() {
 
                       <div
                         className={`grid h-full min-h-0 bg-[#1d1d1f] ${
-                          previewTab === "home"
+                          previewTab === "home" ||
+                          previewTab === "visualize" ||
+                          previewTab === "microscope"
                             ? "grid-cols-[0px_minmax(0,1fr)]"
                             : "grid-cols-[228px_minmax(0,1fr)]"
                         }`}
                       >
                         <div
                           className={`border-r border-[#2d2d32] bg-[#262627] pl-3 pr-1 py-4 ${
-                            previewTab === "home"
+                            previewTab === "home" ||
+                            previewTab === "visualize" ||
+                            previewTab === "microscope"
                               ? "invisible overflow-hidden"
                               : "flex min-h-0 h-155 flex-col overflow-hidden"
                           }`}
                         >
                           <div className="app-preview-scrollbar h-full min-h-0 flex-1 overflow-y-auto pr-0">
-                            <div
-                              className={`space-y-2 ${previewTab === "visualize" || previewTab === "microscope" ? "blur-[3px] opacity-75" : ""}`}
-                            >
+                            <div className="space-y-2">
                               {previewTab === "chat" && (
                                 <>
                                   <button className="mb-2 flex h-8 w-full items-center gap-1.5 rounded-md px-1.5 text-left text-sm text-[#d1d1d6] transition hover:bg-[#303034] hover:text-[#7ab5fb]">
@@ -1280,34 +1278,64 @@ export default function DownloadSection() {
                                 </>
                               )}
                               {previewTab === "visualize" &&
-                                graphCollections.map((item, index) => (
+                                graphCollections.map((item) => (
                                   <button
-                                    key={item}
-                                    className={`block h-8 w-full rounded-md border px-1.5 py-[5.5px] text-left transition ${
-                                      index === 0
+                                    key={item.id}
+                                    onClick={() =>
+                                      setSelectedGraphCollectionId(item.id)
+                                    }
+                                    className={`block w-full rounded-lg border px-2 py-2 text-left transition ${
+                                      selectedGraphCollectionId === item.id
                                         ? "border-transparent bg-[#474748] text-white"
                                         : "border-transparent bg-transparent text-[#d1d1d6] hover:bg-[#303034]"
                                     }`}
                                   >
-                                    <p className="truncate text-sm">{item}</p>
+                                    <div className="flex items-start justify-between gap-2">
+                                      <div className="min-w-0">
+                                        <p className="truncate text-sm font-medium">
+                                          {item.name}
+                                        </p>
+                                        <p className="mt-1 truncate text-[11px] text-[#9ca3af]">
+                                          {item.stats.nodes} nodes,{" "}
+                                          {item.stats.edges} edges
+                                        </p>
+                                      </div>
+                                      <span className="shrink-0 rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-[10px] text-white/60">
+                                        {item.stats.clusters}
+                                      </span>
+                                    </div>
                                   </button>
                                 ))}
                               {previewTab === "microscope" &&
-                                microscopeCollections.map((item, index) => (
+                                microscopeCollections.map((item) => (
                                   <button
-                                    key={item}
-                                    className={`block h-8 w-full rounded-md border px-1.5 py-[5.5px] text-left transition ${
-                                      index === 0
+                                    key={item.id}
+                                    onClick={() =>
+                                      setSelectedMicroscopeWorkspaceId(item.id)
+                                    }
+                                    className={`block w-full rounded-lg border px-2 py-2 text-left transition ${
+                                      selectedMicroscopeWorkspaceId === item.id
                                         ? "border-transparent bg-[#474748] text-white"
                                         : "border-transparent bg-transparent text-[#d1d1d6] hover:bg-[#303034]"
                                     }`}
                                   >
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-start gap-2">
                                       <PreviewNavIcon
                                         id="microscope"
-                                        active={index === 0}
+                                        active={
+                                          selectedMicroscopeWorkspaceId ===
+                                          item.id
+                                        }
                                       />
-                                      <p className="truncate text-sm">{item}</p>
+                                      <div className="min-w-0">
+                                        <p className="truncate text-sm font-medium">
+                                          {item.name}
+                                        </p>
+                                        <p className="mt-1 truncate text-[11px] text-[#9ca3af]">
+                                          {item.nodeCount} nodes,{" "}
+                                          {item.edgeCount} edges
+                                        </p>
+                                      </div>
                                     </div>
                                   </button>
                                 ))}
@@ -1510,196 +1538,32 @@ export default function DownloadSection() {
                           )}
 
                           {previewTab === "visualize" && (
-                            <div className="app-preview-scrollbar h-full overflow-y-auto border-l border-[#2a2a2e] bg-[#1f1f1f] p-5">
-                              <div className="flex min-h-full flex-col items-start justify-start blur-[3px]">
-                                <div className="mb-4 flex w-full items-center justify-between">
-                                  <div>
-                                    <p className="text-xs text-slate-400">
-                                      {t("download.hero.graphViewLabel", {
-                                        defaultValue: "Graph View",
-                                      })}
-                                    </p>
-                                    <p className="text-lg font-semibold text-white">
-                                      {t("download.hero.previewTitle", {
-                                        defaultValue: "Knowledge map in motion",
-                                      })}
-                                    </p>
-                                  </div>
-                                  <div className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-100">
-                                    2D / 3D
-                                  </div>
-                                </div>
-                                <div className="grid h-full w-full gap-4 xl:grid-cols-[0.75fr_1.25fr]">
-                                  <div className="rounded-2xl border border-[#2a2a2e] bg-[#262626] p-4">
-                                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-                                      Graph Summary
-                                    </p>
-                                    <div className="space-y-3">
-                                      {[
-                                        "Product cluster",
-                                        "Agent workflows",
-                                        "Microscope context",
-                                        "Knowledge search",
-                                      ].map((item, index) => (
-                                        <div
-                                          key={item}
-                                          className={`rounded-2xl border px-3 py-3 ${
-                                            index === 0
-                                              ? "border-cyan-300/18 bg-cyan-300/10"
-                                              : "border-white/8 bg-[#1f1f1f]"
-                                          }`}
-                                        >
-                                          <p className="truncate text-sm font-medium text-white">
-                                            {item}
-                                          </p>
-                                          <p className="mt-1 text-xs text-slate-400">
-                                            12 linked nodes
-                                          </p>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                  <div className="relative h-full min-h-72.5 overflow-hidden rounded-[22px] border border-[#2a2a2e] bg-[#202020]">
-                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.18),transparent_45%)]" />
-                                    {previewNodes.map((node, index) => (
-                                      <motion.div
-                                        key={node.label}
-                                        animate={{
-                                          y: [0, index % 2 === 0 ? -12 : 10, 0],
-                                          x: [0, index % 2 === 0 ? 8 : -6, 0],
-                                        }}
-                                        transition={{
-                                          duration: 3.5 + index * 0.4,
-                                          repeat: Number.POSITIVE_INFINITY,
-                                          ease: "easeInOut",
-                                        }}
-                                        className="absolute"
-                                        style={{ left: node.x, top: node.y }}
-                                      >
-                                        <div className="h-3.5 w-3.5 rounded-full bg-white shadow-[0_0_0_4px_rgba(255,255,255,0.06)]" />
-                                      </motion.div>
-                                    ))}
-                                    <svg
-                                      className="absolute inset-0 h-full w-full"
-                                      viewBox="0 0 100 100"
-                                      preserveAspectRatio="none"
-                                    >
-                                      <path
-                                        d="M18 26 C30 18, 40 17, 49 21"
-                                        stroke="rgba(255,255,255,0.28)"
-                                        strokeWidth="0.55"
-                                        fill="none"
-                                      />
-                                      <path
-                                        d="M49 21 C62 24, 71 25, 78 31"
-                                        stroke="rgba(255,255,255,0.24)"
-                                        strokeWidth="0.55"
-                                        fill="none"
-                                      />
-                                      <path
-                                        d="M22 67 C34 58, 44 45, 49 21"
-                                        stroke="rgba(255,255,255,0.2)"
-                                        strokeWidth="0.55"
-                                        fill="none"
-                                      />
-                                      <path
-                                        d="M22 67 C39 71, 51 72, 63 75"
-                                        stroke="rgba(255,255,255,0.18)"
-                                        strokeWidth="0.55"
-                                        fill="none"
-                                      />
-                                    </svg>
-                                  </div>
-                                </div>
+                            <div className="h-full overflow-hidden bg-[#1f1f1f]">
+                              <div className="flex h-full min-h-0 flex-col items-start justify-start">
+                                {activeGraphCollection && (
+                                  <GraphAppPreview
+                                    key={activeGraphCollection.id}
+                                    collection={activeGraphCollection}
+                                  />
+                                )}
                               </div>
                             </div>
                           )}
 
                           {previewTab === "microscope" && (
-                            <div className="app-preview-scrollbar h-full overflow-y-auto border-l border-[#2a2a2e] bg-[#1f1f1f] p-5">
-                              <div className="flex min-h-full flex-col blur-[3px]">
-                                <div className="mb-4 flex w-full items-center justify-between">
-                                  <div>
-                                    <p className="text-xs text-slate-400">
-                                      Microscope Workspace
-                                    </p>
-                                    <p className="text-lg font-semibold text-white">
-                                      Telepathy pattern analysis
-                                    </p>
-                                  </div>
-                                  <div className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs font-semibold text-white/85">
-                                    Generated
-                                  </div>
-                                </div>
-                                <div className="grid h-full w-full gap-4 xl:grid-cols-[0.82fr_1.18fr]">
-                                  <div className="rounded-2xl border border-[#2a2a2e] bg-[#252527] p-4">
-                                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-                                      Workspace Groups
-                                    </p>
-                                    <div className="space-y-3">
-                                      {[
-                                        ["Writing signals", "4 related notes"],
-                                        [
-                                          "Conversation fragments",
-                                          "3 selected chats",
-                                        ],
-                                        [
-                                          "Missing links",
-                                          "2 unresolved clusters",
-                                        ],
-                                      ].map(([title, meta]) => (
-                                        <div
-                                          key={title}
-                                          className="rounded-2xl border border-white/8 bg-[#1f1f1f] px-3 py-3"
-                                        >
-                                          <div className="flex items-center gap-2">
-                                            <PreviewNavIcon
-                                              id="microscope"
-                                              active={false}
-                                            />
-                                            <p className="truncate text-sm font-medium text-white">
-                                              {title}
-                                            </p>
-                                          </div>
-                                          <p className="mt-1 text-xs text-slate-400">
-                                            {meta}
-                                          </p>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                  <div className="rounded-[22px] border border-[#2a2a2e] bg-[#202020] p-5">
-                                    <div className="space-y-3">
-                                      {[
-                                        [
-                                          "Patterns",
-                                          "Ideas about telepathy, writing, and transmission cluster around repeated metaphor language.",
-                                        ],
-                                        [
-                                          "Signals",
-                                          "Source overlap suggests the same concept appears across notes, summaries, and graph paths.",
-                                        ],
-                                        [
-                                          "Next actions",
-                                          "Promote the strongest group into an agent task or keep refining the workspace.",
-                                        ],
-                                      ].map(([title, body]) => (
-                                        <div
-                                          key={title}
-                                          className="rounded-[18px] border border-white/8 bg-[#1a1a1c] p-4"
-                                        >
-                                          <p className="text-sm font-semibold text-white">
-                                            {title}
-                                          </p>
-                                          <p className="mt-2 text-sm leading-6 text-slate-300">
-                                            {body}
-                                          </p>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </div>
+                            <div className="relative h-full overflow-hidden bg-[#1f1f1f]">
+                              <div className="pointer-events-none flex h-full min-h-0 scale-[1.02] flex-col items-start justify-start blur-[10px] select-none">
+                                <MicroscopeAppPreview
+                                  workspaces={microscopeCollections}
+                                  activeWorkspaceId={
+                                    selectedMicroscopeWorkspaceId
+                                  }
+                                  onSelectWorkspace={
+                                    setSelectedMicroscopeWorkspaceId
+                                  }
+                                />
                               </div>
+                              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(31,31,31,0.06),rgba(31,31,31,0.18))]" />
                             </div>
                           )}
                         </div>
